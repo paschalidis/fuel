@@ -16,3 +16,6 @@ bootstrap/cache/
 
 #PHP Storm Files
 .idea/
+
+readme.md
+README.md
