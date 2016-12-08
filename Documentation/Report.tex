@@ -1,0 +1,79 @@
+\documentclass[10pt,a4paper]{article}
+
+% for greek
+\usepackage{xltxtra} 
+\usepackage{xgreek} 
+\usepackage{fontspec} 
+\setromanfont{Roboto}
+\usepackage[utf8]{inputenc}
+
+% for references link
+\usepackage{hyperref}
+
+% bibliography
+\usepackage[backend=bibtex]{biblatex}   
+
+% for code
+\usepackage{listings}
+\usepackage{xcolor}
+
+% figures
+\usepackage{graphicx}
+
+% bulleted list
+\usepackage{blindtext}
+\usepackage{enumitem}
+
+\lstdefinestyle{customc}{
+  belowcaptionskip=1\baselineskip,
+  breaklines=true,
+  xleftmargin=\parindent,
+  language=C++,
+  showstringspaces=false,
+  basicstyle=\footnotesize\ttfamily,
+  keywordstyle=\bfseries\color{green!40!black},
+  commentstyle=\itshape\color{purple!40!black},
+  identifierstyle=\color{blue},
+  stringstyle=\color{orange},
+}
+
+\lstset{escapechar=@,style=customc}
+ 
+\title{Μεταφορά των ήδη υπαρχόντων προγραμμάτων σε C++}
+\author{Πασχαλίδης Παύλος\\ΤΕΙ ΘΕΣΣΑΛΙΑΣ\\msf7415012@teilar.gr}
+\date{}
+
+%\bibliography{ref} 
+
+\begin{document}
+
+	\pagenumbering{gobble}
+	
+	\maketitle
+	\newpage	
+			
+	\begin{abstract}
+	Η παρούσα έκθεση αναφέρεται στη μετάβαση των προγραμμάτων C που υλοποιήθηκαν στα πλαίσια του μαθήματος Κατανεμημένα και παράλληλα συστήματα του μεταπτυχιακού προγράμματος σπουδών με τίτλο ''Μηχανική Λογισμικού για Διαδικτυακές και Φορητές Εφαρμογές'' του τμήματος Μηχανικών Πληροφορικής του ΤΕΙ Θεσσαλίας στα αντίστοιχα προγράμματα στη γλώσσα προγραμματίσου C++. Για την υλοποίηση των προγραμμάτων χρησιμοποιήθηκε η έκδοση 3.2 της MPI και εγκαταστάθηκε σε λειτουργικό σύστημα Ubuntu 15.04 με επεξεργαστή Intel(R) Core(TM) i7-3770K CPU @ 3.50GHz και 16GB RAM.
+	\end{abstract}
+
+	\pagenumbering{arabic}
+	
+%	\tableofcontents	
+%	\newpage
+	
+%	\begin{appendix}
+%	  \listoffigures
+%	  \listoftables
+%	\end{appendix}
+
+			
+%	\input{intro}
+%	\input{methods}
+%	\input{results}
+	
+%	\newpage
+	
+%	\input{sibe}
+	
+%	\printbibliography
+\end{document}
