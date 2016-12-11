@@ -8,11 +8,11 @@
 \usepackage[utf8]{inputenc}
 
 % for references link
-\usepackage{hyperref}
+%\usepackage{hyperref}
 
 % bibliography
-\usepackage[backend=bibtex]{biblatex}   
-
+%\usepackage[backend=bibtex]{biblatex}   
+%\usepackage{babelbib}
 % for code
 \usepackage{listings}
 \usepackage{xcolor}
@@ -43,8 +43,6 @@
 \author{Πασχαλίδης Παύλος\\ΤΕΙ ΘΕΣΣΑΛΙΑΣ\\msf7415012@teilar.gr}
 \date{}
 
-%\bibliography{ref} 
-
 \begin{document}
 
 	\pagenumbering{gobble}
@@ -68,12 +66,17 @@
 
 			
 %	\input{intro}
-%	\input{methods}
+	\input{methods}
 %	\input{results}
 	
 %	\newpage
 	
 %	\input{sibe}
 	
+	\newpage
+	
+	\bibliographystyle{plain}
+	\bibliography{Report.bib} 
+
 %	\printbibliography
 \end{document}
