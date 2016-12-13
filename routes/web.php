@@ -14,3 +14,5 @@
 $app->get('/', function () use ($app) {
     return $app->version();
 });
+
+$app->get('/api/v1/gasstations', 'GasStationController@index');
