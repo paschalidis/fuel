@@ -1,22 +1,14 @@
-% $ biblatex auxiliary file $
-% $ biblatex version 2.5 $
-% Do not modify the above lines!
-%
-% This is an auxiliary file used by the 'biblatex' package.
-% This file may safely be deleted. It will be recreated as
-% required.
-%
-\begingroup
-\makeatletter
-\@ifundefined{ver@biblatex.sty}
-  {\@latex@error
-     {Missing 'biblatex' package}
-     {The bibliography requires the 'biblatex' package.}
-      \aftergroup\endinput}
-  {}
-\endgroup
+\begin{thebibliography}{1}
 
-\lossort
-\endlossort
+\bibitem{laravel-homestead}
+Development environment.
+\newblock \url{https://laravel.com/docs/5.3/homestead}.
+\newblock [last access 13-Dec-2016].
 
-\endinput
+\bibitem{lumen-laravel}
+Taylor Otwell.
+\newblock micro-framework by laravel.
+\newblock \url{https://lumen.laravel.com}.
+\newblock [last access 13-Dec-2016].
+
+\end{thebibliography}
