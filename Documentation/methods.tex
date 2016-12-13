@@ -1,6 +1,6 @@
 \section{Εργαλεία Και Τεχνικές}
-\subsection{Framework}
-Για την υλοποίηση του REST API χρησιμοποιήθηκε το framework\footnotemark\footnotetext{Software framework, a reusable set of libraries or classes for a software system} Lumen-Laravel \cite{lumen-laravel} που ενδείκνυται για το σκοπό αυτό. Ωστόσο τα προαπαιτούμενα για την χρήση του framework είναι:  
+\subsection{Πλαίσιο Λογισμικού}
+Για την υλοποίηση του REST API χρησιμοποιήθηκε το framework\footnotemark\footnotetext{Software framework, a reusable set of libraries or classes for a software system} \textbf{Lumen-Laravel} \cite{lumen-laravel} που ενδείκνυται για το σκοπό αυτό. Ωστόσο τα προαπαιτούμενα για την χρήση του framework είναι:  
 
 \begin{itemize}
 \item PHP >= 5.6.4
@@ -9,4 +9,30 @@
 \item Mbstring PHP Extension
 \end{itemize}
 
-τα οποία ήταν διαφορετικά στο προσωπικό υπολογιστή μου (PHP 5.61) και για το λόγο αυτό χρησιμοποιήθηκε το εικονικό περιβάλλον Laravel Homstead \cite{laravel-homestead} με τη χρήση VirtualBox\footnotemark\footnotetext{Oracle VM VirtualBox, supports the creation and management of virtual machines} και Vagrant\footnotemark\footnotetext{Open-source software for building and maintaining porable virtual devepment enviroments}.
+τα οποία ήταν διαφορετικά στο τοπικό υπολογιστή μου (PHP 5.61) και για το λόγο αυτό χρησιμοποιήθηκε το εικονικό περιβάλλον \textbf{Laravel Homstead} \cite{laravel-homestead} με τη χρήση VirtualBox\footnotemark\footnotetext{Oracle VM VirtualBox, supports the creation and management of virtual machines} και Vagrant\footnotemark\footnotetext{Open-source software for building and maintaining porable virtual devepment enviroments}.
+
+\subsection{Περιβάλλον Ανάπτυξης}
+
+Το \textbf{Laravel Homstead}\cite{laravel-homestead} είναι ένα επίσημο πακέτο Vagrant box που παρέχει ένα περιβάλλον ανάπτυξης χωρίς να απαιτείται η εγκατάσταση PHP, Web Server και άλλα προγράμματα λογισμικού στο τοπικό υπολογιστή.
+
+Περιλαμβάνει τα εξής λογισμικά:
+
+\begin{itemize}
+\item Ubuntu 16.04
+\item Git
+\item PHP 7.1
+\item Nginx
+\item MySQL
+\item MariaDB
+\item Sqlite3
+\item Postgres
+\item Composer
+\item Node (With Yarn, PM2, Bower, Grunt, and Gulp)
+\item Redis
+\item Memcached
+\item Beanstalkd
+\end{itemize}
+
+\subsection{Σύστημα Ελέγχου Εκδόσεων}
+
+Για την διαχείριση των εκδόσεων του Rest API και του Web Application χρησιμοποιήθηκε το git\footnotemark\footnotetext{Free sofware, used for software development and other version control tasks} και ένα private repository απο το git-hub\footnotemark\footnotetext{Web-based gii repository hosting service} 

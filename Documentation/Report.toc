@@ -1,0 +1,4 @@
+\contentsline {section}{\numberline {1}Εργαλεία Και Τεχνικές}{2}{section.1}
+\contentsline {subsection}{\numberline {1.1}Πλαίσιο Λογισμικού}{2}{subsection.1.1}
+\contentsline {subsection}{\numberline {1.2}Περιβάλλον Ανάπτυξης}{2}{subsection.1.2}
+\contentsline {subsection}{\numberline {1.3}Σύστημα Ελέγχου Εκδόσεων}{3}{subsection.1.3}
