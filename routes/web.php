@@ -12,7 +12,9 @@
 */
 
 $app->get('/', function () use ($app) {
-    return $app->version();
+    //return $app->version();
+    $test = array("oak", "test");
+    return view('index', ['test' => $test]);
 });
 
 $app->get('/api/v1/gasstations', 'GasStationController@index');
