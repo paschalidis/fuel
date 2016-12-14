@@ -13,8 +13,7 @@
 
 $app->get('/', function () use ($app) {
     //return $app->version();
-    $test = array("oak", "test");
-    return view('index', ['test' => $test]);
+    return view('index', ['API_KEY' => $_ENV['GOOGLE_MAPS_API_KEY']]);
 });
 
 $app->get('/api/v1/gasstations', 'GasStationController@index');
