@@ -9,3 +9,21 @@ body {
 #map {
     height: 100%;
 }
+
+#getDataBtn {
+    z-index:10000;   /*μεγάλη τιμή για να μην σκεπαστεί από το χάρτη*/
+    position: fixed;
+    top:55px;
+    left:8px;
+    width:98px;
+    height:30px;
+}
+
+#cleanMarkersBtn {
+    z-index:10000;   /*μεγάλη τιμή για να μην σκεπαστεί από το χάρτη*/
+    position: fixed;
+    top:95px;
+    left:8px;
+    width:98px;
+    height:30px;
+}

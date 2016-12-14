@@ -1,4 +1,8 @@
-var map;
+var map = null;
+myInfowindow = null;   //the infowindows object
+myPosition = null;    //browser's position
+markers = [];     //array to store marker references
+
 //Initialized JavaScript functions to load the map
 function initMap() {
     // Constructor creates a new map - only center and zoom are required.
@@ -59,4 +63,85 @@ function cbGetCurPosFail(error) {
             alert("An unknown error occurred.");
             break;
     }
+}
+
+//συνάρτηση αρχικοποίησης AJAX υποδομής - επιστρέφει reference στο AJAX
+//object ή false αν δεν υποστηρίζονται AJAX κλήσεις από τον browser.
+function initAJAX() {
+    if (window.XMLHttpRequest) {
+        // code for IE7+, Firefox, Chrome, Opera, Safari
+        return new XMLHttpRequest();
+    }
+    else if (window.ActiveXObject) {
+        // code for IE6, IE5 - εδώ χρησιμοποιούνται ActiveX object (MS τεχνολογίες)
+        return new ActiveXObject("Microsoft.XMLHTTP");
+    } else {
+        alert("Your browser does not support XMLHTTP!");
+        return false;
+    }
+}
+
+function getData() {
+
+    //εκκίνηση AJAX υποδομής
+    var xmlhttp = initAJAX();
+
+    //Εφόσον υποστηρίζονται AJAX κλίεις:
+    if (xmlhttp) {
+        // κλήση σε API για λήψη δεδομένων (ΕΔΩ κλήση σε στατικό JSON αρχείο)
+        // Για λόγους security ο ΙΕ δεν ανήγει τοπικό αρχείο οπότε για τις ανάγκες
+        //του παραδείγματος το έβαλα στον server που βλέπετε παρακάτω.
+        //xmlhttp.open("GET","http://fuelgr.gr/sample-stations.json",true);
+        //xmlhttp.open("GET","sample-stations.json",true);
+        xmlhttp.open("GET","https://fuel.local/api/v1/gasstations",true);
+        xmlhttp.send(null);
+
+        //ορισμός callback για τον χειρισμό της απάντησης
+        xmlhttp.onreadystatechange=function() {
+            if(xmlhttp.readyState === XMLHttpRequest.DONE && xmlhttp.status === 200) {
+                var obj = JSON.parse(xmlhttp.responseText);
+                for (var i=0; i<obj.length; i++){
+                    putMarker( obj[i].gasStationLat,
+                        obj[i].gasStationLong,
+                        obj[i].gasStationAddress );
+                }   //for
+            }
+
+        };  //callback
+    }   //if xmlhttp
+}
+
+// δημιουργία, τοποθέτηση και αποθήκευση marker
+function putMarker(myLat,myLong,myAddress) {
+
+    var myMarker = null;
+    //create a position object
+    var myPosition = new google.maps.LatLng(myLat,myLong);
+
+    //initialize and create a marker object
+    myMarker = new google.maps.Marker({
+        position: myPosition,  //θέση
+        map: map,            //χαρτης στον οποίο θα εμφανιστούν
+        title: myAddress,      //tooltip
+        draggable: false       //χωρίς δυνατότητα μετακίνησης νε drag'n'drop
+    });
+
+    //αποθήκευση στο markers array
+    markers.push(myMarker);
+
+    //associate the infowindow with the click on the marker
+    // google.maps.event.addListener( myMarker, 'click', function(){
+    //     myInfowindow.setContent(myAddress);
+    //     //ζηταμε να εμφανιστεί στη θέση του συσχετισμένου marker
+    //     myInfowindow.position = myMarker.getPosition();
+    //     myInfowindow.open(map,this); }
+    // );
+
+}
+
+function cleanMarkers() {
+    for (i=0; i<markers.length; i++)
+        markers[i].setMap(null);
+    //άδειασμα και του πίνακα με τα references
+    markers=[];
 }
