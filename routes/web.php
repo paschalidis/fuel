@@ -16,4 +16,13 @@ $app->get('/', function () use ($app) {
     return view('index', ['API_KEY' => $_ENV['GOOGLE_MAPS_API_KEY']]);
 });
 
-$app->get('/api/v1/gasstations', 'GasStationController@index');
+
+$app->group(['prefix' => 'api/v1'], function($app)
+{
+    $app->get('gasstations', 'GasStationController@index');
+    $app->get('gasstations.json', 'GasStationController@index');
+    $app->get('gasstations.xnl', 'GasStationController@index');
+
+    //$app->get('gasstations.json', ['as' => '/api/v1/gasstations',
+      //  'uses' => 'GasStationController@index']);
+});
