@@ -26,7 +26,6 @@ class GasStationController extends Controller
             $columns = $gasStation->getColumnList();
 
             $fields = explode(",", $fields);
-
             foreach ($fields as $field){
                 if(!in_array($field, $columns)){
                     $content = array('message' => 'Invalid field',
@@ -39,6 +38,11 @@ class GasStationController extends Controller
 
         $GasStations = GasStation::all($fields);
 
+        return response()->json($GasStations);
+    }
+
+    public function count(){
+        $GasStations = GasStation::all()->count();
         return response()->json($GasStations);
     }
 }
