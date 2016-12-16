@@ -20,9 +20,4 @@ $app->get('/', function () use ($app) {
 $app->group(['prefix' => 'api/v1'], function($app)
 {
     $app->get('gasstations', 'GasStationController@index');
-    $app->get('gasstations.json', 'GasStationController@index');
-    $app->get('gasstations.xnl', 'GasStationController@index');
-
-    //$app->get('gasstations.json', ['as' => '/api/v1/gasstations',
-      //  'uses' => 'GasStationController@index']);
 });

@@ -6,7 +6,6 @@ use App\Models\GasStation;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use SoapBox\Formatter\Formatter;
 
 class GasStationController extends Controller
 {
