@@ -46,3 +46,14 @@ CREATE TABLE IF NOT EXISTS `fuel`.`pricedata` (
     ON DELETE CASCADE
     ON UPDATE CASCADE)
 ENGINE = InnoDB;
+
+-- -----------------------------------------------------
+-- Table `fuel`.`user`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `fuel`.`users` (
+  `username` VARCHAR(45) NOT NULL,
+  `email` VARCHAR(255) NULL,
+  `password` VARCHAR(32) NOT NULL,
+  `create_time` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
+PRIMARY KEY (`username`))
+ENGINE = InnoDB;
