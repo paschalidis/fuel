@@ -25,9 +25,19 @@ class FormatMiddleware
      */
     public function handle($request, Closure $next)
     {
-        $type = $request->get('type');
+        $type = $request->get('type', 'json');
+        $suppressResponseCodes = $request->get('suppress_response_codes', 'false');
+        $suppressResponseCodes = filter_var($suppressResponseCodes, FILTER_VALIDATE_BOOLEAN);
 
         $response = $next($request);
+
+        if($suppressResponseCodes){
+            $status = $response->getStatusCode();
+            $content = json_decode($response->getContent(), true);
+            $content['response_code'] = $status;
+            $response->setContent(json_encode($content));
+            $response->setStatusCode(200);
+        }
 
         if(strtolower($type) === Formatter::XML){
             $formatter = Formatter::make($response->getContent(), 'json');

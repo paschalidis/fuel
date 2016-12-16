@@ -10,14 +10,35 @@ use Illuminate\Http\Response;
 class GasStationController extends Controller
 {
 
-    protected $parameters;
+    protected $_request;
+
     public function __construct(Request $request)
     {
-        $this->parameters = $request->all();
+        $this->_request = $request;
     }
 
     public function index(){
-        $GasStations = GasStation::all();
+
+        $fields = $this->_request->get('fields', '*');
+
+        if(strcasecmp($fields, '*') != 0){
+            $gasStation = new GasStation();
+            $columns = $gasStation->getColumnList();
+
+            $fields = explode(",", $fields);
+
+            foreach ($fields as $field){
+                if(!in_array($field, $columns)){
+                    $content = array('message' => 'Invalid field',
+                                     'field' => $field);
+
+                    return response()->json($content, 400);
+                }
+            }
+        }
+
+        $GasStations = GasStation::all($fields);
+
         return response()->json($GasStations);
     }
 }
