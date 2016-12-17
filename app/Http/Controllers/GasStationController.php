@@ -28,8 +28,10 @@ class GasStationController extends Controller
             $fields = explode(",", $fields);
             foreach ($fields as $field){
                 if(!in_array($field, $columns)){
-                    $content = array('message' => 'Invalid field',
-                                     'field' => $field);
+                    $content = array(
+                        $field => array("The " . $field . " field does not exist"),
+                        'message' => 'Invalid field',
+                    );
 
                     return response()->json($content, 400);
                 }

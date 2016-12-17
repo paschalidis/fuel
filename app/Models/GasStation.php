@@ -1,7 +1,5 @@
 <?php
 
-// app/Models/GasStation.php
-
 namespace app\Models;
 
 use Illuminate\Database\Eloquent\Model;
