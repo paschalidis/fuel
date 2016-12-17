@@ -15,8 +15,9 @@ class UserController extends Controller
         //Customize error messages
         try{
             $this->validate($request, [
-                'username' => 'required',
-                'email' => 'required|email|unique:users'
+                'username' => 'required|unique:users|max:45',
+                'email' => 'required|email|unique:users|max:255',
+                'password' => 'required|max:32'
             ]);
         } catch (\Exception $e){
             $response = $e->getResponse();
@@ -27,6 +28,8 @@ class UserController extends Controller
             return $response;
         }
 
-        return response()->json(["success" => "Go in"], 200);
+        $user = User::create($request->all());
+
+        return response()->json($user);
     }
 }
