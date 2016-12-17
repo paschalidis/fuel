@@ -25,8 +25,8 @@ class FormatMiddleware
      */
     public function handle($request, Closure $next)
     {
-        $type = $request->get('type', 'json');
-        $suppressResponseCodes = $request->get('suppress_response_codes', 'false');
+        $type = $request->get('type', $_ENV['type']);
+        $suppressResponseCodes = $request->get('suppress_response_codes', $_ENV['suppress_response_codes']);
         $suppressResponseCodes = filter_var($suppressResponseCodes, FILTER_VALIDATE_BOOLEAN);
 
         $response = $next($request);

@@ -6,6 +6,7 @@ use App\Models\PriceData;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use App\Mappers\QueryMapper;
 
 class PriceDataController extends Controller
 {
