@@ -29,6 +29,9 @@ class FormatMiddleware
         $suppressResponseCodes = $request->get('suppress_response_codes', $_ENV['suppress_response_codes']);
         $suppressResponseCodes = filter_var($suppressResponseCodes, FILTER_VALIDATE_BOOLEAN);
 
+        unset($request['type']);
+        unset($request['suppress_response_codes']);
+
         $response = $next($request);
 
         if($suppressResponseCodes){

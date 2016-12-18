@@ -2,12 +2,14 @@
 
 namespace app\Mappers;
 
+use Illuminate\Support\Facades\Schema;
+use DB;
 
 class QueryMapper
 {
     /**
      * Database table name
-     * @var $_tableName
+     * @var String $_tableName
      */
     protected $_tableName;
 
@@ -16,27 +18,62 @@ class QueryMapper
      * @var $_parameters
      */
     protected $_parameters;
+
+    /**
+     * The sql query
+     * @var String $sql;
+     */
+    protected $_sql;
+
+    /**
+     * The columns to select
+     * @var string $_columns
+     */
+    protected $_columns;
+
     public function __construct(array $parameters, $tableName)
     {
-        $this->_parameters = $this->unsetDefaultParameters($parameters);
+        $this->_columns = '*';
+        $this->_parameters = $parameters;
         $this->_tableName = $tableName;
     }
 
     public function get()
     {
-        $results = \DB::select("SELECT * FROM users");
+        $this->prepareColumns($this->_parameters);
 
-        return $results;
+        $sql = "SELECT " . $this->_columns . " FROM " . $this->_tableName;
+
+        return DB::select($sql);
     }
 
     protected function unsetDefaultParameters(array $parameters)
     {
-        $defaultParameters = json_decode($_ENV['parameters'], true);
+        $defaultParameters = explode(",", $_ENV['parameters']);
 
         foreach ($defaultParameters as $key => $field){
             unset($parameters[$key]);
         }
 
         return $parameters;
+    }
+
+    /**
+     * Prepare columns for select statement
+     * @param array $parameters
+     */
+    protected function prepareColumns($parameters){
+
+        if(!isset($parameters['fields'])){
+            return;
+        }
+
+        $fields = $parameters['fields'];
+
+        if(strcasecmp($fields, '*') == 0){
+            return;
+        }
+
+        $this->_columns = $fields;
     }
 }
