@@ -11,6 +11,23 @@ use App\Mappers\QueryMapper;
 class PriceDataController extends Controller
 {
 
+    public function index(Request $request)
+    {
+        $queryMapper = new QueryMapper($request->all(), 'pricedata');
+
+        try{
+            $priceData = $queryMapper->get();
+        } catch (\Exception $e){
+            $message = $e->getMessage();
+            if(isset($e->errorInfo[2])){
+                $message = $e->errorInfo[2];
+            }
+            return response()->json(['message' => $message], 400);
+        }
+
+        return response()->json($priceData);
+    }
+
     public function getPriceData(Request $request, $gasStationId)
     {
         $parameters = $request->all();
