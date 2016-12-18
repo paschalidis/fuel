@@ -57,6 +57,7 @@ class QueryMapper
     public function get()
     {
         $this->prepareColumns($this->_parameters);
+        $this->prepareAggregate($this->_parameters);
 
         $sql = "SELECT " . $this->_columns . " FROM " . $this->_tableName;
 
@@ -76,15 +77,16 @@ class QueryMapper
      * Prepare columns for select statement
      * @param array $parameters
      */
-    protected function prepareColumns(&$parameters){
+    protected function prepareColumns(&$parameters)
+    {
 
-        if(!isset($parameters['fields'])){
+        if (!isset($parameters['fields'])) {
             return;
         }
 
         $fields = $parameters['fields'];
 
-        if(strcasecmp($fields, '*') == 0){
+        if (strcasecmp($fields, '*') == 0) {
             return;
         }
 
@@ -93,9 +95,10 @@ class QueryMapper
         $this->_columns = $fields;
     }
 
-    protected function prepareWhere(&$parameters){
+    protected function prepareWhere(&$parameters)
+    {
 
-        if(empty($parameters)){
+        if (empty($parameters)) {
             return;
         }
 
@@ -104,7 +107,7 @@ class QueryMapper
         $where = " WHERE " . $arrayKeys[0] . " = " . $parameters[$arrayKeys[0]];
         unset($parameters[$arrayKeys[0]]);
 
-        foreach ($parameters as $key => $value){
+        foreach ($parameters as $key => $value) {
             $where .= ' AND ' . $key . ' = ' . $value;
             unset($parameters[$key]);
         }
@@ -112,20 +115,62 @@ class QueryMapper
         $this->_whereStatement = $where;
     }
 
-    protected function prepareLimitOffset(&$parameters){
+    protected function prepareLimitOffset(&$parameters)
+    {
 
-        if(empty($parameters)){
+        if (empty($parameters)) {
             return;
         }
 
-        if(isset($parameters['limit'])){
+        if (isset($parameters['limit'])) {
             $this->_LIMIT = ' LIMIT ' . $parameters['limit'];
             unset($parameters['limit']);
         }
 
-        if(isset($parameters['offset'])){
+        if (isset($parameters['offset'])) {
             $this->_OFFSET = ' OFFSET ' . $parameters['offset'];
             unset($parameters['offset']);
+        }
+    }
+
+    protected function prepareAggregate(&$parameters){
+
+        if (empty($parameters)) {
+            return;
+        }
+        $columns = array();
+
+        if(isset($parameters['max'])){
+                $columns[] = "MAX(" . $parameters['max'] . ")";
+                unset($parameters['max']);
+        }
+
+        if(isset($parameters['min'])){
+            $columns[] = "MIN(" . $parameters['min'] . ")";
+            unset($parameters['min']);
+        }
+
+        if(isset($parameters['avg'])){
+            $columns[] = "AVG(" . $parameters['avg'] . ")";
+            unset($parameters['avg']);
+        }
+
+        if(isset($parameters['sum'])){
+            $columns[] = "SUM(" . $parameters['sum'] . ")";
+            unset($parameters['sum']);
+        }
+
+        if(isset($parameters['count'])){
+            $columns[] = "COUNT(" . $parameters['count'] . ")";
+            unset($parameters['count']);
+        }
+
+        if(!empty($columns)){
+            if(strcasecmp($this->_columns, '*') == 0){
+                $this->_columns = implode(",", $columns);
+            } else {
+                $this->_columns .= ',' . implode(",", $columns);
+            }
         }
     }
 }
