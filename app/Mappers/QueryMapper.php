@@ -41,12 +41,18 @@ class QueryMapper
      */
     protected $_OFFSET;
 
+    /**
+     * @var String $_GroupBy
+     */
+    protected $_GroupBy;
+
     public function __construct(array $parameters, $tableName)
     {
         $this->_columns = '*';
         $this->_whereStatement = "";
         $this->_OFFSET = "";
         $this->_LIMIT = "";
+        $this->_GroupBy = "";
         $this->_parameters = $parameters;
         $this->_tableName = $tableName;
     }
@@ -61,12 +67,14 @@ class QueryMapper
 
         $sql = "SELECT " . $this->_columns . " FROM " . $this->_tableName;
 
+        $this->prepareGroupBy($this->_parameters);
         $this->prepareLimitOffset($this->_parameters);
 
         $this->prepareWhere($this->_parameters);
 
         $sql .= $this->_whereStatement;
 
+        $sql .= $this->_GroupBy;
         $sql .= $this->_LIMIT;
         $sql .= $this->_OFFSET;
 
@@ -171,6 +179,17 @@ class QueryMapper
             } else {
                 $this->_columns .= ',' . implode(",", $columns);
             }
+        }
+    }
+
+    protected function prepareGroupBy(&$parameters){
+        if (empty($parameters)) {
+            return;
+        }
+
+        if(isset($parameters['groupby'])){
+            $this->_GroupBy = " Group By " . $parameters['groupby'];
+            unset($parameters['groupby']);
         }
     }
 }
