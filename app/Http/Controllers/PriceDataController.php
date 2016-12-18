@@ -13,30 +13,19 @@ class PriceDataController extends Controller
 
     public function getPriceData(Request $request, $gasStationId)
     {
-        $fields = $request->get('fields', '*');
+        $parameters = $request->all();
+        $parameters['gasStationID'] = $gasStationId;
+        $queryMapper = new QueryMapper($parameters, 'pricedata');
 
-        if(strcasecmp($fields, '*') != 0){
-            $gasStation = new PriceData();
-            $columns = $gasStation->getColumnList();
-
-            $fields = explode(",", $fields);
-            foreach ($fields as $field){
-                if(!in_array($field, $columns)){
-                    $content = array(
-                        $field => array("The " . $field . " field does not exist"),
-                        'message' => 'Invalid field',
-                    );
-
-                    return response()->json($content, 400);
-                }
+        try{
+            $priceData = $queryMapper->get();
+        } catch (\Exception $e){
+            $message = $e->getMessage();
+            if(isset($e->errorInfo[2])){
+                $message = $e->errorInfo[2];
             }
-
-            if(!in_array('gasStationID', $fields)){
-                $fields[] = 'gasStationID';
-            }
+            return response()->json(['message' => $message], 400);
         }
-
-        $priceData = PriceData::all($fields)->where("gasStationID", "=", $gasStationId);
 
         return response()->json($priceData);
     }
