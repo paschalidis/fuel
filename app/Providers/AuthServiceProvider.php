@@ -33,7 +33,7 @@ class AuthServiceProvider extends ServiceProvider
 
         $this->app['auth']->viaRequest('api', function ($request) {
             if ($request->input('api_token')) {
-                $params = array('fields' => 'username,email',
+                $params = array('fields' => 'username,email,api_token_expire_time',
                     'api_token' => $request->input('api_token'));
                 try{
                     $queryMapper = new QueryMapper($params, 'users');

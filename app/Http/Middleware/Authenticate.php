@@ -39,6 +39,12 @@ class Authenticate
             return response()->json(['message' => 'Unauthorized.'], 401);
         }
 
+        $user = $this->auth->user();
+
+        if($user[0]->api_token_expire_time < time()){
+            return response()->json(['message' => 'Api Token Expired.'], 440);
+        }
+
         return $next($request);
     }
 }

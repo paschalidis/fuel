@@ -35,6 +35,7 @@ class UserController extends Controller
             $token = str_random(60);
             $user = User::find($user[0]->username);
             $user->setAttribute('api_token', $token);
+            $user->setAttribute('api_token_expire_time', time() + 3600);
             $user->save();
             return response()->json(['api_token' => $user->api_token]);
         } else {
