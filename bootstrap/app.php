@@ -63,6 +63,17 @@ $app->middleware([
     App\Http\Middleware\FormatMiddleware::class
 ]);
 
+$app->middleware([
+    'LucaDegasperi\OAuth2Server\Middleware\OAuthExceptionHandlerMiddleware'
+]);
+
+$app->routeMiddleware([
+    'check-authorization-params' => 'Optimus\OAuth2Server\Middleware\CheckAuthCodeRequestMiddleware',
+    'csrf' => 'Laravel\Lumen\Http\Middleware\VerifyCsrfToken',
+    'oauth' => 'Optimus\OAuth2Server\Middleware\OAuthMiddleware',
+    'oauth-owner' => 'Optimus\OAuth2Server\Middleware\OAuthOwnerMiddleware'
+]);
+
 // $app->middleware([
 //    App\Http\Middleware\ExampleMiddleware::class
 // ]);
@@ -85,7 +96,8 @@ $app->middleware([
 // $app->register(App\Providers\AppServiceProvider::class);
 // $app->register(App\Providers\AuthServiceProvider::class);
 // $app->register(App\Providers\EventServiceProvider::class);
-
+$app->register('LucaDegasperi\OAuth2Server\Storage\FluentStorageServiceProvider');
+$app->register('Optimus\OAuth2Server\OAuth2ServerServiceProvider');
 /*
 |--------------------------------------------------------------------------
 | Load The Application Routes
