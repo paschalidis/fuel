@@ -112,11 +112,11 @@ class QueryMapper
 
         $arrayKeys = array_keys($parameters);
 
-        $where = " WHERE " . $arrayKeys[0] . " = " . $parameters[$arrayKeys[0]];
+        $where = " WHERE " . $arrayKeys[0] . ' = "' . $parameters[$arrayKeys[0]] . '"';
         unset($parameters[$arrayKeys[0]]);
 
         foreach ($parameters as $key => $value) {
-            $where .= ' AND ' . $key . ' = ' . $value;
+            $where .= ' AND ' . $key . ' = "' . $value . '"';
             unset($parameters[$key]);
         }
 

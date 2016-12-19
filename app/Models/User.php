@@ -16,6 +16,8 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
 
     public $table = "users";
 
+    protected $primaryKey = 'username';
+
     /**
      * To allow mass update you have to declare witch columns tou allow to update
      *
@@ -31,6 +33,15 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
      * @var bool
      */
     public $timestamps = false;
+
+    /**
+     * The attributes excluded from the model's JSON form.
+     *
+     * @var array
+     */
+    protected $hidden = [
+        'password', 'api_token'
+    ];
 
     /**
      * @return array
