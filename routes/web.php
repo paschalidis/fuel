@@ -20,7 +20,7 @@ $app->get('/', function () use ($app) {
 $app->group(['prefix' => 'api/v1'], function($app)
 {
     $app->get('gasstations', 'GasStationController@index');
-    $app->get('gasstations/count', 'GasStationController@count');
+    $app->get('gasstations/count', ['middleware' => 'auth', 'uses' =>'GasStationController@count']);
 
     $app->get('gasstations/{id}/pricedata', 'PriceDataController@getPriceData');
     $app->get('pricedata', 'PriceDataController@index');
