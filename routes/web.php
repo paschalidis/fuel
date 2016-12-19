@@ -27,5 +27,10 @@ $app->group(['prefix' => 'api/v1'], function($app)
 
     $app->post('login', 'UserController@login');
     $app->post('register', 'UserController@register');
-    $app->get('info', ['middleware' => 'auth', 'uses' => 'UserController@info']);
+
+    $app->group(['middleware' => 'auth'], function () use ($app){
+
+        $app->get('info', ['middleware' => 'access', 'uses' => 'UserController@info']);
+    });
+
 });

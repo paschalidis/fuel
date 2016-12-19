@@ -2,8 +2,6 @@
 
 namespace App\Providers;
 
-use App\Models\User;
-use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\ServiceProvider;
 use app\Mappers\QueryMapper;
 
@@ -41,7 +39,7 @@ class AuthServiceProvider extends ServiceProvider
                 } catch (\Exception $e){
                     return null;
                 }
-                return $user;
+                return $user[0];
             }
         });
     }

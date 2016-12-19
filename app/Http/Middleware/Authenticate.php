@@ -41,7 +41,7 @@ class Authenticate
 
         $user = $this->auth->user();
 
-        if($user[0]->api_token_expire_time < time()){
+        if($user->api_token_expire_time < time()){
             return response()->json(['message' => 'Api Token Expired.'], 440);
         }
 
