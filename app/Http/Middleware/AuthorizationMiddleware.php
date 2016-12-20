@@ -22,16 +22,29 @@ class AuthorizationMiddleware
             return response()->json(['message' => 'Access Denied'], 403);
         }
 
-        $queryBuilder = new QueryMapper(['username' => $user->username],'user_permission');
+        $queryBuilder = new QueryMapper(['username' => $user->username],'user_permissions');
         $permissions = $queryBuilder->get();
 
         if(empty($permissions)){
             return response()->json(['message' => 'Access Denied'], 403);
         }
 
-        $roles = array_column($permissions, 'permName');
+        $hasAccess = false;
+        foreach ($permissions as $permission) {
+            if (!$request->isMethod($permission->method)) {
+                continue;
+            }
+            if ($request->is($permission->permName)) {
+                $hasAccess = true;
+                break;
+            }
+            if ($request->is($permission->permName . '/*')) {
+                $hasAccess = true;
+                break;
+            }
+        }
 
-        if(in_array($request->path(), $roles)){
+        if($hasAccess){
             return $next($request);
         } else {
             return response()->json(['message' => 'Access Denied'], 403);

@@ -2,7 +2,6 @@
 
 namespace app\Mappers;
 
-use Illuminate\Support\Facades\Schema;
 use DB;
 
 class QueryMapper

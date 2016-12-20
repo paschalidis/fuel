@@ -45,6 +45,8 @@ class Authenticate
             return response()->json(['message' => 'Api Token Expired.'], 440);
         }
 
+        $request->query->remove('api_token');
+
         return $next($request);
     }
 }
