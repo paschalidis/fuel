@@ -56,6 +56,16 @@ class QueryMapper
         $this->_tableName = $tableName;
     }
 
+    public function setParameters(array $parameters)
+    {
+        $this->_parameters = $parameters;
+    }
+
+    public function setTable($tableName)
+    {
+        $this->_tableName = $tableName;
+    }
+
     /**
      * @return mixed
      */

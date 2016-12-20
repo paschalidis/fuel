@@ -13,7 +13,19 @@ class OrderController extends Controller
 {
     public function getOrders(Request $request)
     {
+        if(is_null($request->user())){
+            return response()->json(['message' => 'Unauthorized.'], 401);
+        }
 
+        //Get orders of user
+        $queryMapper = new QueryMapper(['owner' => $request->user()->username], 'orders');
+        $orders = $queryMapper->get();
+
+        if(empty($orders)){
+            return response()->json(['message' => 'No Orders Found.'], 200);
+        }
+
+        return response()->json($orders);
     }
 
     public function create(Request $request)
@@ -37,11 +49,42 @@ class OrderController extends Controller
             return response()->json(['message' => 'Unauthorized.'], 401);
         }
 
-        $parameters = array($request->user()->username,
-                            $request->get('priceDataID'),
-                            $request->get('quantity'));
+        $clientName = $request->user()->username;
+        $priceDataID = $request->get('priceDataID');
+        $quantity = $request->get('quantity');
+
+        //Get price data values
+        $priceDataParameters = array('priceDataID' => $priceDataID,
+                                     'fields' => 'gasStationID,fuelPrice,fuelName');
+
+        $queryMapper = new QueryMapper($priceDataParameters,'pricedata');
+        $priceData = $queryMapper->get();
+
+        if(empty($priceData)){
+            return response()->json(['message' => 'Fuel Not Exist.'], 400);
+        }
+        $priceData = $priceData[0];
+
+        //Get gas station values
+        $queryMapper->setTable('gasstations');
+        $queryMapper->setParameters(array('gasStationID' => $priceData->gasStationID, 'fields' => 'username'));
+
+        $gasStation = $queryMapper->get();
+
+        if(empty($priceData)){
+            return response()->json(['message' => 'Gas Station Not Exist.'], 400);
+        }
+        $gasStation = $gasStation[0];
+
+        $parameters = array($clientName,
+                            $priceDataID,
+                            $quantity,
+                            $priceData->fuelPrice,
+                            $priceData->fuelName,
+                            $gasStation->username);
         try{
-            $inserted = DB::insert('INSERT INTO orders (username, priceDataID, quantity) VALUES (?, ?, ?)', $parameters);
+            $inserted = DB::insert('INSERT INTO orders (client, priceDataID, quantity, fuelPrice, fuelName, owner)
+                                    VALUES (?, ?, ?, ?, ?, ?)', $parameters);
         } catch (\Exception $e){
             $message = $e->getMessage();
             if(isset($e->errorInfo[2])){

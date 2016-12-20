@@ -34,7 +34,7 @@ $app->group(['prefix' => 'api/v1'], function($app)
         $app->put('pricedata/{priceDataID}', ['middleware' => 'access', 'uses' => 'PriceDataController@update']);
 
         $app->post('orders', ['middleware' => 'access', 'uses' => 'OrderController@create']);
-        $app->get('orders', ['middleware' => 'access', 'uses' => 'Order@getOrders']);
+        $app->get('orders', ['middleware' => 'access', 'uses' => 'OrderController@getOrders']);
     });
 
 });
