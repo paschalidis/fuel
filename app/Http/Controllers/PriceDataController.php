@@ -64,7 +64,7 @@ class PriceDataController extends Controller
         $owner = DB::select("SELECT gas.username FROM gasstations AS gas
                               INNER JOIN pricedata as p
                               ON p.gasStationID = gas.gasStationID
-                              WHERE p.id = ?
+                              WHERE p.priceDataID = ?
                               AND gas.username = ?", [$priceDataId, $request->user()->username]);
 
         if(empty($owner)){
