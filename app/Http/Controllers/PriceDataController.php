@@ -55,6 +55,7 @@ class PriceDataController extends Controller
             return response()->json(['message' => 'No values to update'], 400);
         }
 
+        //todo: check if username belong to gas station
         $input = array();
         try{
             $where = 'where gasStationID = ? and fuelTypeID =? and fuelSubTypeID = ?';
