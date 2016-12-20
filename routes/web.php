@@ -30,11 +30,11 @@ $app->group(['prefix' => 'api/v1'], function($app)
 
     $app->get('info', ['middleware' => 'access', 'uses' => 'UserController@info']);
 
-    $app->group(['middleware' => 'auth'], function () use ($app){
-        $app->put('pricedata/{priceDataID}', ['middleware' => 'access', 'uses' => 'PriceDataController@update']);
+    $app->group(['middleware' => ['auth', 'access']], function () use ($app){
+        $app->put('pricedata/{priceDataID}', 'PriceDataController@update');
 
-        $app->post('orders', ['middleware' => 'access', 'uses' => 'OrderController@create']);
-        $app->get('orders', ['middleware' => 'access', 'uses' => 'OrderController@getOrders']);
+        $app->post('orders', 'OrderController@create');
+        $app->get('orders', 'OrderController@getOrders');
     });
 
 });
