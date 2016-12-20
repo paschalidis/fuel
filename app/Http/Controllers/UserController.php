@@ -50,7 +50,8 @@ class UserController extends Controller
             $this->validate($request, [
                 'username' => 'required|unique:users|max:45',
                 'email' => 'required|email|unique:users|max:255',
-                'password' => 'required|max:32'
+                'password' => 'required|max:32',
+                'userType' => 'required'
             ]);
         } catch (\Exception $e){
             $response = $e->getResponse();
@@ -61,9 +62,32 @@ class UserController extends Controller
             return $response;
         }
 
+        //Check if user group exist
+        $userType = $request->get('userType');
+        $group = \DB::select('SELECT * FROM groups WHERE groupID = ?', [$userType]);
+
+        if(empty($group)){
+            return response()->json(["message"=>"Error Invalid User Type"], 400);
+        }
+
         $user = User::create($request->all());
 
-        return response()->json($user);
+        //Add user to Group Permission
+        try{
+            $inserted = \DB::insert('INSERT INTO user_has_group (username, groupID)
+                                    VALUES (?, ?)', [$request->get('username'), $userType]);
+        } catch (\Exception $e){
+            $message = $e->getMessage();
+            if(isset($e->errorInfo[2])){
+                $message = $e->errorInfo[2];
+            }
+            return response()->json(['message' => $message], 400);
+        }
+
+        if(!$inserted){
+            return response()->json(['message' => 'Error on user registration. Please try again.'], 400);
+        }
+        return response()->json(['message' => 'Successfully registration.']);
     }
 
     public function info(){
