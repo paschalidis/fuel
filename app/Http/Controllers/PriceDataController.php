@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Mappers\QueryMapper;
 use DB;
+use Illuminate\Support\Facades\App;
 
 class PriceDataController extends Controller
 {
@@ -73,7 +74,7 @@ class PriceDataController extends Controller
 
         $input = array();
         try{
-            $where = 'where id = ?';
+            $where = 'where priceDataID = ?';
             $valuesString = "";
             foreach ($values as $column => $value){
                 $valuesString .= ' ' . $column  . ' = ? ,';
