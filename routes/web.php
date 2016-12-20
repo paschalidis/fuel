@@ -31,7 +31,7 @@ $app->group(['prefix' => 'api/v1'], function($app)
     $app->get('info', ['middleware' => 'access', 'uses' => 'UserController@info']);
 
     $app->group(['middleware' => 'auth'], function () use ($app){
-        $app->put('pricedata/{gasStationID}/{fuelTypeID}/{fuelSubTypeID}', ['middleware' => 'access', 'uses' => 'PriceDataController@update']);
+        $app->put('pricedata/{priceDataID}', ['middleware' => 'access', 'uses' => 'PriceDataController@update']);
     });
 
 });

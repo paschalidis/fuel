@@ -19,14 +19,14 @@ class AuthorizationMiddleware
         $user = $request->user();
 
         if(is_null($user)){
-            return response()->json(['message' => 'Access Denied'], 403);
+            return response()->json(['message' => 'Unauthorized.'], 401);
         }
 
         $queryBuilder = new QueryMapper(['username' => $user->username],'user_permissions');
         $permissions = $queryBuilder->get();
 
         if(empty($permissions)){
-            return response()->json(['message' => 'Access Denied'], 403);
+            return response()->json(['message' => 'Access Denied.'], 403);
         }
 
         $hasAccess = false;

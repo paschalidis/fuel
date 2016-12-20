@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Mappers\QueryMapper;
+use DB;
 
 class PriceDataController extends Controller
 {
@@ -47,7 +48,7 @@ class PriceDataController extends Controller
         return response()->json($priceData);
     }
 
-    public function update(Request $request, $fuelTypeID, $fuelSubTypeID, $gasStationId){
+    public function update(Request $request, $priceDataId){
 
         $values = $request->all();
 
@@ -55,10 +56,24 @@ class PriceDataController extends Controller
             return response()->json(['message' => 'No values to update'], 400);
         }
 
-        //todo: check if username belong to gas station
+        if(is_null($request->user())){
+            return response()->json(['message' => 'Unauthorized.'], 401);
+        }
+
+        //Check if user is owner from gas station
+        $owner = DB::select("SELECT gas.username FROM gasstations AS gas
+                              INNER JOIN pricedata as p
+                              ON p.gasStationID = gas.gasStationID
+                              WHERE p.id = ?
+                              AND gas.username = ?", [$priceDataId, $request->user()->username]);
+
+        if(empty($owner)){
+            return response()->json(['message' => 'Permission Denied.'], 401);
+        }
+
         $input = array();
         try{
-            $where = 'where gasStationID = ? and fuelTypeID =? and fuelSubTypeID = ?';
+            $where = 'where id = ?';
             $valuesString = "";
             foreach ($values as $column => $value){
                 $valuesString .= ' ' . $column  . ' = ? ,';
@@ -68,10 +83,9 @@ class PriceDataController extends Controller
             $valuesString = rtrim($valuesString, ',');
 
             $update = 'update pricedata set ';
-            array_push($input, $gasStationId);
-            array_push($input, $fuelTypeID);
-            array_push($input, $fuelSubTypeID);
-            $affected = \DB::update($update . $valuesString . $where, $input);
+            array_push($input, $priceDataId);
+
+            $affected = DB::update($update . $valuesString . $where, $input);
 
         } catch (\Exception $e){
             $message = $e->getMessage();
