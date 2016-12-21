@@ -21,9 +21,10 @@ $app->group(['prefix' => 'api/v1'], function($app)
 {
     $app->get('gasstations', 'GasStationController@index');
     $app->get('gasstations/count', 'GasStationController@count');
-
     $app->get('gasstations/{id}/pricedata', 'PriceDataController@getPriceData');
+
     $app->get('pricedata', 'PriceDataController@index');
+    $app->get('pricedata/analytics', 'PriceDataController@fuelanalytics');
 
     $app->post('login', 'UserController@login');
     $app->post('register', 'UserController@register');

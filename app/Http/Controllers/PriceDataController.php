@@ -98,4 +98,23 @@ class PriceDataController extends Controller
 
         return response()->json(['message' => 'Price Data Updated Successfully', 'updated' => $affected]);
     }
+
+    public function fuelAnalytics(Request $request)
+    {
+        $parameters = $request->all();
+
+        $queryMapper = new QueryMapper($parameters, 'fuel_analytics');
+
+        try{
+            $priceData = $queryMapper->get();
+        } catch (\Exception $e){
+            $message = $e->getMessage();
+            if(isset($e->errorInfo[2])){
+                $message = $e->errorInfo[2];
+            }
+            return response()->json(['message' => $message], 400);
+        }
+
+        return response()->json($priceData);
+    }
 }
