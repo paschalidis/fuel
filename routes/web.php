@@ -16,6 +16,11 @@ $app->get('/', function () use ($app) {
     return view('index', ['API_KEY' => $_ENV['GOOGLE_MAPS_API_KEY']]);
 });
 
+$app->get('/map', function () use ($app) {
+    //return $app->version();
+    return view('fuel', ['API_KEY' => $_ENV['GOOGLE_MAPS_API_KEY']]);
+});
+
 
 $app->group(['prefix' => 'api/v1'], function($app)
 {
