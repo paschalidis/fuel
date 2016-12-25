@@ -76,29 +76,41 @@
                 <h4 class="modal-title" id="myModalLabel">Register</h4>
             </div>
             <div class="modal-body">
-                <form class="form-horizontal">
+                <form id="registerForm" class="form-horizontal">
+                    <h4><p class="text-center"><span id="registerError" class="label label-danger"></span></p></h4>
                     <div class="form-group">
                         <label for="registerUsername" class="col-sm-2 control-label">Username</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="registerUsername" placeholder="Username">
+                            <input type="text" name="username" class="form-control" id="registerUsername" placeholder="Username">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="registerEmail" class="col-sm-2 control-label">Email</label>
                         <div class="col-sm-10">
-                            <input type="email" class="form-control" id="registerEmail" placeholder="Email">
+                            <input type="email" name="email" class="form-control" id="registerEmail" placeholder="Email">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="registerPassword" class="col-sm-2 control-label">Password</label>
                         <div class="col-sm-10">
-                            <input type="password" class="form-control" id="registerPassword" placeholder="Password">
+                            <input type="password" name="password" class="form-control" id="registerPassword" placeholder="Password">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Gas Station</label>
+                        <div class="col-sm-10">
+                            <label class="radio-inline">
+                                <input type="radio" name="userType" value="2"  checked="">Client
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="userType" value="1">Owner
+                            </label>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-default">Sign up</button>
+                            <button id="registerSubmit" type="submit" class="btn btn-default">Sign up</button>
                         </div>
                     </div>
                 </form>
@@ -149,6 +161,7 @@
 <script type="text/javascript">
     $( document ).ready(function() {
         loginSubmit();
+        registerSubmit();
     });
 
     function loginSubmit() {
@@ -177,6 +190,45 @@
                 },
                 error: function(response){
                     $('#loginError').append("Username or Password is incorrect");
+                }
+            });
+        });
+    }
+
+    function registerSubmit() {
+        $("#registerSubmit").click(function(event){
+
+            event.preventDefault();// using this page stop being refreshing
+            $('.help-block').remove();
+            $('#registerError').empty();
+            $('.has-error').removeClass('has-error');
+            $.ajax({
+                type: "POST",
+                url: "https://fuel.local/api/v1/register/",
+                data: $('#registerForm').serialize(),
+                success: function(response){
+                    console.log(response);
+                    $('#registerModal').modal('hide');
+                    $.notify({
+                        // options
+                        message: response.message
+                    },{
+                        // settings
+                        type: 'success',
+                        placement: {
+                            from: "top",
+                            align: "center"
+                        },
+                    });
+                },
+                error: function(response){
+                    $('#registerError').append(response.responseJSON.message);
+                    $.each(response.responseJSON, function(inputName, errorMessage){
+                        $("#registerForm input[name=" + inputName + "]").
+                        after('<span class="help-block">' + errorMessage + '</span>')
+                            .parent('div').addClass('has-error');
+                    });
+
                 }
             });
         });
