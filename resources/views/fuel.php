@@ -117,6 +117,7 @@
             </div>
             <div class="modal-body">
                 <form id="loginForm" class="form-horizontal">
+                    <h4><p class="text-center"><span id="loginError" class="label label-danger"></span></p></h4>
                     <div class="form-group">
                         <label for="registerUsername" class="col-sm-2 control-label">Username</label>
                         <div class="col-sm-10">
@@ -126,7 +127,7 @@
                     <div class="form-group">
                         <label for="registerPassword" class="col-sm-2 control-label">Password</label>
                         <div class="col-sm-10">
-                            <input name="paswword" type="password" class="form-control" id="registerPassword" placeholder="Password">
+                            <input name="password" type="password" class="form-control" id="registerPassword" placeholder="Password">
                         </div>
                     </div>
                     <div class="form-group">
@@ -145,45 +146,39 @@
 <script type="text/javascript" src="/js/jquery-3.1.1.min.js"></script>
 <script type="text/javascript" src="/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="/js/notify.js"></script>
-<script>
+<script type="text/javascript">
     $( document ).ready(function() {
-        console.log( "document loaded" );
-
-        $.ajax({
-            type: "POST",
-            url: "http://fuel.local/api/v1/login",
-            success: function(msg){
-                console.log(msg);
-            },
-            error: function(response){
-                $.notify({
-                    // options
-                    message: response.responseJSON.message
-                },{
-                    // settings
-                    type: 'danger'
-                });
-            }
-        });
+        loginSubmit();
     });
 
-    $(function() {
-//twitter bootstrap script
-        $("#loginSubmit").click(function(){
+    function loginSubmit() {
+        $("#loginSubmit").click(function(event){
 
+            event.preventDefault();// using this page stop being refreshing
+            $('#loginError').empty();
             $.ajax({
                 type: "POST",
-                url: "http://fuel.local/api/v1/login",
+                url: "https://fuel.local/api/v1/login/",
                 data: $('#loginForm').serialize(),
-                success: function(msg){
-                    //$("#thanks").html(msg)
-                    $("#form-content").modal('hide');
+                success: function(response){
+                    console.log(response);
+                    $('#loginModal').modal('hide');
+                    $.notify({
+                        // options
+                        message: "Successfully login"
+                    },{
+                        // settings
+                        type: 'success',
+                        placement: {
+                            from: "top",
+                            align: "center"
+                        },
+                    });
                 },
-                error: function(){
-                    //alert("failure");
-                    $("#form-content").modal('hide');
+                error: function(response){
+                    $('#loginError').append("Username or Password is incorrect");
                 }
             });
         });
-    });
+    }
 </script>
