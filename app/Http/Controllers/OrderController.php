@@ -21,10 +21,6 @@ class OrderController extends Controller
         $queryMapper = new QueryMapper(['owner' => $request->user()->username], 'orders');
         $orders = $queryMapper->get();
 
-        if(empty($orders)){
-            return response()->json(['message' => 'No Orders Found.'], 200);
-        }
-
         return response()->json($orders);
     }
 

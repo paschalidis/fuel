@@ -20,7 +20,10 @@
                     <li role="separator" class="divider"></li>
                     <li><a href="#" data-toggle="modal" data-target="#registerModal">Register</a></li>
                     <li role="separator" class="divider"></li>
-                    <li><a href="#">Cras justo odio</a></li>
+                    <li id="ordersList" style="display: none">
+                        <a href="#" data-toggle="modal" data-target="#orderModal">Orders</a>
+                        <span id="ordersNumber" class="badge">0</span>
+                    </li>
                     <li role="separator" class="divider"></li>
                     <li><a href="#">Cras justo odio</a></li>
                     <li role="separator" class="divider"></li>
@@ -153,6 +156,24 @@
         </div>
     </div>
 </div>
+
+<!-- Modal Order -->
+<div class="modal fade" id="orderModal" tabindex="-1" role="dialog" aria-labelledby="Login" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Orders</h4>
+            </div>
+            <div class="modal-body">
+                <p>TAble here</p>
+            </div>
+            <div class="modal-footer">
+                <p>Footer her</p>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>
 <script type="text/javascript" src="/js/jquery-3.1.1.min.js"></script>
@@ -179,6 +200,7 @@
                 data: $('#loginForm').serialize(),
                 success: function(response){
                     api_token = response.api_token;
+                    getOrders();
                     $('#loginModal').modal('hide');
                     $.notify({
                         // options
@@ -238,6 +260,33 @@
                     });
                 }
             });
+        });
+    }
+
+    function getOrders() {
+        $.ajax({
+            type: "GET",
+            url: "https://fuel.local/api/v1/orders/",
+            data: {"api_token": api_token},
+            success: function(response){
+                $('#ordersList').show();
+                $('#ordersNumber').append(response.length);
+                console.log(response);
+                $.notify({
+                    // options
+                    message: response.message
+                },{
+                    // settings
+                    type: 'success',
+                    placement: {
+                        from: "top",
+                        align: "center"
+                    }
+                });
+            },
+            error: function(response){
+                console.log(response);
+            }
         });
     }
 </script>
