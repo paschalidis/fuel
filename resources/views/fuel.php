@@ -21,11 +21,11 @@
                     <li><a href="#" data-toggle="modal" data-target="#registerModal">Register</a></li>
                     <li role="separator" class="divider"></li>
                     <li id="ordersList" style="display: none">
-                        <a href="#" data-toggle="modal" data-target="#orderModal">Orders</a>
+                        <a href="#" data-toggle="modal" data-target="#ordersModal">Orders</a>
                         <span id="ordersNumber" class="badge">0</span>
                     </li>
                     <li role="separator" class="divider"></li>
-                    <li><a href="#">Cras justo odio</a></li>
+                    <li><a href="#" data-toggle="modal" data-target="#makeOrderModal">Make order</a></li>
                     <li role="separator" class="divider"></li>
                     <li><a href="#">Cras justo odio</a></li>
                 </ul>
@@ -157,8 +157,8 @@
     </div>
 </div>
 
-<!-- Modal Order -->
-<div class="modal fade" id="orderModal" tabindex="-1" role="dialog" aria-labelledby="Login" aria-hidden="true">
+<!-- Modal Orders -->
+<div class="modal fade" id="ordersModal" tabindex="-1" role="dialog" aria-labelledby="Login" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -167,7 +167,7 @@
             </div>
             <div class="modal-body">
                 <div class="table-responsive">
-                    <table id="orderTable" class="table table-condensed table-bordered">
+                    <table id="ordersTable" class="table table-condensed table-bordered">
                         <thead>
                             <tr>
                                 <th>#</th>
@@ -185,6 +185,41 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Make Order -->
+<div class="modal fade" id="makeOrderModal" tabindex="-1" role="dialog" aria-labelledby="Login" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Make Order</h4>
+            </div>
+            <div class="modal-body">
+                <form id="makeOrderForm" class="form-horizontal">
+                    <h4><p class="text-center"><span id="loginError" class="label label-danger"></span></p></h4>
+                    <div class="form-group">
+                        <label for="registerUsername" class="col-sm-2 control-label">Username</label>
+                        <div class="col-sm-10">
+                            <input name="username" type="text" class="form-control" id="registerUsername" placeholder="Username">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="registerPassword" class="col-sm-2 control-label">Password</label>
+                        <div class="col-sm-10">
+                            <input name="password" type="password" class="form-control" id="registerPassword" placeholder="Password">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button id="loginSubmit" type="submit" class="btn btn-default">Sign in</button>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
@@ -289,7 +324,7 @@
 
                 $.each(response, function(i, item) {
                     var  row = i + 1;
-                    $('#orderTable').append('<tr><th scope="row">' + row + '</th>' +
+                    $('#ordersTable').append('<tr><th scope="row">' + row + '</th>' +
                                         '<td> ' + item.client + ' </td>' +
                                         '<td> ' + item.fuelName + ' </td>' +
                                         '<td> ' + item.fuelPrice + ' </td>' +
