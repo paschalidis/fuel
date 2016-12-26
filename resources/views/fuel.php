@@ -166,10 +166,25 @@
                 <h4 class="modal-title" id="myModalLabel">Orders</h4>
             </div>
             <div class="modal-body">
-                <p>TAble here</p>
+                <div class="table-responsive">
+                    <table id="orderTable" class="table table-condensed table-bordered">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Client</th>
+                                <th>Fuel Name</th>
+                                <th>Fuel Price</th>
+                                <th>Quantity</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
             </div>
             <div class="modal-footer">
-                <p>Footer her</p>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             </div>
         </div>
     </div>
@@ -271,7 +286,17 @@
             success: function(response){
                 $('#ordersList').show();
                 $('#ordersNumber').append(response.length);
-                console.log(response);
+
+                $.each(response, function(i, item) {
+                    var  row = i + 1;
+                    $('#orderTable').append('<tr><th scope="row">' + row + '</th>' +
+                                        '<td> ' + item.client + ' </td>' +
+                                        '<td> ' + item.fuelName + ' </td>' +
+                                        '<td> ' + item.fuelPrice + ' </td>' +
+                                        '<td> ' + item.quantity + ' </td>' +
+                                        '<td> '+item.create_time+' </td></tr>');
+                });
+
                 $.notify({
                     // options
                     message: response.message
@@ -283,9 +308,6 @@
                         align: "center"
                     }
                 });
-            },
-            error: function(response){
-                console.log(response);
             }
         });
     }
