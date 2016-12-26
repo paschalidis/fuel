@@ -4,6 +4,19 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <style>
+        html,
+        body {
+            font-family: Arial, sans-serif;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        #map {
+            height: 100%;
+        }
+    </style>
 </head>
 <!--    <link href="/css/style.css" rel="stylesheet" type="text/css"/>-->
 </head>
@@ -63,13 +76,8 @@
             </ul>
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-12">
-            <img src="http://placehold.it/1100x850">
-        </div>
-    </div>
 </div>
-
+<div id="map"></div>
 <!-- Modal Register-->
 <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="Register" aria-hidden="true">
     <div class="modal-dialog">
@@ -346,4 +354,41 @@
             }
         });
     }
+</script>
+<script>
+    var map;
+    //Initialized JavaScript functions to load the map
+    function initMap() {
+        // Constructor creates a new map - only center and zoom are required.
+        //Used in callback
+
+        var initCenter = new google.maps.LatLng(39.6315214,22.4464073);
+        var mapOptions = {//create the map object
+            center:initCenter,
+            zoom:7,
+            scaleControl: true,
+            mapTypeControl: true,
+            mapTypeControlOptions: {
+                style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
+                position:google.maps.ControlPosition.TOP_LEFT,
+            },
+            streetViewControlOptions: {
+                position: google.maps.ControlPosition.RIGHT_TOP },
+            panControl: true,
+            panControlOptions: {
+                position: google.maps.ControlPosition.RIGHT_TOP
+            },
+            zoomControl: true,
+            zoomControlOptions: {
+                position: google.maps.ControlPosition.RIGHT_TOP
+            },
+            mapTypeId:google.maps.MapTypeId.ROADMAP
+        };
+
+        //New map Instance
+        map = new google.maps.Map(document.getElementById("map"), mapOptions);
+    }
+</script>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAgsWQrJsLfcZYrqjM6S4C9NqublrJk1Eo&v=3&callback=initMap">
 </script>
