@@ -159,6 +159,8 @@
 <script type="text/javascript" src="/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="/js/notify.js"></script>
 <script type="text/javascript">
+    var api_token = "";
+
     $( document ).ready(function() {
         loginSubmit();
         registerSubmit();
@@ -169,12 +171,14 @@
 
             event.preventDefault();// using this page stop being refreshing
             $('#loginError').empty();
+            $('.help-block').remove();
+            $('.has-error').removeClass('has-error');
             $.ajax({
                 type: "POST",
                 url: "https://fuel.local/api/v1/login/",
                 data: $('#loginForm').serialize(),
                 success: function(response){
-                    console.log(response);
+                    api_token = response.api_token;
                     $('#loginModal').modal('hide');
                     $.notify({
                         // options
@@ -189,7 +193,12 @@
                     });
                 },
                 error: function(response){
-                    $('#loginError').append("Username or Password is incorrect");
+                    $('#loginError').append(response.responseJSON.message);
+                    $.each(response.responseJSON, function(inputName, errorMessage){
+                        $("#loginForm input[name=" + inputName + "]").
+                        after('<span class="help-block">' + errorMessage + '</span>')
+                            .parent('div').addClass('has-error');
+                    });
                 }
             });
         });
@@ -207,7 +216,6 @@
                 url: "https://fuel.local/api/v1/register/",
                 data: $('#registerForm').serialize(),
                 success: function(response){
-                    console.log(response);
                     $('#registerModal').modal('hide');
                     $.notify({
                         // options
@@ -218,7 +226,7 @@
                         placement: {
                             from: "top",
                             align: "center"
-                        },
+                        }
                     });
                 },
                 error: function(response){
@@ -228,7 +236,6 @@
                         after('<span class="help-block">' + errorMessage + '</span>')
                             .parent('div').addClass('has-error');
                     });
-
                 }
             });
         });

@@ -39,7 +39,7 @@ class UserController extends Controller
             $user->save();
             return response()->json(['api_token' => $user->api_token]);
         } else {
-            return response()->json(["message"=>"invalid credentials"]);
+            return response()->json(["message"=>"Username or Password is incorrect"], 400);
         }
     }
 
