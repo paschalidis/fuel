@@ -79,6 +79,7 @@ class QueryMapper
         $this->prepareGroupBy($this->_parameters);
         $this->prepareLimitOffset($this->_parameters);
 
+        $this->prepareBetweenStatement($this->_parameters);
         $this->prepareWhere($this->_parameters);
 
         $sql .= $this->_whereStatement;
@@ -96,7 +97,6 @@ class QueryMapper
      */
     protected function prepareColumns(&$parameters)
     {
-
         if (!isset($parameters['fields'])) {
             return;
         }
@@ -114,19 +114,54 @@ class QueryMapper
 
     protected function prepareWhere(&$parameters)
     {
-
         if (empty($parameters)) {
             return;
         }
 
-        $arrayKeys = array_keys($parameters);
-
-        $where = " WHERE " . $arrayKeys[0] . ' = "' . $parameters[$arrayKeys[0]] . '"';
-        unset($parameters[$arrayKeys[0]]);
-
+        $where = $this->_whereStatement;
         foreach ($parameters as $key => $value) {
-            $where .= ' AND ' . $key . ' = "' . $value . '"';
+            if(empty($where)){
+                $where .= ' WHERE ' . $key;
+            } else {
+                $where .= ' AND ' . $key;
+            }
+
+            if(is_array($value)){
+                $equal = ' IN ("' . implode('","', $value) . '")';
+            } else {
+                $equal = ' = "' . $value . '"';
+            }
+
+            $where .= $equal;
             unset($parameters[$key]);
+        }
+
+        $this->_whereStatement = $where;
+    }
+
+    protected function prepareBetweenStatement(&$parameters)
+    {
+        if (empty($parameters)) {
+            return;
+        }
+
+        $where = $this->_whereStatement;
+        foreach ($parameters as $key => $value) {
+
+            if (strpos($key, '_BETWEEN') !== false) {
+                $column = str_replace('_BETWEEN', '', $key);
+
+                if(empty($where)){
+                    $where .= ' WHERE ' . $column . ' BETWEEN ';
+                } else {
+                    $where .= ' AND ' . $column . ' BETWEEN ';
+                }
+
+                $values = explode(',', str_replace(' ', '', $value));
+
+                $where .= $values[0] . ' AND ' . $values[1];
+                unset($parameters[$key]);
+            }
         }
 
         $this->_whereStatement = $where;
@@ -134,7 +169,6 @@ class QueryMapper
 
     protected function prepareLimitOffset(&$parameters)
     {
-
         if (empty($parameters)) {
             return;
         }
@@ -150,8 +184,8 @@ class QueryMapper
         }
     }
 
-    protected function prepareAggregate(&$parameters){
-
+    protected function prepareAggregate(&$parameters)
+    {
         if (empty($parameters)) {
             return;
         }
@@ -191,7 +225,8 @@ class QueryMapper
         }
     }
 
-    protected function prepareGroupBy(&$parameters){
+    protected function prepareGroupBy(&$parameters)
+    {
         if (empty($parameters)) {
             return;
         }
