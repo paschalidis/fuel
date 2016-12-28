@@ -83,6 +83,10 @@
                                 <span id="ordersNumber" class="badge">0</span>
                             </li>
                             <li role="separator" class="divider"></li>
+                            <li id="updateFuelData" style="display: none">
+                                <a href="#" data-toggle="modal" data-target="#priceDataModal">Update Fuel Data</a>
+                            </li>
+                            <li role="separator" class="divider"></li>
                             <li><a href="#" data-toggle="modal" data-target="#makeOrderModal">Make order</a></li>
                             <li role="separator" class="divider"></li>
                             <li><a href="#">Cras justo odio</a></li>
@@ -160,13 +164,13 @@
                     <div class="form-group">
                         <label for="registerUsername" class="col-sm-2 control-label">Username</label>
                         <div class="col-sm-10">
-                            <input name="username" type="text" class="form-control" id="registerUsername" placeholder="Username">
+                            <input name="username" type="text" class="form-control" id="loginUsername" placeholder="Username">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="registerPassword" class="col-sm-2 control-label">Password</label>
                         <div class="col-sm-10">
-                            <input name="password" type="password" class="form-control" id="registerPassword" placeholder="Password">
+                            <input name="password" type="password" class="form-control" id="loginPassword" placeholder="Password">
                         </div>
                     </div>
                     <div class="form-group">
@@ -248,16 +252,56 @@
         </div>
     </div>
 </div>
+
+<!-- Modal Price Data -->
+<div class="modal fade" id="priceDataModal" tabindex="-1" role="dialog" aria-labelledby="Login" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Fuel Data</h4>
+            </div>
+            <div class="modal-body">
+                <div class="table-responsive">
+                    <table id="priceDataTable" class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Normal Name</th>
+                            <th>Name</th>
+                            <th>Price</th>
+                            <th>Updated</th>
+                            <th>Premium</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 </body>
 </html>
 <script type="text/javascript" src="/js/jquery-3.1.1.min.js"></script>
 <script type="text/javascript" src="/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="/js/notify.js"></script>
 <script type="text/javascript">
+    // Login Values
     var api_token = "";
+    var username = "";
+    var userGasStation = "";
+
+    //Map Values
     var map = null;
-    // Create a new blank array for all the listing markers.
-    var markers = [];
+    var markers = []; // Create a new blank array for all the listing markers.
+
+    //Settings
     var defaultFuelTypeID = '1';
 
     $( document ).ready(function() {
@@ -452,7 +496,10 @@
                 data: $('#loginForm').serialize(),
                 success: function(response){
                     api_token = response.api_token;
+                    username = $("#loginUsername").val();
+
                     getOrders();
+                    getUserGasStation();
                     $('#loginModal').modal('hide');
                     $.notify({
                         // options
@@ -519,7 +566,7 @@
         $.ajax({
             type: "GET",
             url: "https://fuel.local/api/v1/orders/",
-            data: {"api_token": api_token},
+            data: {"api_token": api_token, "owner" : username},
             success: function(response){
                 $('#ordersList').show();
                 $('#ordersNumber').append(response.length);
@@ -548,6 +595,39 @@
             }
         });
     }
+
+    function getUserGasStation() {
+        $.ajax({
+            type: "GET",
+            url: "https://fuel.local/api/v1/gasstations/",
+            data: {"fields": "gasStationID", "username" : username},
+            success: function(response){
+                $('#updateFuelData').show();
+                userGasStation = response[0].gasStationID;
+            }
+        });
+    }
+
+    $('#priceDataModal').on('show.bs.modal', function(event) {
+
+        $.ajax({
+            type: "GET",
+            url: "https://fuel.local/api/v1/gasstations/" + userGasStation + "/pricedata/",
+            success: function(response){
+
+                $.each(response, function(i, item) {
+                    var  row = i + 1;
+                    $('#priceDataTable').append('<tr><th scope="row">' + row + '</th>' +
+                        '<td> ' + item.fuelNormalName + ' </td>' +
+                        '<td> ' + item.fuelName + ' </td>' +
+                        '<td> ' + item.fuelPrice + ' </td>' +
+                        '<td> ' + item.dateUpdated + ' </td>' +
+                        '<td> ' + item.isPremium + ' </td></tr>');
+                });
+            }
+        });
+
+    });
 
     function initMap2() {
         var initCenter = new google.maps.LatLng(39.6315214,22.4464073);
