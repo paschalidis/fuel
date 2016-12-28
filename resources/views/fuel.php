@@ -45,9 +45,9 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <form class="navbar-form navbar-left">
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search for...">
+                        <input id="zoom-to-area-text" type="text" class="form-control" placeholder="Enter your area...">
                         <span class="input-group-btn">
-                            <button class="btn btn-default" type="button">Go!</button>
+                            <button id="zoom-to-area" class="btn btn-default" type="button">Go!</button>
                         </span>
                     </div><!-- /input-group -->
                 </form>
@@ -256,12 +256,156 @@
 <script type="text/javascript">
     var api_token = "";
     var map = null;
-    var markers = [];     //array to store marker references
+    // Create a new blank array for all the listing markers.
+    var markers = [];
 
     $( document ).ready(function() {
         loginSubmit();
         registerSubmit();
     });
+
+    document.getElementById('zoom-to-area').addEventListener('click', function() {
+        zoomToArea();
+    });
+
+    $('#zoom-to-area-text').keypress(function (e) {
+        if (e.which == 13) {
+            $("#zoom-to-area").click();
+            return false;    //<---- Add this line
+        }
+    });
+
+    //Initialized JavaScript functions to load the map
+    function initMap() {
+        // Constructor creates a new map - only center and zoom are required.
+        //Used in callback
+
+        var Greece = new google.maps.LatLng(37.840834994646166, 23.74952344409178);
+        //New map Instance
+        map = new google.maps.Map(document.getElementById('map'), {
+            center: Greece,
+            zoom: 6,
+            mapTypeControl: false
+        });
+
+        map.addListener('idle', function() {
+            // 3 seconds after the center of the map has changed, pan back to the
+            // marker.
+            window.setTimeout(function() {
+                cleanMarkers();
+                getGasStations();
+            }, 1000);
+        });
+
+    }
+
+    function getGasStations() {
+        var mapBounds = map.getBounds();;
+        var latIN = mapBounds.f.f + ',' + mapBounds.f.b;
+        var lngIN = mapBounds.b.b + ',' + mapBounds.b.f;
+
+        var _data = {'fields': 'gasStationID,gasStationLat,gasStationLong,fuelCompNormalName',
+            'gasStationLat_BETWEEN' : latIN,
+            'gasStationLong_BETWEEN' : lngIN};
+
+        $.ajax({
+            type: "GET",
+            url: "https://fuel.local/api/v1/gasstations/",
+            data: _data,
+            success: function(resnponse){
+
+                var largeInfowindow = new google.maps.InfoWindow();
+                $.each(resnponse, function(i, item) {
+
+                    var gasStationPosition = new google.maps.LatLng(item.gasStationLat, item.gasStationLong);
+
+                    var myMarker = new google.maps.Marker({
+                        map: map,
+                        position: gasStationPosition,
+                        title: item.fuelCompNormalName
+                    });
+
+                    markers.push(myMarker);
+                    myMarker.addListener('click', function() {
+                        populateInfoWindow(this, largeInfowindow);
+                    });
+
+                });
+            }
+        });
+    }
+
+    // This function populates the infowindow when the marker is clicked. We'll only allow
+    // one infowindow which will open at the marker that is clicked, and populate based
+    // on that markers position.
+    function populateInfoWindow(marker, infowindow) {
+        // Check to make sure the infowindow is not already opened on this marker.
+        if (infowindow.marker != marker) {
+            infowindow.marker = marker;
+            infowindow.setContent('<div>' + marker.title + '</div>');
+            infowindow.open(map, marker);
+            // Make sure the marker property is cleared if the infowindow is closed.
+            infowindow.addListener('closeclick',function(){
+                infowindow.setMarker(null);
+            });
+        }
+    }
+
+    function cleanMarkers() {
+        for (var i=0; i<markers.length; i++){
+            markers[i].setMap(null);
+        }
+        //άδειασμα και του πίνακα με τα references
+        markers=[];
+    }
+
+    // This function takes the input value in the find nearby area text input
+    // locates it, and then zooms into that area. This is so that the user can
+    // show all listings, then decide to focus on one area of the map.
+    function zoomToArea() {
+        // Initialize the geocoder.
+        var geocoder = new google.maps.Geocoder();
+        // Get the address or place that the user entered.
+        var address = document.getElementById('zoom-to-area-text').value;
+        // Make sure the address isn't blank.
+        if (address == '') {
+            $.notify({
+                // options
+                message: 'You must enter an area, or address.'
+            },{
+                // settings
+                type: 'danger',
+                placement: {
+                    from: "top",
+                    align: "center"
+                }
+            });
+        } else {
+            // Geocode the address/area entered to get the center. Then, center the map
+            // on it and zoom in
+            geocoder.geocode(
+                { address: address
+                }, function(results, status) {
+                    if (status == google.maps.GeocoderStatus.OK) {
+                        map.setCenter(results[0].geometry.location);
+                        map.setZoom(14);
+                    } else {
+                        $.notify({
+                            // options
+                            message: 'We could not find that location - try entering a more' +
+                            ' specific place.'
+                        },{
+                            // settings
+                            type: 'danger',
+                            placement: {
+                                from: "top",
+                                align: "center"
+                            }
+                        });
+                    }
+                });
+        }
+    }
 
     function loginSubmit() {
         $("#loginSubmit").click(function(event){
@@ -373,7 +517,7 @@
         });
     }
 
-    function initMap() {
+    function initMap2() {
         var initCenter = new google.maps.LatLng(39.6315214,22.4464073);
         var mapOptions = {//create the map object
             center:initCenter,
@@ -400,12 +544,6 @@
         //New map Instance
         map = new google.maps.Map(document.getElementById("map"), mapOptions);
 
-        if(navigator.geolocation) {
-            //ορισμός callback συναρτήσεων για τον χειρισμό
-            //επιτυχούς ή ανεπιτυχούς προσδιορισμού θέσης
-            navigator.geolocation.getCurrentPosition(cbGetCurPosOK, cbGetCurPosFail);
-        }
-
         $.ajax({
             type: "GET",
                 url: "https://fuel.local/api/v1/gasstations/",
@@ -427,51 +565,6 @@
         });
     }
 
-    //position είναι το στίγμα που επεστράφει από τον browser
-    function cbGetCurPosOK(position) {
-        //έστω διαβάζουμε την τρέχουσα θέση και φτιάχνουμε ένα σημείο χάρτη
-        var curPosition = new google.maps.LatLng( position.coords.latitude,
-            position.coords.longitude );
-        // κεντράρουμε το χάρτη σε αυτό το σημείο
-        map.setCenter(curPosition);
-
-        // φτιάχνουμε μια πινέζα (marker) σε αυτό το σημείο
-        var curMarker = new google.maps.Marker({ position: curPosition,
-            title: 'You are here!',
-            icon: 'home.png' });
-        //βάζουμε την πινέζα στο χάρτη (γίνεται και στην αρχικοποίηση!)
-        curMarker.setMap(map);
-
-        var marker = new google.maps.Marker({
-            position: curPosition,
-            map: map,
-            title: 'You are here'
-        });
-
-        //zoom στη θέση μας - επιλέξτε επίπεδο zoom που επιτρέπει στο χρήστη
-        //να δει και κάποια σημεία αναφοράς της περιοχής για να προσανατολιστεί.
-        //Συνήθως τιμές 10-12 είναι οι ποιο ταιριαστές
-        map.setZoom(12);
-    }
-
-    //callback σε MH υποστήριξη geolocation
-    function cbGetCurPosFail(error) {
-        //διαβάζουμε το error code και ενημερώνουμε τον χρήστη
-        switch(error.code) {
-            case error.PERMISSION_DENIED:
-                alert("User denied the request for Geolocation.");
-                break;
-            case error.POSITION_UNAVAILABLE:
-                alert("Location information is unavailable.");
-                break;
-            case error.TIMEOUT:
-                alert("The request to get user location timed out.");
-                break;
-            case error.UNKNOWN_ERROR:
-                alert("An unknown error occurred.");
-                break;
-        }
-    }
 </script>
 <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAgsWQrJsLfcZYrqjM6S4C9NqublrJk1Eo&v=3&callback=initMap">
