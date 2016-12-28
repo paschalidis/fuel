@@ -342,6 +342,13 @@
 
     function getPriceDataAnalytics(gasStationsIDs) {
 
+        if(gasStationsIDs.length <= 0){
+            $('#minPrice').text('0');
+            $('#avgPrice').text('0');
+            $('#maxPrice').text('0');
+            return;
+        }
+
         var _data = {gasStationID : gasStationsIDs,
                      'max' : 'fuelPrice',
                      'min' : 'fuelPrice',

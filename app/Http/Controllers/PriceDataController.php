@@ -34,7 +34,7 @@ class PriceDataController extends Controller
     {
         $parameters = $request->all();
         $parameters['gasStationID'] = $gasStationId;
-        $queryMapper = new QueryMapper($parameters, 'pricedata');
+        $queryMapper = new QueryMapper($parameters, 'pricedata_view');
 
         try{
             $priceData = $queryMapper->get();
