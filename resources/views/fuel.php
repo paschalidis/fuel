@@ -617,12 +617,18 @@
 
                 $.each(response, function(i, item) {
                     var  row = i + 1;
+                    var  premium = "Yes";
+                    if(item.isPremium == 0){
+                        premium = "No";
+                    }
+
+
                     $('#priceDataTable').append('<tr><th scope="row">' + row + '</th>' +
                         '<td> ' + item.fuelNormalName + ' </td>' +
                         '<td> ' + item.fuelName + ' </td>' +
                         '<td> ' + item.fuelPrice + ' </td>' +
                         '<td> ' + item.dateUpdated + ' </td>' +
-                        '<td> ' + item.isPremium + ' </td></tr>');
+                        '<td> ' + premium + ' </td></tr>');
                 });
             }
         });
