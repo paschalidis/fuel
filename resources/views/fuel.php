@@ -58,15 +58,15 @@
                         Total Fuels:
                     </li>
                     <li class="list-group-item list-group-item-success">
-                        <span class="badge">40</span>
+                        <span id="minPrice" class="badge">0</span>
                         Min Prize
                     </li>
                     <li class="list-group-item list-group-item-warning">
-                        <span class="badge">40</span>
+                        <span id="avgPrice" class="badge">0</span>
                         AVG Prize
                     </li>
                     <li class="list-group-item list-group-item-danger">
-                        <span class="badge">40</span>
+                        <span id="maxPrice" class="badge">0</span>
                         MAx prize
                     </li>
                     <li><a href="#">Link</a></li>
@@ -258,6 +258,7 @@
     var map = null;
     // Create a new blank array for all the listing markers.
     var markers = [];
+    var defaultFuelTypeID = '1';
 
     $( document ).ready(function() {
         loginSubmit();
@@ -291,16 +292,17 @@
         map.addListener('idle', function() {
             // 3 seconds after the center of the map has changed, pan back to the
             // marker.
-            window.setTimeout(function() {
-                cleanMarkers();
+            cleanMarkers();
+           // window.setTimeout(function() {
                 getGasStations();
-            }, 1000);
+            //}, 1000);
         });
 
     }
 
     function getGasStations() {
-        var mapBounds = map.getBounds();;
+        var gasStationsIDs = [];
+        var mapBounds = map.getBounds();
         var latIN = mapBounds.f.f + ',' + mapBounds.f.b;
         var lngIN = mapBounds.b.b + ',' + mapBounds.b.f;
 
@@ -316,7 +318,7 @@
                 $('#gasStationsNumber').text(response.length);
                 var largeInfowindow = new google.maps.InfoWindow();
                 $.each(response, function(i, item) {
-
+                    gasStationsIDs.push(item.gasStationID);
                     var gasStationPosition = new google.maps.LatLng(item.gasStationLat, item.gasStationLong);
 
                     var myMarker = new google.maps.Marker({
@@ -331,6 +333,29 @@
                     });
 
                 });
+
+                getPriceDataAnalytics(gasStationsIDs);
+            }
+        });
+
+    }
+
+    function getPriceDataAnalytics(gasStationsIDs) {
+
+        var _data = {gasStationID : gasStationsIDs,
+                     'max' : 'fuelPrice',
+                     'min' : 'fuelPrice',
+                     'avg' : 'fuelPrice',
+                     'fuelTypeID' : defaultFuelTypeID};
+
+        $.ajax({
+            type: "GET",
+            url: "https://fuel.local/api/v1/pricedata/",
+            data: _data,
+            success: function(response){
+                $('#minPrice').text(response[0].min_fuelPrice);
+                $('#avgPrice').text(response[0].avg_fuelPrice);
+                $('#maxPrice').text(response[0].max_fuelPrice);
             }
         });
     }
