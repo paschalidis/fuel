@@ -54,7 +54,7 @@
                 <ul class="nav navbar-nav navbar-right">
                     <p class="navbar-text">Signed in as</p>
                     <li class="list-group-item list-group-item-info">
-                        <span class="badge">40</span>
+                        <span id="gasStationsNumber" class="badge">0</span>
                         Total Fuels:
                     </li>
                     <li class="list-group-item list-group-item-success">
@@ -312,10 +312,10 @@
             type: "GET",
             url: "https://fuel.local/api/v1/gasstations/",
             data: _data,
-            success: function(resnponse){
-
+            success: function(response){
+                $('#gasStationsNumber').text(response.length);
                 var largeInfowindow = new google.maps.InfoWindow();
-                $.each(resnponse, function(i, item) {
+                $.each(response, function(i, item) {
 
                     var gasStationPosition = new google.maps.LatLng(item.gasStationLat, item.gasStationLong);
 

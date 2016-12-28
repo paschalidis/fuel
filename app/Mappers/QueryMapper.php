@@ -192,27 +192,27 @@ class QueryMapper
         $columns = array();
 
         if(isset($parameters['max'])){
-                $columns[] = "MAX(" . $parameters['max'] . ")";
+                $columns[] = "MAX(" . $parameters['max'] . ") AS max_" . $parameters['max'];
                 unset($parameters['max']);
         }
 
         if(isset($parameters['min'])){
-            $columns[] = "MIN(" . $parameters['min'] . ")";
+            $columns[] = "MIN(" . $parameters['min'] . ") AS min_" . $parameters['min'];
             unset($parameters['min']);
         }
 
         if(isset($parameters['avg'])){
-            $columns[] = "AVG(" . $parameters['avg'] . ")";
+            $columns[] = "AVG(" . $parameters['avg'] . ") AS avg_" . $parameters['avg'];
             unset($parameters['avg']);
         }
 
         if(isset($parameters['sum'])){
-            $columns[] = "SUM(" . $parameters['sum'] . ")";
+            $columns[] = "SUM(" . $parameters['sum'] . ") AS sum_" . $parameters['sum'];
             unset($parameters['sum']);
         }
 
         if(isset($parameters['count'])){
-            $columns[] = "COUNT(" . $parameters['count'] . ")";
+            $columns[] = "COUNT(" . $parameters['count'] . ") AS count_" . $parameters['count'];
             unset($parameters['count']);
         }
 
