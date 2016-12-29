@@ -13,26 +13,87 @@ $( document ).ready(function() {
     updatePriceDataSubmit();
 });
 
-$('#priceData').click(function () {
-    if(userGasStation === ''){
-        return;
+$('#priceDataModal').on('show.bs.modal', function (event) {
+    var button = $(event.relatedTarget); // Button that triggered the modal
+    var action = button.data('action'); // Extract info from data-* attributes
+    var gasStationId = "";
+    var target = "";
+    if(action == "edit"){
+        if(userGasStation === ''){
+            return;
+        }
+        gasStationId = userGasStation;
+        target = "#updatePriceDataModal";
+    }else {
+        gasStationId = button.data('gasstationid');
+        target = "#makeOrderModal";
     }
 
-    getPriceData(userGasStation, 'edit');
+    $("#priceDataTable > tbody").children().remove();
+
+    $.ajax({
+        async: false,
+        type: "GET",
+        url: "https://fuel.local/api/v1/gasstations/" + gasStationId + "/pricedata/",
+        success: function(response){
+
+            $.each(response, function(i, item) {
+                var  premium = "Yes";
+                if(item.isPremium == 0){
+                    premium = "No";
+                }
+
+                $('#priceDataTable').append('<tr>' +
+                    '<td>' + item.fuelNormalName + '</td>' +
+                    '<td>' + item.fuelName + '</td>' +
+                    '<td>' + item.fuelPrice + '</td>' +
+                    '<td>' + item.dateUpdated + '</td>' +
+                    '<td>' + premium + '</td>' +
+                    '<td><button type="button" class="btn btn-primary" data-toggle="modal" ' +
+                    'data-target="' + target + '" data-whatever="'+ item.fuelName + ',' + item.priceDataID +
+                    ',' +  item.fuelPrice + '">' + action +'</button></td></tr>');
+            });
+        }
+    });
 });
 
 $('#updatePriceDataModal').on('show.bs.modal', function (event) {
     $('#priceDataModal').modal('hide');
-    var button = $(event.relatedTarget) // Button that triggered the modal
-    var recipient = button.data('whatever') // Extract info from data-* attributes
+    var button = $(event.relatedTarget); // Button that triggered the modal
+    var recipient = button.data('whatever');// Extract info from data-* attributes
     var priceData = recipient.split(",");
     // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
     // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
-    var modal = $(this)
+    var modal = $(this);
     modal.find('.modal-title').text('Update ' + priceData[0]);
     modal.find('#updatePriceDataID').val(priceData[1]);
     modal.find('#updateFuelPrice').val(priceData[2]);
-})
+});
+
+$('#makeOrderModal').on('show.bs.modal', function (event) {
+    if(api_token === ""){
+        event.preventDefault();
+        $.notify({ message: "Please login to order"
+        },{
+            type: 'success',
+            placement: {
+                from: "top",
+                align: "center"
+            }
+        });
+    }
+
+    $('#priceDataModal').modal('hide');
+    var button = $(event.relatedTarget); // Button that triggered the modal
+    var recipient = button.data('whatever');// Extract info from data-* attributes
+    var priceData = recipient.split(",");
+    // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+    // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+    var modal = $(this);
+    modal.find('.modal-title').text('Order: ' + priceData[0]);
+    modal.find('#makeOrderPriceDataID').val(priceData[1]);
+    modal.find('#makeOrderFuelPrice').val(priceData[2]);
+});
 
 function getGasStations() {
     var gasStationsIDs = [];
@@ -58,7 +119,8 @@ function getGasStations() {
                 var myMarker = new google.maps.Marker({
                     map: map,
                     position: gasStationPosition,
-                    title: item.fuelCompNormalName
+                    title: item.fuelCompNormalName,
+                    id: item.gasStationID
                 });
 
                 markers.push(myMarker);
@@ -227,35 +289,6 @@ function getUserGasStation() {
 
             $('#updateFuelData').show();
             userGasStation = response[0].gasStationID;
-        }
-    });
-}
-
-function getPriceData(gasStationId, action) {
-    $("#priceDataTable > tbody").children().remove();
-
-    $.ajax({
-        type: "GET",
-        url: "https://fuel.local/api/v1/gasstations/" + gasStationId + "/pricedata/",
-        success: function(response){
-
-            $.each(response, function(i, item) {
-                var  premium = "Yes";
-                if(item.isPremium == 0){
-                    premium = "No";
-                }
-
-                $('#priceDataTable').append('<tr>' +
-                    '<td> ' + item.fuelNormalName + ' </td>' +
-                    '<td> ' + item.fuelName + ' </td>' +
-                    '<td> ' + item.fuelPrice + ' </td>' +
-                    '<td> ' + item.dateUpdated + ' </td>' +
-                    '<td> ' + premium + ' </td>' +
-                    '<td><button type="button" class="btn btn-primary" data-toggle="modal" ' +
-                    'data-target="#updatePriceDataModal" data-whatever="'+ item.fuelName + ',' + item.priceDataID +
-                    ',' +  item.fuelPrice + '">' + action +'</button></td></tr>');
-            });
-            $('#priceDataModal').modal('show');
         }
     });
 }

@@ -44,7 +44,10 @@ function populateInfoWindow(marker, infowindow) {
     // Check to make sure the infowindow is not already opened on this marker.
     if (infowindow.marker != marker) {
         infowindow.marker = marker;
-        infowindow.setContent('<div>' + marker.title + '</div>');
+        infowindow.setContent('<div>' + marker.title + '</div>' +
+            '<div><a href="#" data-gasstationid="' + marker.id +
+            '" data-toggle="modal" data-target="#priceDataModal"' +
+            ' data-action="order">Price Data</a></div>');
         infowindow.open(map, marker);
         // Make sure the marker property is cleared if the infowindow is closed.
         infowindow.addListener('closeclick',function(){

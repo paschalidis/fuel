@@ -84,7 +84,7 @@
                             </li>
                             <li role="separator" class="divider"></li>
                             <li id="updateFuelData" style="display: none">
-                                <a href="#" id="priceData">Update Fuel Data</a>
+                                <a href="#" data-toggle="modal" data-target="#priceDataModal" data-action="edit">Update Fuel Data</a>
                             </li>
                             <li role="separator" class="divider"></li>
                             <li><a href="#" data-toggle="modal" data-target="#makeOrderModal">Make order</a></li>
@@ -218,41 +218,6 @@
     </div>
 </div>
 
-<!-- Modal Make Order -->
-<div class="modal fade" id="makeOrderModal" tabindex="-1" role="dialog" aria-labelledby="Login" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">Make Order</h4>
-            </div>
-            <div class="modal-body">
-                <form id="makeOrderForm" class="form-horizontal">
-                    <h4><p class="text-center"><span id="loginError" class="label label-danger"></span></p></h4>
-                    <div class="form-group">
-                        <label for="registerUsername" class="col-sm-2 control-label">Username</label>
-                        <div class="col-sm-10">
-                            <input name="username" type="text" class="form-control" id="registerUsername" placeholder="Username">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="registerPassword" class="col-sm-2 control-label">Password</label>
-                        <div class="col-sm-10">
-                            <input name="password" type="password" class="form-control" id="registerPassword" placeholder="Password">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-sm-offset-2 col-sm-10">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            <button id="loginSubmit" type="submit" class="btn btn-default">Sign in</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-
 <!-- Modal Price Data -->
 <div class="modal fade" id="priceDataModal" tabindex="-1" role="dialog" aria-labelledby="Login" aria-hidden="true">
     <div class="modal-dialog">
@@ -308,6 +273,42 @@
                         <div class="col-sm-offset-2 col-sm-10">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                             <button id="updatePriceDataSubmit" type="submit" class="btn btn-default">Update</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Make Order -->
+<div class="modal fade" id="makeOrderModal" tabindex="-1" role="dialog" aria-labelledby="Login" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Order</h4>
+            </div>
+            <div class="modal-body">
+                <form id="updatePriceDataForm" class="form-horizontal">
+                    <h4><p class="text-center"><span id="makeOrderError" class="label label-danger"></span></p></h4>
+                    <input name="priceDataID" type="hidden" id="makeOrderPriceDataID" value="">
+                    <div class="form-group">
+                        <label for="updateFuelPrice" class="col-sm-2 control-label">Fuel Price</label>
+                        <div class="col-sm-10">
+                            <input name="fuelPrice" type="text" class="form-control" id="makeOrderFuelPrice">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="makeOrderQuantity" class="col-sm-2 control-label">Quantity</label>
+                        <div class="col-sm-10">
+                            <input name="quantity" type="text" class="form-control" id="makeOrderQuantity">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button id="makeOrderSubmit" type="submit" class="btn btn-default">Order</button>
                         </div>
                     </div>
                 </form>
