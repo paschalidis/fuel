@@ -296,7 +296,7 @@
             </div>
             <div class="modal-body">
                 <form id="updatePriceDataForm" class="form-horizontal">
-                    <h4><p class="text-center"><span id="updateError" class="label label-danger"></span></p></h4>
+                    <h4><p class="text-center"><span id="updatePriceDataError" class="label label-danger"></span></p></h4>
                     <input name="priceDataID" type="hidden" id="updatePriceDataID" value="">
                     <div class="form-group">
                         <label for="updateFuelPrice" class="col-sm-2 control-label">Fuel Price</label>
@@ -307,7 +307,7 @@
                     <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            <button id="updateSubmit" type="submit" class="btn btn-default">Update</button>
+                            <button id="updatePriceDataSubmit" type="submit" class="btn btn-default">Update</button>
                         </div>
                     </div>
                 </form>

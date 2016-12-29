@@ -5,10 +5,12 @@ var userGasStation = "";
 
 //Settings
 var defaultFuelTypeID = '1';
+var api_url = "https://fuel.local/api/v1/";
 
 $( document ).ready(function() {
     loginSubmit();
     registerSubmit();
+    updatePriceDataSubmit();
 });
 
 $('#priceData').click(function () {
@@ -20,6 +22,7 @@ $('#priceData').click(function () {
 });
 
 $('#updatePriceDataModal').on('show.bs.modal', function (event) {
+    $('#priceDataModal').modal('hide');
     var button = $(event.relatedTarget) // Button that triggered the modal
     var recipient = button.data('whatever') // Extract info from data-* attributes
     var priceData = recipient.split(",");
@@ -254,5 +257,43 @@ function getPriceData(gasStationId, action) {
             });
             $('#priceDataModal').modal('show');
         }
+    });
+}
+
+function updatePriceDataSubmit() {
+    $("#updatePriceDataSubmit").click(function(event){
+        event.preventDefault();// using this page stop being refreshing
+
+        $('.help-block').remove();
+        $('#updatePriceDataError').empty();
+        $('.has-error').removeClass('has-error');
+        $.ajax({
+            type: "PUT",
+            url: api_url + "pricedata/" + $("#updatePriceDataID").val(),
+            data: {fuelPrice :  $("#updateFuelPrice").val(),
+                api_token : api_token},
+            success: function(response){
+                $('#updatePriceDataModal').modal('hide');
+                $.notify({
+                    // options
+                    message: response.message
+                },{
+                    // settings
+                    type: 'success',
+                    placement: {
+                        from: "top",
+                        align: "center"
+                    }
+                });
+            },
+            error: function(response){
+                $('#updatePriceDataError').append(response.responseJSON.message);
+                $.each(response.responseJSON, function(inputName, errorMessage){
+                    $("#registerForm input[name=" + inputName + "]").
+                    after('<span class="help-block">' + errorMessage + '</span>')
+                        .parent('div').addClass('has-error');
+                });
+            }
+        });
     });
 }
