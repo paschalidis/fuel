@@ -11,6 +11,16 @@ $( document ).ready(function() {
     registerSubmit();
 });
 
+$('#priceData').click(function () {
+    if(userGasStation === ''){
+        return;
+    }
+
+    var action = '<a href="#">Edit</a>';
+
+    getPriceData(userGasStation, action);
+});
+
 function getGasStations() {
     var gasStationsIDs = [];
     var mapBounds = map.getBounds();
@@ -203,29 +213,29 @@ function getUserGasStation() {
     });
 }
 
-$('#priceDataModal').on('show.bs.modal', function(event) {
+function getPriceData(gasStationId, action) {
+    $("#priceDataTable > tbody").children().remove();
 
     $.ajax({
         type: "GET",
-        url: "https://fuel.local/api/v1/gasstations/" + userGasStation + "/pricedata/",
+        url: "https://fuel.local/api/v1/gasstations/" + gasStationId + "/pricedata/",
         success: function(response){
 
             $.each(response, function(i, item) {
-                var  row = i + 1;
                 var  premium = "Yes";
                 if(item.isPremium == 0){
                     premium = "No";
                 }
 
-
-                $('#priceDataTable').append('<tr><th scope="row">' + row + '</th>' +
+                $('#priceDataTable').append('<tr>' +
                     '<td> ' + item.fuelNormalName + ' </td>' +
                     '<td> ' + item.fuelName + ' </td>' +
                     '<td> ' + item.fuelPrice + ' </td>' +
                     '<td> ' + item.dateUpdated + ' </td>' +
-                    '<td> ' + premium + ' </td></tr>');
+                    '<td> ' + premium + ' </td>' +
+                    '<td> ' + action + '</td></tr>');
             });
+            $('#priceDataModal').modal('show');
         }
     });
-
-});
+}

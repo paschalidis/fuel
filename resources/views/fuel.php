@@ -84,7 +84,7 @@
                             </li>
                             <li role="separator" class="divider"></li>
                             <li id="updateFuelData" style="display: none">
-                                <a href="#" data-toggle="modal" data-target="#priceDataModal">Update Fuel Data</a>
+                                <a href="#" id="priceData">Update Fuel Data</a>
                             </li>
                             <li role="separator" class="divider"></li>
                             <li><a href="#" data-toggle="modal" data-target="#makeOrderModal">Make order</a></li>
@@ -266,12 +266,12 @@
                     <table id="priceDataTable" class="table table-bordered">
                         <thead>
                         <tr>
-                            <th>#</th>
                             <th>Normal Name</th>
                             <th>Name</th>
                             <th>Price</th>
                             <th>Updated</th>
                             <th>Premium</th>
+                            <th>Action</th>
                         </tr>
                         </thead>
                         <tbody>
