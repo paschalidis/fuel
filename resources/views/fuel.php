@@ -89,7 +89,7 @@
                             <li role="separator" class="divider"></li>
                             <li><a href="#" data-toggle="modal" data-target="#makeOrderModal">Make order</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="#">Cras justo odio</a></li>
+                            <li><a href="#" data-toggle="modal" data-target="#updatePriceDataModal">Price update</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -286,6 +286,35 @@
     </div>
 </div>
 
+<!-- Modal Update Price Data -->
+<div class="modal fade" id="updatePriceDataModal" tabindex="-1" role="dialog" aria-labelledby="Login" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Update Price Data</h4>
+            </div>
+            <div class="modal-body">
+                <form id="updatePriceDataForm" class="form-horizontal">
+                    <h4><p class="text-center"><span id="updateError" class="label label-danger"></span></p></h4>
+                    <input name="priceDataID" type="hidden" id="updatePriceDataID" value="">
+                    <div class="form-group">
+                        <label for="updateFuelPrice" class="col-sm-2 control-label">Fuel Price</label>
+                        <div class="col-sm-10">
+                            <input name="fuelPrice" type="text" class="form-control" id="updateFuelPrice">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button id="updateSubmit" type="submit" class="btn btn-default">Update</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>
 <script type="text/javascript" src="/js/jquery-3.1.1.min.js"></script>

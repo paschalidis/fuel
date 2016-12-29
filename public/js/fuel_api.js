@@ -16,10 +16,20 @@ $('#priceData').click(function () {
         return;
     }
 
-    var action = '<a href="#">Edit</a>';
-
-    getPriceData(userGasStation, action);
+    getPriceData(userGasStation, 'edit');
 });
+
+$('#updatePriceDataModal').on('show.bs.modal', function (event) {
+    var button = $(event.relatedTarget) // Button that triggered the modal
+    var recipient = button.data('whatever') // Extract info from data-* attributes
+    var priceData = recipient.split(",");
+    // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+    // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+    var modal = $(this)
+    modal.find('.modal-title').text('Update ' + priceData[0]);
+    modal.find('#updatePriceDataID').val(priceData[1]);
+    modal.find('#updateFuelPrice').val(priceData[2]);
+})
 
 function getGasStations() {
     var gasStationsIDs = [];
@@ -207,6 +217,11 @@ function getUserGasStation() {
         url: "https://fuel.local/api/v1/gasstations/",
         data: {"fields": "gasStationID", "username" : username},
         success: function(response){
+            //User is not owner of a gas station
+            if(jQuery.isEmptyObject(response)){
+                return ;
+            }
+
             $('#updateFuelData').show();
             userGasStation = response[0].gasStationID;
         }
@@ -233,7 +248,9 @@ function getPriceData(gasStationId, action) {
                     '<td> ' + item.fuelPrice + ' </td>' +
                     '<td> ' + item.dateUpdated + ' </td>' +
                     '<td> ' + premium + ' </td>' +
-                    '<td> ' + action + '</td></tr>');
+                    '<td><button type="button" class="btn btn-primary" data-toggle="modal" ' +
+                    'data-target="#updatePriceDataModal" data-whatever="'+ item.fuelName + ',' + item.priceDataID +
+                    ',' +  item.fuelPrice + '">' + action +'</button></td></tr>');
             });
             $('#priceDataModal').modal('show');
         }
