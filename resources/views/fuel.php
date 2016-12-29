@@ -290,7 +290,7 @@
                 <h4 class="modal-title" id="myModalLabel">Order</h4>
             </div>
             <div class="modal-body">
-                <form id="updatePriceDataForm" class="form-horizontal">
+                <form id="makeOrderForm" class="form-horizontal">
                     <h4><p class="text-center"><span id="makeOrderError" class="label label-danger"></span></p></h4>
                     <input name="priceDataID" type="hidden" id="makeOrderPriceDataID" value="">
                     <div class="form-group">

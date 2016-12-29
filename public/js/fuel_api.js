@@ -11,6 +11,7 @@ $( document ).ready(function() {
     loginSubmit();
     registerSubmit();
     updatePriceDataSubmit();
+    makeOrderSubmit();
 });
 
 $('#priceDataModal').on('show.bs.modal', function (event) {
@@ -322,7 +323,43 @@ function updatePriceDataSubmit() {
             error: function(response){
                 $('#updatePriceDataError').append(response.responseJSON.message);
                 $.each(response.responseJSON, function(inputName, errorMessage){
-                    $("#registerForm input[name=" + inputName + "]").
+                    $("#updatePriceDataForm input[name=" + inputName + "]").
+                    after('<span class="help-block">' + errorMessage + '</span>')
+                        .parent('div').addClass('has-error');
+                });
+            }
+        });
+    });
+}
+
+function makeOrderSubmit() {
+    $("#makeOrderSubmit").click(function(event){
+        event.preventDefault();// using this page stop being refreshing
+        $('#makeOrderError').empty();
+        $('.help-block').remove();
+        $('.has-error').removeClass('has-error');
+        $.ajax({
+            type: "POST",
+            url: api_url + "orders",
+            data: $('#makeOrderForm').serialize() + '&api_token=' + api_token,
+            success: function(response){
+                $('#makeOrderModal').modal('hide');
+                $.notify({
+                    // options
+                    message: response.message
+                },{
+                    // settings
+                    type: 'success',
+                    placement: {
+                        from: "top",
+                        align: "center"
+                    }
+                });
+            },
+            error: function(response){
+                $('#makeOrderError').append(response.responseJSON.message);
+                $.each(response.responseJSON, function(inputName, errorMessage){
+                    $("#makeOrderForm input[name=" + inputName + "]").
                     after('<span class="help-block">' + errorMessage + '</span>')
                         .parent('div').addClass('has-error');
                 });

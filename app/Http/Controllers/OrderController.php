@@ -53,8 +53,16 @@ class OrderController extends Controller
         $priceDataParameters = array('priceDataID' => $priceDataID,
                                      'fields' => 'gasStationID,fuelPrice,fuelName');
 
-        $queryMapper = new QueryMapper($priceDataParameters,'pricedata');
-        $priceData = $queryMapper->get();
+        $queryMapper = new QueryMapper($priceDataParameters,'pricedata_view');
+        try{
+            $priceData = $queryMapper->get();
+        } catch (\Exception $e){
+            $message = $e->getMessage();
+            if(isset($e->errorInfo[2])){
+                $message = $e->errorInfo[2];
+            }
+            return response()->json(['message' => $message], 400);
+        }
 
         if(empty($priceData)){
             return response()->json(['message' => 'Fuel Not Exist.'], 400);
@@ -65,7 +73,15 @@ class OrderController extends Controller
         $queryMapper->setTable('gasstations');
         $queryMapper->setParameters(array('gasStationID' => $priceData->gasStationID, 'fields' => 'username'));
 
-        $gasStation = $queryMapper->get();
+        try{
+            $gasStation = $queryMapper->get();
+        } catch (\Exception $e){
+            $message = $e->getMessage();
+            if(isset($e->errorInfo[2])){
+                $message = $e->errorInfo[2];
+            }
+            return response()->json(['message' => $message], 400);
+        }
 
         if(empty($priceData)){
             return response()->json(['message' => 'Gas Station Not Exist.'], 400);

@@ -47,23 +47,29 @@ class QueryMapper
 
     public function __construct(array $parameters, $tableName)
     {
+        $this->initProperties();
+        $this->_parameters = $parameters;
+        $this->_tableName = $tableName;
+    }
+
+    protected function initProperties()
+    {
         $this->_columns = '*';
         $this->_whereStatement = "";
         $this->_OFFSET = "";
         $this->_LIMIT = "";
         $this->_GroupBy = "";
-        $this->_parameters = $parameters;
-        $this->_tableName = $tableName;
     }
-
     public function setParameters(array $parameters)
     {
         $this->_parameters = $parameters;
+        $this->initProperties();
     }
 
     public function setTable($tableName)
     {
         $this->_tableName = $tableName;
+        $this->initProperties();
     }
 
     /**
