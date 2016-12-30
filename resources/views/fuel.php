@@ -23,6 +23,15 @@
         .navbar{
             margin-bottom: 0px;
         }
+
+        .navbar-form{
+            padding: 0px;
+        }
+
+        .custom-nav{
+            margin-right: 0px;
+        }
+
     </style>
 </head>
 <!--    <link href="/css/style.css" rel="stylesheet" type="text/css"/>-->
@@ -30,20 +39,17 @@
 <body>
 <div class="container-fluid">
     <nav class="navbar navbar-default">
-        <div class="container-fluid">
+<!--        <div class="container-fluid custom-nav">-->
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <button type="button" class="navbar-toggle collapsed custom-nav" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="#">Brand</a>
-            </div>
-                <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <form class="navbar-form navbar-left">
+                <form class="navbar-form navbar-left custom-nav">
                     <div class="input-group">
                         <input id="zoom-to-area-text" type="text" class="form-control" placeholder="Enter your area...">
                         <span class="input-group-btn">
@@ -51,6 +57,9 @@
                         </span>
                     </div><!-- /input-group -->
                 </form>
+            </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <p class="navbar-text">Signed in as</p>
                     <li class="list-group-item list-group-item-info">
@@ -95,7 +104,7 @@
                     </li>
                 </ul>
             </div><!-- /.navbar-collapse -->
-        </div><!-- /.container-fluid -->
+<!--        </div><!-- /.container-fluid -->
     </nav>
     <div id="map"></div>
 </div>
@@ -232,7 +241,7 @@
     </div>
 </div>
 
-<!-- Modal Make Order -->
+<!-- Modal Sign In/Up -->
 <div class="modal fade" id="signInUpModal" tabindex="-1" role="dialog" aria-labelledby="Login" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">

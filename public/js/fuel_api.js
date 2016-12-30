@@ -370,11 +370,14 @@ function logout() {
     $("#logout").on("click",function(){
         $('#signInUp').show();
         $('#signOut').hide();
+        $('#ordersList').hide();
+        $('#updateFuelData').hide();
         api_token = "";
         username = "";
         userGasStation = "";
     });
 }
+
 function showLogout() {
     $('#signInUp').hide();
     $('#signOut').show();
