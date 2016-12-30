@@ -39,75 +39,73 @@
 <body>
 <div class="container-fluid">
     <nav class="navbar navbar-default">
-<!--        <div class="container-fluid custom-nav">-->
             <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed custom-nav" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#">Brand</a>
-                <form class="navbar-form navbar-left custom-nav">
-                    <div class="input-group">
-                        <input id="zoom-to-area-text" type="text" class="form-control" placeholder="Enter your area...">
-                        <span class="input-group-btn">
-                            <button id="zoom-to-area" class="btn btn-default" type="button">Go!</button>
-                        </span>
-                    </div><!-- /input-group -->
-                </form>
-            </div>
-                <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                    <p class="navbar-text">Signed in as</p>
-                    <li class="list-group-item list-group-item-info">
-                        <span id="gasStationsNumber" class="badge">0</span>
-                        Total Fuels:
-                    </li>
-                    <li class="list-group-item list-group-item-success">
-                        <span id="minPrice" class="badge">0</span>
-                        Min Prize
-                    </li>
-                    <li class="list-group-item list-group-item-warning">
-                        <span id="avgPrice" class="badge">0</span>
-                        AVG Prize
-                    </li>
-                    <li class="list-group-item list-group-item-danger">
-                        <span id="maxPrice" class="badge">0</span>
-                        MAx prize
-                    </li>
-                    <li id="signInUp"><a href="#" id="login" data-toggle="modal" data-target="#signInUpModal">Sign In/Up</a></li>
-                    <li id="signOut" style="display: none"><a href="#" id="logout">Logout</a></li>
-                    <button type="button" class="btn btn-default navbar-btn">Sign in</button>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Menu <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#" data-toggle="modal" data-target="#loginModal">Login</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="#" data-toggle="modal" data-target="#registerModal">Register</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li id="ordersList" style="display: none">
-                                <a href="#" data-toggle="modal" data-target="#ordersModal">Orders</a>
-                                <span id="ordersNumber" class="badge">0</span>
-                            </li>
-                            <li role="separator" class="divider"></li>
-                            <li id="updateFuelData" style="display: none">
-                                <a href="#" data-toggle="modal" data-target="#priceDataModal" data-action="edit">Update Fuel Data</a>
-                            </li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="#" data-toggle="modal" data-target="#makeOrderModal">Make order</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="#" data-toggle="modal" data-target="#updatePriceDataModal">Price update</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div><!-- /.navbar-collapse -->
-<!--        </div><!-- /.container-fluid -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed custom-nav" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Brand</a>
+            <form class="navbar-form navbar-left custom-nav">
+                <div class="input-group">
+                    <input id="zoom-to-area-text" type="text" class="form-control" placeholder="Enter your area...">
+                    <span class="input-group-btn">
+                        <button id="zoom-to-area" class="btn btn-default" type="button">Go!</button>
+                    </span>
+                </div><!-- /input-group -->
+            </form>
+        </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <p class="navbar-text">Signed in as</p>
+                <li class="list-group-item list-group-item-info">
+                    <span id="gasStationsNumber" class="badge">0</span>
+                    Total Fuels:
+                </li>
+                <li class="list-group-item list-group-item-success">
+                    <span id="minPrice" class="badge">0</span>
+                    Min Prize
+                </li>
+                <li class="list-group-item list-group-item-warning">
+                    <span id="avgPrice" class="badge">0</span>
+                    AVG Prize
+                </li>
+                <li class="list-group-item list-group-item-danger">
+                    <span id="maxPrice" class="badge">0</span>
+                    MAx prize
+                </li>
+                <li id="signInUp"><a href="#" id="login" data-toggle="modal" data-target="#signInUpModal">Sign In/Up</a></li>
+                <li id="signOut" style="display: none"><a href="#" id="logout">Logout</a></li>
+                <button type="button" class="btn btn-default navbar-btn">Sign in</button>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Menu <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#" data-toggle="modal" data-target="#loginModal">Login</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#" data-toggle="modal" data-target="#registerModal">Register</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li id="ordersList" style="display: none">
+                            <a href="#" data-toggle="modal" data-target="#ordersModal">Orders</a>
+                            <span id="ordersNumber" class="badge">0</span>
+                        </li>
+                        <li role="separator" class="divider"></li>
+                        <li id="updateFuelData" style="display: none">
+                            <a href="#" data-toggle="modal" data-target="#priceDataModal" data-action="edit">Update Fuel Data</a>
+                        </li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#" data-toggle="modal" data-target="#makeOrderModal">Make order</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#" data-toggle="modal" data-target="#updatePriceDataModal">Price update</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
     </nav>
     <div id="map"></div>
-</div>
+</div><!-- /.container-fluid -->
 
 <!-- Modal Orders -->
 <div class="modal fade" id="ordersModal" tabindex="-1" role="dialog" aria-labelledby="Login" aria-hidden="true">
@@ -249,14 +247,14 @@
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 <!-- Nav tabs -->
                 <ul class="nav nav-tabs" role="tablist">
-                    <li role="presentation" class="active"><a href="#login" aria-controls="login" role="tab" data-toggle="tab">Sign In</a></li>
-                    <li role="presentation"><a href="#register" aria-controls="register" role="tab" data-toggle="tab">Sign Up</a></li>
+                    <li role="presentation" class="active"><a href="#loginTab" aria-controls="loginTab" role="tab" data-toggle="tab">Sign In</a></li>
+                    <li role="presentation"><a href="#registerTab" aria-controls="registerTab" role="tab" data-toggle="tab">Sign Up</a></li>
                 </ul>
             </div>
             <div class="modal-body">
                 <!-- Tab panes -->
                 <div class="tab-content">
-                    <div role="tabpanel" class="tab-pane active" id="login">
+                    <div role="loginTab" class="tab-pane active" id="loginTab">
                         <form id="loginForm" class="form-horizontal">
                             <h4><p class="text-center"><span id="loginError" class="label label-danger"></span></p></h4>
                             <div class="form-group">
@@ -279,7 +277,7 @@
                             </div>
                         </form>
                     </div>
-                    <div role="tabpanel" class="tab-pane" id="register">
+                    <div role="registerTab" class="tab-pane" id="registerTab">
                         <form id="registerForm" class="form-horizontal">
                             <h4><p class="text-center"><span id="registerError" class="label label-danger"></span></p></h4>
                             <div class="form-group">
