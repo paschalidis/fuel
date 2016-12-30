@@ -69,7 +69,8 @@
                         <span id="maxPrice" class="badge">0</span>
                         MAx prize
                     </li>
-                    <li><a href="#" data-toggle="modal" data-target="#signInUpModal">Sign In/Up</a></li>
+                    <li id="signInUp"><a href="#" id="login" data-toggle="modal" data-target="#signInUpModal">Sign In/Up</a></li>
+                    <li id="signOut" style="display: none"><a href="#" id="logout">Logout</a></li>
                     <button type="button" class="btn btn-default navbar-btn">Sign in</button>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Menu <span class="caret"></span></a>

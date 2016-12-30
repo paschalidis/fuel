@@ -10,6 +10,7 @@ var api_url = "https://fuel.local/api/v1/";
 $( document ).ready(function() {
     loginSubmit();
     registerSubmit();
+    logout();
     updatePriceDataSubmit();
     makeOrderSubmit();
 });
@@ -182,6 +183,7 @@ function loginSubmit() {
 
                 getOrders();
                 getUserGasStation();
+                showLogout();
                 $('#signInUpModal').modal('hide');
                 $.notify({
                     // options
@@ -225,6 +227,7 @@ function registerSubmit() {
 
                 getOrders();
                 getUserGasStation();
+                showLogout();
 
                 $.notify({
                     // options
@@ -361,4 +364,18 @@ function makeOrderSubmit() {
             }
         });
     });
+}
+
+function logout() {
+    $("#logout").on("click",function(){
+        $('#signInUp').show();
+        $('#signOut').hide();
+        api_token = "";
+        username = "";
+        userGasStation = "";
+    });
+}
+function showLogout() {
+    $('#signInUp').hide();
+    $('#signOut').show();
 }
