@@ -59,48 +59,26 @@
         </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-left">
+                <p class="navbar-text">Fuels:<span id="gasStationsNumber" class="label label-primary">0</span></p>
+                <p class="navbar-text">Min:<span id="minPrice" class="label label-success">0</span></p>
+                <p class="navbar-text">Avg:<span id="avgPrice" class="label label-warning">0</span></p>
+                <p class="navbar-text">Max:<span id="maxPrice" class="label label-danger">0</span></p>
+            </ul>
             <ul class="nav navbar-nav navbar-right">
-                <p class="navbar-text">Signed in as</p>
-                <li class="list-group-item list-group-item-info">
-                    <span id="gasStationsNumber" class="badge">0</span>
-                    Total Fuels:
-                </li>
-                <li class="list-group-item list-group-item-success">
-                    <span id="minPrice" class="badge">0</span>
-                    Min Prize
-                </li>
-                <li class="list-group-item list-group-item-warning">
-                    <span id="avgPrice" class="badge">0</span>
-                    AVG Prize
-                </li>
-                <li class="list-group-item list-group-item-danger">
-                    <span id="maxPrice" class="badge">0</span>
-                    MAx prize
-                </li>
-                <li id="signInUp"><a href="#" id="login" data-toggle="modal" data-target="#signInUpModal">Sign In/Up</a></li>
-                <li id="signOut" style="display: none"><a href="#" id="logout">Logout</a></li>
-                <button type="button" class="btn btn-default navbar-btn">Sign in</button>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Menu <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#" data-toggle="modal" data-target="#loginModal">Login</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="#" data-toggle="modal" data-target="#registerModal">Register</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li id="ordersList" style="display: none">
-                            <a href="#" data-toggle="modal" data-target="#ordersModal">Orders</a>
-                            <span id="ordersNumber" class="badge">0</span>
-                        </li>
-                        <li role="separator" class="divider"></li>
-                        <li id="updateFuelData" style="display: none">
-                            <a href="#" data-toggle="modal" data-target="#priceDataModal" data-action="edit">Update Fuel Data</a>
-                        </li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="#" data-toggle="modal" data-target="#makeOrderModal">Make order</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="#" data-toggle="modal" data-target="#updatePriceDataModal">Price update</a></li>
-                    </ul>
-                </li>
+                <button type="button" id="signInUp" class="btn btn-default navbar-btn" data-toggle="modal" data-target="#signInUpModal">
+                    <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>
+                </button>
+                <button type="button" id="signOut" style="display: none" class="btn btn-default navbar-btn">
+                    <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
+                </button>
+                <button type="button" id="ordersList" style="display: none" class="btn btn-default navbar-btn" data-toggle="modal" data-target="#ordersModal">
+                    <span class="glyphicon glyphicon-tint" aria-hidden="true"></span>
+                    <span id="ordersNumber" class="badge"></span>
+                </button>
+                <button type="button" id="updateFuelData" style="display: none" class="btn btn-default navbar-btn" data-toggle="modal" data-target="#priceDataModal" data-action="edit">
+                    <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                </button>
             </ul>
         </div><!-- /.navbar-collapse -->
     </nav>

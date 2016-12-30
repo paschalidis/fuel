@@ -367,11 +367,27 @@ function makeOrderSubmit() {
 }
 
 function logout() {
-    $("#logout").on("click",function(){
+    $("#signOut").click(function(){
+        $.notify({
+            // options
+            message: "Successfully log out"
+        },{
+            // settings
+            type: 'success',
+            placement: {
+                from: "top",
+                align: "center"
+            },
+        });
+
         $('#signInUp').show();
         $('#signOut').hide();
         $('#ordersList').hide();
         $('#updateFuelData').hide();
+        $('#loginForm')[0].reset();
+        $('#registerForm')[0].reset();
+        $("#ordersTable > tbody").children().remove();
+        $("#ordersNumber").html('');
         api_token = "";
         username = "";
         userGasStation = "";
