@@ -182,10 +182,10 @@ function loginSubmit() {
 
                 getOrders();
                 getUserGasStation();
-                $('#loginModal').modal('hide');
+                $('#signInUpModal').modal('hide');
                 $.notify({
                     // options
-                    message: "Successfully login"
+                    message: response.message
                 },{
                     // settings
                     type: 'success',
@@ -219,7 +219,13 @@ function registerSubmit() {
             url: api_url + "register/",
             data: $('#registerForm').serialize(),
             success: function(response){
-                $('#registerModal').modal('hide');
+                api_token = response.api_token;
+                username = $("#registerUsername").val();
+                $('#signInUpModal').modal('hide');
+
+                getOrders();
+                getUserGasStation();
+
                 $.notify({
                     // options
                     message: response.message
@@ -261,18 +267,6 @@ function getOrders() {
                     '<td> ' + item.fuelPrice + ' </td>' +
                     '<td> ' + item.quantity + ' </td>' +
                     '<td> '+item.create_time+' </td></tr>');
-            });
-
-            $.notify({
-                // options
-                message: response.message
-            },{
-                // settings
-                type: 'success',
-                placement: {
-                    from: "top",
-                    align: "center"
-                }
             });
         }
     });

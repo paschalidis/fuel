@@ -31,16 +31,17 @@ class UserController extends Controller
         $queryBuilder = new QueryMapper(['username' => $request->get('username'), 'password' => $request->get('password')], 'users');
         $user = $queryBuilder->get();
 
-        if(!empty($user)){
-            $token = str_random(60);
-            $user = User::find($user[0]->username);
-            $user->setAttribute('api_token', $token);
-            $user->setAttribute('api_token_expire_time', time() + 3600);
-            $user->save();
-            return response()->json(['api_token' => $user->api_token]);
-        } else {
+        if(empty($user)){
             return response()->json(["message"=>"Username or Password is incorrect"], 400);
         }
+
+        $token = str_random(60);
+        $user = User::find($user[0]->username);
+        $user->setAttribute('api_token', $token);
+        $user->setAttribute('api_token_expire_time', time() + 3600);
+        $user->save();
+
+        return response()->json(['api_token' => $user->api_token, 'message' => 'Successfully Login']);
     }
 
     public function register(Request $request)
@@ -70,7 +71,7 @@ class UserController extends Controller
             return response()->json(["message"=>"Error Invalid User Type"], 400);
         }
 
-        $user = User::create($request->all());
+        User::create($request->all());
 
         //Add user to Group Permission
         try{
@@ -87,7 +88,13 @@ class UserController extends Controller
         if(!$inserted){
             return response()->json(['message' => 'Error on user registration. Please try again.'], 400);
         }
-        return response()->json(['message' => 'Successfully registration.']);
+
+        $token = str_random(60);
+        $user = User::find($request->get('username'));
+        $user->setAttribute('api_token', $token);
+        $user->setAttribute('api_token_expire_time', time() + 3600);
+        $user->save();
+        return response()->json(['api_token' => $user->api_token, 'message' => 'Successfully registration.']);
     }
 
     public function info(){

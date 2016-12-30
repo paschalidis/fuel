@@ -69,7 +69,7 @@
                         <span id="maxPrice" class="badge">0</span>
                         MAx prize
                     </li>
-                    <li><a href="#">Link</a></li>
+                    <li><a href="#" data-toggle="modal" data-target="#signInUpModal">Sign In/Up</a></li>
                     <button type="button" class="btn btn-default navbar-btn">Sign in</button>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Menu <span class="caret"></span></a>
@@ -97,92 +97,6 @@
         </div><!-- /.container-fluid -->
     </nav>
     <div id="map"></div>
-</div>
-<!-- Modal Register-->
-<div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="Register" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">Register</h4>
-            </div>
-            <div class="modal-body">
-                <form id="registerForm" class="form-horizontal">
-                    <h4><p class="text-center"><span id="registerError" class="label label-danger"></span></p></h4>
-                    <div class="form-group">
-                        <label for="registerUsername" class="col-sm-2 control-label">Username</label>
-                        <div class="col-sm-10">
-                            <input type="text" name="username" class="form-control" id="registerUsername" placeholder="Username">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="registerEmail" class="col-sm-2 control-label">Email</label>
-                        <div class="col-sm-10">
-                            <input type="email" name="email" class="form-control" id="registerEmail" placeholder="Email">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="registerPassword" class="col-sm-2 control-label">Password</label>
-                        <div class="col-sm-10">
-                            <input type="password" name="password" class="form-control" id="registerPassword" placeholder="Password">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-sm-2 control-label">Gas Station</label>
-                        <div class="col-sm-10">
-                            <label class="radio-inline">
-                                <input type="radio" name="userType" value="2"  checked="">Client
-                            </label>
-                            <label class="radio-inline">
-                                <input type="radio" name="userType" value="1">Owner
-                            </label>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-sm-offset-2 col-sm-10">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            <button id="registerSubmit" type="submit" class="btn btn-default">Sign up</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Modal Login -->
-<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="Login" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">Login</h4>
-            </div>
-            <div class="modal-body">
-                <form id="loginForm" class="form-horizontal">
-                    <h4><p class="text-center"><span id="loginError" class="label label-danger"></span></p></h4>
-                    <div class="form-group">
-                        <label for="registerUsername" class="col-sm-2 control-label">Username</label>
-                        <div class="col-sm-10">
-                            <input name="username" type="text" class="form-control" id="loginUsername" placeholder="Username">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="registerPassword" class="col-sm-2 control-label">Password</label>
-                        <div class="col-sm-10">
-                            <input name="password" type="password" class="form-control" id="loginPassword" placeholder="Password">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-sm-offset-2 col-sm-10">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            <button id="loginSubmit" type="submit" class="btn btn-default">Sign in</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
 </div>
 
 <!-- Modal Orders -->
@@ -312,6 +226,92 @@
                         </div>
                     </div>
                 </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Make Order -->
+<div class="modal fade" id="signInUpModal" tabindex="-1" role="dialog" aria-labelledby="Login" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs" role="tablist">
+                    <li role="presentation" class="active"><a href="#login" aria-controls="login" role="tab" data-toggle="tab">Sign In</a></li>
+                    <li role="presentation"><a href="#register" aria-controls="register" role="tab" data-toggle="tab">Sign Up</a></li>
+                </ul>
+            </div>
+            <div class="modal-body">
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="login">
+                        <form id="loginForm" class="form-horizontal">
+                            <h4><p class="text-center"><span id="loginError" class="label label-danger"></span></p></h4>
+                            <div class="form-group">
+                                <label for="registerUsername" class="col-sm-2 control-label">Username</label>
+                                <div class="col-sm-10">
+                                    <input name="username" type="text" class="form-control" id="loginUsername" placeholder="Username">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="registerPassword" class="col-sm-2 control-label">Password</label>
+                                <div class="col-sm-10">
+                                    <input name="password" type="password" class="form-control" id="loginPassword" placeholder="Password">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-10">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    <button id="loginSubmit" type="submit" class="btn btn-default">Sign in</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="register">
+                        <form id="registerForm" class="form-horizontal">
+                            <h4><p class="text-center"><span id="registerError" class="label label-danger"></span></p></h4>
+                            <div class="form-group">
+                                <label for="registerUsername" class="col-sm-2 control-label">Username</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="username" class="form-control" id="registerUsername" placeholder="Username">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="registerEmail" class="col-sm-2 control-label">Email</label>
+                                <div class="col-sm-10">
+                                    <input type="email" name="email" class="form-control" id="registerEmail" placeholder="Email">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="registerPassword" class="col-sm-2 control-label">Password</label>
+                                <div class="col-sm-10">
+                                    <input type="password" name="password" class="form-control" id="registerPassword" placeholder="Password">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Gas Station</label>
+                                <div class="col-sm-10">
+                                    <div class="btn-group" data-toggle="buttons">
+                                        <label class="btn btn-primary active">
+                                            <input type="radio" name="userType" value="2" autocomplete="off" checked> Client
+                                        </label>
+                                        <label class="btn btn-primary">
+                                            <input type="radio" name="userType" value="1" autocomplete="off"> Owner
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-10">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    <button id="registerSubmit" type="submit" class="btn btn-default">Sign up</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
