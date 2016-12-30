@@ -35,7 +35,8 @@ $('#priceDataModal').on('show.bs.modal', function (event) {
     $.ajax({
         async: false,
         type: "GET",
-        url: "https://fuel.local/api/v1/gasstations/" + gasStationId + "/pricedata/",
+        url: api_url + "gasstations/" + gasStationId + "/pricedata/",
+        data: {fields : 'priceDataID,fuelNormalName,fuelName,fuelPrice,dateUpdated,isPremium'},
         success: function(response){
 
             $.each(response, function(i, item) {
@@ -108,7 +109,7 @@ function getGasStations() {
 
     $.ajax({
         type: "GET",
-        url: "https://fuel.local/api/v1/gasstations/",
+        url: api_url + "gasstations/",
         data: _data,
         success: function(response){
             $('#gasStationsNumber').text(response.length);
@@ -154,7 +155,7 @@ function getPriceDataAnalytics(gasStationsIDs) {
 
     $.ajax({
         type: "GET",
-        url: "https://fuel.local/api/v1/pricedata/",
+        url: api_url + "pricedata/",
         data: _data,
         success: function(response){
             $('#minPrice').text(response[0].min_fuelPrice);
@@ -173,7 +174,7 @@ function loginSubmit() {
         $('.has-error').removeClass('has-error');
         $.ajax({
             type: "POST",
-            url: "https://fuel.local/api/v1/login/",
+            url: api_url + "login/",
             data: $('#loginForm').serialize(),
             success: function(response){
                 api_token = response.api_token;
@@ -215,7 +216,7 @@ function registerSubmit() {
         $('.has-error').removeClass('has-error');
         $.ajax({
             type: "POST",
-            url: "https://fuel.local/api/v1/register/",
+            url: api_url + "register/",
             data: $('#registerForm').serialize(),
             success: function(response){
                 $('#registerModal').modal('hide');
@@ -246,7 +247,7 @@ function registerSubmit() {
 function getOrders() {
     $.ajax({
         type: "GET",
-        url: "https://fuel.local/api/v1/orders/",
+        url: api_url + "orders/",
         data: {"api_token": api_token, "owner" : username},
         success: function(response){
             $('#ordersList').show();
@@ -280,7 +281,7 @@ function getOrders() {
 function getUserGasStation() {
     $.ajax({
         type: "GET",
-        url: "https://fuel.local/api/v1/gasstations/",
+        url: api_url + "gasstations/",
         data: {"fields": "gasStationID", "username" : username},
         success: function(response){
             //User is not owner of a gas station
