@@ -66,18 +66,18 @@
                 <p class="navbar-text">Max:<span id="maxPrice" class="label label-danger">0</span></p>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <button type="button" id="signInUp" class="btn btn-default navbar-btn" data-toggle="modal" data-target="#signInUpModal">
-                    <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>
-                </button>
-                <button type="button" id="signOut" style="display: none" class="btn btn-default navbar-btn">
-                    <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
+                <button type="button" id="updateFuelData" style="display: none" class="btn btn-default navbar-btn" data-toggle="modal" data-target="#priceDataModal" data-action="edit">
+                    <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
                 </button>
                 <button type="button" id="ordersList" style="display: none" class="btn btn-default navbar-btn" data-toggle="modal" data-target="#ordersModal">
                     <span class="glyphicon glyphicon-tint" aria-hidden="true"></span>
                     <span id="ordersNumber" class="badge"></span>
                 </button>
-                <button type="button" id="updateFuelData" style="display: none" class="btn btn-default navbar-btn" data-toggle="modal" data-target="#priceDataModal" data-action="edit">
-                    <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                <button type="button" id="signInUp" class="btn btn-default navbar-btn" data-toggle="modal" data-target="#signInUpModal">
+                    <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>
+                </button>
+                <button type="button" id="signOut" style="display: none" class="btn btn-default navbar-btn">
+                    <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
                 </button>
             </ul>
         </div><!-- /.navbar-collapse -->
