@@ -196,7 +196,7 @@
                     <div class="form-group">
                         <label for="updateFuelPrice" class="col-sm-2 control-label">Fuel Price</label>
                         <div class="col-sm-10">
-                            <input name="fuelPrice" type="text" class="form-control" id="makeOrderFuelPrice">
+                            <input disabled name="fuelPrice" type="text" class="form-control" id="makeOrderFuelPrice">
                         </div>
                     </div>
                     <div class="form-group">
