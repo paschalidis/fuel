@@ -73,6 +73,9 @@
                     <span class="glyphicon glyphicon-tint" aria-hidden="true"></span>
                     <span id="ordersNumber" class="badge"></span>
                 </button>
+                <button type="button" id="settings" class="btn btn-default navbar-btn" data-toggle="modal" data-target="#settingsModal">
+                    <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+                </button>
                 <button type="button" id="signInUp" class="btn btn-default navbar-btn" data-toggle="modal" data-target="#signInUpModal">
                     <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>
                 </button>
@@ -293,6 +296,50 @@
                                 <div class="col-sm-offset-2 col-sm-10">
                                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                                     <button id="registerSubmit" type="submit" class="btn btn-default">Sign up</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Settings -->
+<div class="modal fade" id="settingsModal" tabindex="-1" role="dialog" aria-labelledby="Settings" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs" role="tablist">
+                    <li role="presentation" class="active"><a href="#fuelTypeTab" aria-controls="fuelTypeTab" role="tab" data-toggle="tab">Fuel Type</a></li>
+                </ul>
+            </div>
+            <div class="modal-body">
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <div role="fuelTypeTab" class="tab-pane active" id="fuelTypeTab">
+                        <form id="fuelTypeForm" class="form-horizontal">
+                            <div class="form-group">
+                                <label for="fuelTypeSelect" class="col-sm-2 control-label">Fuel Type</label>
+                                <div class="col-sm-10">
+                                    <select name="fuelTypeID" id="fuelTypeSelect" class="form-control">
+                                        <option value="1">Αμόλυβδη 95</option>
+                                        <option value="2">Αμόλυβδη 100</option>
+                                        <option value="3">Super</option>
+                                        <option value="4">Diesel Κίνησης</option>
+                                        <option value="5">Diesel Θέρμανσης</option>
+                                        <option value="6">Υγραέριο Κίνησης</option>
+                                        <option value="7">Diesel Θέρμανσης κ.ο.</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-10">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    <button id="fuelTypeSubmit" type="submit" class="btn btn-default">Save</button>
                                 </div>
                             </div>
                         </form>

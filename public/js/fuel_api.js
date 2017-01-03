@@ -13,6 +13,7 @@ $( document ).ready(function() {
     logout();
     updatePriceDataSubmit();
     makeOrderSubmit();
+    settingsSubmit();
 });
 
 $('#priceDataModal').on('show.bs.modal', function (event) {
@@ -397,4 +398,12 @@ function logout() {
 function showLogout() {
     $('#signInUp').hide();
     $('#signOut').show();
+}
+
+function settingsSubmit() {
+    $("#fuelTypeForm").submit(function(event){
+        event.preventDefault();// using this page stop being refreshing
+        defaultFuelTypeID = $('#fuelTypeSelect').val();
+        $('#settingsModal').modal('hide');
+    });
 }
