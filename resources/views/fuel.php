@@ -36,6 +36,11 @@
             height: 100%;
         }
 
+        .chart {
+            width: 100%;
+            min-height: 450px;
+        }
+
     </style>
 </head>
 <!--    <link href="/css/style.css" rel="stylesheet" type="text/css"/>-->
@@ -367,14 +372,18 @@
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 <!-- Nav tabs -->
                 <ul class="nav nav-tabs" role="tablist">
-                    <li role="presentation" class="active"><a href="#fuelTypeStats" aria-controls="fuelTypeStatsTab" role="tab" data-toggle="tab">Fuel Types</a></li>
+                    <li role="presentation" class="active"><a href="#fuelTypeStatsTab" aria-controls="fuelTypeStatsTab" role="tab" data-toggle="tab">Fuel Types</a></li>
+                    <li role="presentation"><a href="#fuelTypePriceTab" aria-controls="fuelTypePriceTab" role="tab" data-toggle="tab">Fuel Price</a></li>
                 </ul>
             </div>
             <div class="modal-body">
                 <!-- Tab panes -->
                 <div class="tab-content">
-                    <div role="fuelTypeStats" class="tab-pane active" id="fuelTypeStatsTab">
-                        <div id="piechart"></div>
+                    <div role="fuelTypeStatsTab" class="tab-pane active" id="fuelTypeStatsTab">
+                        <div id="piechart" class="chart"></div>
+                    </div>
+                    <div role="fuelTypePriceTab" class="tab-pane" id="fuelTypePriceTab">
+                        <div id="curve_chart" class="chart"></div>
                     </div>
                 </div>
             </div>
@@ -418,10 +427,47 @@
         var data = google.visualization.arrayToDataTable(stats);
 
         var options = {
-            title: 'My Daily Activities'
+            title: 'Fuel types per Gas stations',
+            'width':500,
+            'height':500
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(data, options);
+    }
+</script>
+<script type="text/javascript">
+    google.charts.load('current', {'packages':['corechart']});
+    google.charts.setOnLoadCallback(drawChart2);
+
+    function drawChart2() {
+        var _data = {fields : 'fuelPrice',
+            'fuelTypeID' : defaultFuelTypeID};
+
+        var stats = [['Fuels', defaultFuelTypeName]];
+        $.ajax({
+            async: false,
+            type: "GET",
+            url: api_url + "pricedata/",
+            data: _data,
+            success: function(response){
+                $.each(response, function(i, item) {
+                    var temp = [i+1, parseFloat(item.fuelPrice)];
+                    stats.push(temp);
+                });
+            }
+        });
+
+        var data = google.visualization.arrayToDataTable(stats);
+
+        var options = {
+            title: 'Fuel Price',
+            curveType: 'function',
+            legend: { position: 'bottom' }
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
 
         chart.draw(data, options);
     }

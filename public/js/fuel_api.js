@@ -5,6 +5,7 @@ var userGasStation = "";
 
 //Settings
 var defaultFuelTypeID = '1';
+var defaultFuelTypeName = 'Αμόλυβδη 95';
 var api_url = "https://fuel.local/api/v1/";
 
 $( document ).ready(function() {
@@ -404,6 +405,7 @@ function settingsSubmit() {
     $("#fuelTypeForm").submit(function(event){
         event.preventDefault();// using this page stop being refreshing
         defaultFuelTypeID = $('#fuelTypeSelect').val();
+        defaultFuelTypeName = $('#fuelTypeSelect').text();
         $('#settingsModal').modal('hide');
     });
 }
