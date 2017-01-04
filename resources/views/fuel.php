@@ -73,6 +73,9 @@
                     <span class="glyphicon glyphicon-tint" aria-hidden="true"></span>
                     <span id="ordersNumber" class="badge"></span>
                 </button>
+                <button type="button" id="stats" class="btn btn-default navbar-btn" data-toggle="modal" data-target="#statsModal">
+                    <span class="glyphicon glyphicon-stats" aria-hidden="true"></span>
+                </button>
                 <button type="button" id="settings" class="btn btn-default navbar-btn" data-toggle="modal" data-target="#settingsModal">
                     <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
                 </button>
@@ -349,6 +352,29 @@
         </div>
     </div>
 </div>
+
+<!-- Modal Stats -->
+<div class="modal fade" id="statsModal" tabindex="-1" role="dialog" aria-labelledby="Stats" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs" role="tablist">
+                    <li role="presentation" class="active"><a href="#fuelTypeStats" aria-controls="fuelTypeStatsTab" role="tab" data-toggle="tab">Fuel Types</a></li>
+                </ul>
+            </div>
+            <div class="modal-body">
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <div role="fuelTypeStats" class="tab-pane active" id="fuelTypeStatsTab">
+                        <div id="piechart"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>
 <script type="text/javascript" src="/js/jquery-3.1.1.min.js"></script>
@@ -358,4 +384,39 @@
 <script type="text/javascript" src="/js/fuel_api.js"></script>
 <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAgsWQrJsLfcZYrqjM6S4C9NqublrJk1Eo&v=3&callback=initMap">
+</script>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+    google.charts.load('current', {'packages':['corechart']});
+    google.charts.setOnLoadCallback(drawChart);
+    function drawChart() {
+
+        var _data = {fields : 'fuelNormalName',
+            'count' : 'priceDataID',
+            'groupby' : 'fuelNormalName'};
+
+        var stats = [['Task', 'Hours per Day']];
+        $.ajax({
+            async: false,
+            type: "GET",
+            url: api_url + "pricedata/",
+            data: _data,
+            success: function(response){
+                $.each(response, function(i, item) {
+                    var temp = [item.fuelNormalName, item.count_priceDataID];
+                    stats.push(temp);
+                });
+            }
+        });
+
+        var data = google.visualization.arrayToDataTable(stats);
+
+        var options = {
+            title: 'My Daily Activities'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(data, options);
+    }
 </script>
