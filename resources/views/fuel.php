@@ -2,11 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Fuels</title>
+    <link rel="icon" href="/img/favicon.ico">
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <style>
         html,
         body,
+        #map,
         .container-fluid {
             font-family: Arial, sans-serif;
             height: 100%;
@@ -15,9 +17,7 @@
         }
 
         #map {
-            height: 100%;
-            margin: auto 0 -65px;
-            padding-bottom: 65px;
+            height: 94%;
         }
 
         .navbar{
@@ -30,6 +30,10 @@
 
         .custom-nav{
             margin-right: 0px;
+        }
+
+        #logoImg{
+            height: 100%;
         }
 
     </style>
@@ -47,7 +51,9 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Brand</a>
+            <a class="navbar-brand" href="#">
+                <img id="logoImg" src="/img/fuel.png">
+            </a>
             <form class="navbar-form navbar-left custom-nav">
                 <div class="input-group">
                     <input id="zoom-to-area-text" type="text" class="form-control" placeholder="Enter your area...">
