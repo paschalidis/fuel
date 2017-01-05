@@ -40,7 +40,6 @@
             width: 100%;
             min-height: 450px;
         }
-
     </style>
 </head>
 <!--    <link href="/css/style.css" rel="stylesheet" type="text/css"/>-->
@@ -397,78 +396,7 @@
 <script type="text/javascript" src="/js/notify.js"></script>
 <script type="text/javascript" src="/js/map_api.js"></script>
 <script type="text/javascript" src="/js/fuel_api.js"></script>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAgsWQrJsLfcZYrqjM6S4C9NqublrJk1Eo&v=3&callback=initMap">
-</script>
-<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-<script type="text/javascript">
-    google.charts.load('current', {'packages':['corechart']});
-    google.charts.setOnLoadCallback(drawChart);
-    function drawChart() {
-
-        var _data = {fields : 'fuelNormalName',
-            'count' : 'priceDataID',
-            'groupby' : 'fuelNormalName'};
-
-        var stats = [['Task', 'Hours per Day']];
-        $.ajax({
-            async: false,
-            type: "GET",
-            url: api_url + "pricedata/",
-            data: _data,
-            success: function(response){
-                $.each(response, function(i, item) {
-                    var temp = [item.fuelNormalName, item.count_priceDataID];
-                    stats.push(temp);
-                });
-            }
-        });
-
-        var data = google.visualization.arrayToDataTable(stats);
-
-        var options = {
-            title: 'Fuel types per Gas stations',
-            'width':500,
-            'height':500
-        };
-
-        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-
-        chart.draw(data, options);
-    }
-</script>
-<script type="text/javascript">
-    google.charts.load('current', {'packages':['corechart']});
-    google.charts.setOnLoadCallback(drawChart2);
-
-    function drawChart2() {
-        var _data = {fields : 'fuelPrice',
-            'fuelTypeID' : defaultFuelTypeID};
-
-        var stats = [['Fuels', defaultFuelTypeName]];
-        $.ajax({
-            async: false,
-            type: "GET",
-            url: api_url + "pricedata/",
-            data: _data,
-            success: function(response){
-                $.each(response, function(i, item) {
-                    var temp = [i+1, parseFloat(item.fuelPrice)];
-                    stats.push(temp);
-                });
-            }
-        });
-
-        var data = google.visualization.arrayToDataTable(stats);
-
-        var options = {
-            title: 'Fuel Price',
-            curveType: 'function',
-            legend: { position: 'bottom' }
-        };
-
-        var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
-
-        chart.draw(data, options);
-    }
 </script>

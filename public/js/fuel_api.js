@@ -6,6 +6,7 @@ var userGasStation = "";
 //Settings
 var defaultFuelTypeID = '1';
 var defaultFuelTypeName = 'Αμόλυβδη 95';
+var gasStationIDs = [];
 var api_url = "https://fuel.local/api/v1/";
 
 $( document ).ready(function() {
@@ -100,8 +101,14 @@ $('#makeOrderModal').on('show.bs.modal', function (event) {
     modal.find('#makeOrderFuelPrice').val(priceData[2]);
 });
 
+$('#statsModal').on('show.bs.modal', function (event) {
+    google.charts.load('current', {'packages':['corechart']});
+    google.charts.setOnLoadCallback(drawFuelTypesChart);
+    google.charts.setOnLoadCallback(drawDefaultFuelPriceChart);
+});
+
 function getGasStations() {
-    var gasStationsIDs = [];
+    var _gasStationIDs = [];
     var mapBounds = map.getBounds();
     var latIN = mapBounds.f.f + ',' + mapBounds.f.b;
     var lngIN = mapBounds.b.b + ',' + mapBounds.b.f;
@@ -118,7 +125,7 @@ function getGasStations() {
             $('#gasStationsNumber').text(response.length);
             var largeInfowindow = new google.maps.InfoWindow();
             $.each(response, function(i, item) {
-                gasStationsIDs.push(item.gasStationID);
+                _gasStationIDs.push(item.gasStationID);
                 var gasStationPosition = new google.maps.LatLng(item.gasStationLat, item.gasStationLong);
 
                 var myMarker = new google.maps.Marker({
@@ -135,22 +142,23 @@ function getGasStations() {
 
             });
 
-            getPriceDataAnalytics(gasStationsIDs);
+            gasStationIDs = _gasStationIDs;
+            getPriceDataAnalytics();
         }
     });
 
 }
 
-function getPriceDataAnalytics(gasStationsIDs) {
+function getPriceDataAnalytics() {
 
-    if(gasStationsIDs.length <= 0){
+    if(gasStationIDs.length <= 0){
         $('#minPrice').text('0');
         $('#avgPrice').text('0');
         $('#maxPrice').text('0');
         return;
     }
 
-    var _data = {gasStationID : gasStationsIDs,
+    var _data = {'gasStationID' : gasStationIDs,
         'max' : 'fuelPrice',
         'min' : 'fuelPrice',
         'avg' : 'fuelPrice',
@@ -405,7 +413,72 @@ function settingsSubmit() {
     $("#fuelTypeForm").submit(function(event){
         event.preventDefault();// using this page stop being refreshing
         defaultFuelTypeID = $('#fuelTypeSelect').val();
-        defaultFuelTypeName = $('#fuelTypeSelect').text();
+        defaultFuelTypeName = $('#fuelTypeSelect option:selected').text();
+        getPriceDataAnalytics();
         $('#settingsModal').modal('hide');
     });
+}
+
+function drawFuelTypesChart() {
+
+    var _data = {'fields' : 'fuelNormalName',
+        'count' : 'priceDataID',
+        'groupby' : 'fuelNormalName',
+        'gasStationID' : gasStationIDs};
+
+    var stats = [['Task', 'Hours per Day']];
+    $.ajax({
+        async: false,
+        type: "GET",
+        url: api_url + "pricedata/",
+        data: _data,
+        success: function(response){
+            $.each(response, function(i, item) {
+                var temp = [item.fuelNormalName, item.count_priceDataID];
+                stats.push(temp);
+            });
+        }
+    });
+
+    var data = google.visualization.arrayToDataTable(stats);
+
+    var options = {
+        title: 'Fuel types per Gas stations'
+    };
+
+    var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+    chart.draw(data, options);
+}
+
+function drawDefaultFuelPriceChart() {
+    var _data = {fields : 'fuelPrice',
+        'fuelTypeID' : defaultFuelTypeID,
+        'gasStationID' : gasStationIDs};
+
+    var stats = [['Fuels', defaultFuelTypeName]];
+    $.ajax({
+        async: false,
+        type: "GET",
+        url: api_url + "pricedata/",
+        data: _data,
+        success: function(response){
+            $.each(response, function(i, item) {
+                var temp = [i+1, parseFloat(item.fuelPrice)];
+                stats.push(temp);
+            });
+        }
+    });
+
+    var data = google.visualization.arrayToDataTable(stats);
+
+    var options = {
+        title: 'Fuel Price',
+        curveType: 'function',
+        legend: { position: 'bottom' }
+    };
+
+    var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+    chart.draw(data, options);
 }
