@@ -82,14 +82,32 @@ function handleLocationError(browserHasGeolocation) {
 // This function populates the infowindow when the marker is clicked. We'll only allow
 // one infowindow which will open at the marker that is clicked, and populate based
 // on that markers position.
-function populateInfoWindow(marker, infowindow) {
+function populateInfoWindow(marker, infowindow, gasStation) {
     // Check to make sure the infowindow is not already opened on this marker.
     if (infowindow.marker != marker) {
         infowindow.marker = marker;
-        infowindow.setContent('<div>' + marker.title + '</div>' +
-            '<div><a href="#" data-gasstationid="' + marker.id +
-            '" data-toggle="modal" data-target="#priceDataModal"' +
-            ' data-action="order">Price Data</a></div>');
+
+        var phone = gasStation.phone1;
+        if(phone == null){
+            phone = "";
+        }
+
+        var image = '<img src="/img/gas_logos/'+ gasStation.fuelCompID + '.png" class="img-responsive"' +
+                                    ' alt="' + gasStation.fuelCompNormalName + '">';
+
+        var priceDataButton = '<button type="button" class="btn btn-primary" data-gasstationid="' +
+                                gasStation.gasStationID + '" data-toggle="modal" data-target="#priceDataModal"' +
+                                 ' data-action="order">Price Data</button>';
+
+        var infoWindowContent = '<ul class="list-group">' +
+                        '<li>' + image +'<h4>' + gasStation.fuelCompNormalName + '</h4></li>' +
+                        '<li>' + gasStation.gasStationOwner +'</li>' +
+                        '<li>' + gasStation.gasStationAddress +'</li>' +
+                        '<li>' + phone +'</li>' +
+                        '<li>' + priceDataButton +'</li>' +
+                    '</ul>'
+
+        infowindow.setContent(infoWindowContent);
         infowindow.open(map, marker);
         // Make sure the marker property is cleared if the infowindow is closed.
         infowindow.addListener('closeclick',function(){

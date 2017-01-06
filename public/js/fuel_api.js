@@ -81,7 +81,7 @@ $('#makeOrderModal').on('show.bs.modal', function (event) {
         event.preventDefault();
         $.notify({ message: "Please login to order"
         },{
-            type: 'warning',
+            type: 'danger',
             placement: {
                 from: "top",
                 align: "center"
@@ -113,7 +113,8 @@ function getGasStations() {
     var latIN = mapBounds.f.f + ',' + mapBounds.f.b;
     var lngIN = mapBounds.b.b + ',' + mapBounds.b.f;
 
-    var _data = {'fields': 'gasStationID,gasStationLat,gasStationLong,fuelCompNormalName,gasStationAddress,fuelCompID',
+    var _data = {'fields': 'gasStationID,gasStationLat,gasStationLong,fuelCompNormalName,' +
+    'gasStationAddress,fuelCompID,phone1,gasStationOwner',
         'gasStationLat_BETWEEN' : latIN,
         'gasStationLong_BETWEEN' : lngIN};
 
@@ -132,7 +133,7 @@ function getGasStations() {
 
                 markers.push(myMarker);
                 myMarker.addListener('click', function() {
-                    populateInfoWindow(this, largeInfowindow);
+                    populateInfoWindow(this, largeInfowindow, item);
                 });
 
             });
