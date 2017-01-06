@@ -1,29 +1,61 @@
 html,
-body {
+body,
+#map,
+.container-fluid {
     font-family: Arial, sans-serif;
     height: 100%;
     margin: 0;
     padding: 0;
+    padding-right:0 !important;
 }
 
 #map {
+    height: 94%;
+}
+
+.navbar{
+    margin-bottom: 0px;
+}
+
+.navbar-form{
+    padding: 0px;
+}
+
+.custom-nav{
+    margin-right: 0px;
+}
+
+#logoImg{
     height: 100%;
 }
 
-#getDataBtn {
-    z-index:10000;   /*μεγάλη τιμή για να μην σκεπαστεί από το χάρτη*/
-    position: fixed;
-    top:55px;
-    left:8px;
-    width:98px;
-    height:30px;
+.chart {
+    width: 100%;
+    min-height: 450px;
 }
 
-#cleanMarkersBtn {
-    z-index:10000;   /*μεγάλη τιμή για να μην σκεπαστεί από το χάρτη*/
-    position: fixed;
-    top:95px;
-    left:8px;
-    width:98px;
-    height:30px;
+.analytics {
+    display: inline-block;
+}
+
+.hiddenNavButtons {
+    display: none;
+}
+
+.modal-body{
+    background-color: #A3C2C2;
+}
+
+.form-control{
+    color: #555;
+}
+
+.modal-footer,
+.modal-header{
+    background-color: #517272;
+}
+
+.inactiveTab{
+    background-color: #06382680;
+    color: beige;
 }

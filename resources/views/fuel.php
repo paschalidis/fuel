@@ -5,71 +5,7 @@
     <title>Fuels</title>
     <link rel="icon" href="/img/favicon.ico">
     <link rel="stylesheet" href="/css/bootstrap.min.css">
-    <style>
-        html,
-        body,
-        #map,
-        .container-fluid {
-            font-family: Arial, sans-serif;
-            height: 100%;
-            margin: 0;
-            padding: 0;
-            padding-right:0 !important;
-        }
-
-        #map {
-            height: 94%;
-        }
-
-        .navbar{
-            margin-bottom: 0px;
-        }
-
-        .navbar-form{
-            padding: 0px;
-        }
-
-        .custom-nav{
-            margin-right: 0px;
-        }
-
-        #logoImg{
-            height: 100%;
-        }
-
-        .chart {
-            width: 100%;
-            min-height: 450px;
-        }
-
-        .analytics {
-            display: inline-block;
-        }
-
-        .hiddenNavButtons {
-            display: none;
-        }
-
-        .modal-body{
-            background-color: #A3C2C2;
-        }
-
-        .form-control{
-            color: #555;
-        }
-
-        .modal-footer,
-        .modal-header{
-            background-color: #517272;
-        }
-
-        .inactiveTab{
-            background-color: #06382680;
-            color: beige;
-        }
-    </style>
-</head>
-<!--    <link href="/css/style.css" rel="stylesheet" type="text/css"/>-->
+    <link href="/css/style.min.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div class="container-fluid">
@@ -423,10 +359,9 @@
 </html>
 <script type="text/javascript" src="/js/jquery-3.1.1.min.js"></script>
 <script type="text/javascript" src="/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="/js/notify.js"></script>
-<script type="text/javascript" src="/js/map_api.js"></script>
-<script type="text/javascript" src="/js/fuel_api.js"></script>
-<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript" src="/js/notify.min.js"></script>
+<script type="text/javascript" src="/js/fuel.min.js"></script>
+<script type="text/javascript" src="/js/charts.js"></script>
 <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAgsWQrJsLfcZYrqjM6S4C9NqublrJk1Eo&v=3&callback=initMap">
 </script>
