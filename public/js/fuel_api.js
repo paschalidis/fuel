@@ -169,9 +169,9 @@ function getPriceDataAnalytics() {
         url: api_url + "pricedata/",
         data: _data,
         success: function(response){
-            $('#minPrice').text(response[0].min_fuelPrice);
-            $('#avgPrice').text(response[0].avg_fuelPrice);
-            $('#maxPrice').text(response[0].max_fuelPrice);
+            $('#minPrice').text(parseFloat(response[0].min_fuelPrice).toFixed(3));
+            $('#avgPrice').text(parseFloat(response[0].avg_fuelPrice).toFixed(3));
+            $('#maxPrice').text(parseFloat(response[0].max_fuelPrice).toFixed(3));
         }
     });
 }

@@ -40,6 +40,14 @@
             width: 100%;
             min-height: 450px;
         }
+
+        .analytics {
+            display: inline-block;
+        }
+
+        .hiddenNavButtons {
+            display: none;
+        }
     </style>
 </head>
 <!--    <link href="/css/style.css" rel="stylesheet" type="text/css"/>-->
@@ -70,16 +78,16 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-left">
-                <p class="navbar-text">Fuels:<span id="gasStationsNumber" class="label label-primary">0</span></p>
-                <p class="navbar-text">Min:<span id="minPrice" class="label label-success">0</span></p>
-                <p class="navbar-text">Avg:<span id="avgPrice" class="label label-warning">0</span></p>
-                <p class="navbar-text">Max:<span id="maxPrice" class="label label-danger">0</span></p>
+                <p class="navbar-text analytics">Fuels:<span id="gasStationsNumber" class="label label-primary">0</span></p>
+                <p class="navbar-text analytics">Min:<span id="minPrice" class="label label-success">0</span></p>
+                <p class="navbar-text analytics">Avg:<span id="avgPrice" class="label label-warning">0</span></p>
+                <p class="navbar-text analytics">Max:<span id="maxPrice" class="label label-danger">0</span></p>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <button type="button" id="updateFuelData" style="display: none" class="btn btn-default navbar-btn" data-toggle="modal" data-target="#priceDataModal" data-action="edit">
+                <button type="button" id="updateFuelData" class="btn btn-default navbar-btn hiddenNavButtons" data-toggle="modal" data-target="#priceDataModal" data-action="edit">
                     <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
                 </button>
-                <button type="button" id="ordersList" style="display: none" class="btn btn-default navbar-btn" data-toggle="modal" data-target="#ordersModal">
+                <button type="button" id="ordersList" class="btn btn-default navbar-btn hiddenNavButtons" data-toggle="modal" data-target="#ordersModal">
                     <span class="glyphicon glyphicon-tint" aria-hidden="true"></span>
                     <span id="ordersNumber" class="badge"></span>
                 </button>
@@ -92,7 +100,7 @@
                 <button type="button" id="signInUp" class="btn btn-default navbar-btn" data-toggle="modal" data-target="#signInUpModal">
                     <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>
                 </button>
-                <button type="button" id="signOut" style="display: none" class="btn btn-default navbar-btn">
+                <button type="button" id="signOut" class="btn btn-default navbar-btn hiddenNavButtons">
                     <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
                 </button>
             </ul>
