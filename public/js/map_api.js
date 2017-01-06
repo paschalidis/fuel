@@ -26,17 +26,47 @@ function initMap() {
         mapTypeControl: false
     });
 
+    // Try HTML5 geolocation.
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+            var pos = {
+                lat: position.coords.latitude,
+                lng: position.coords.longitude
+            };
+
+            map.setCenter(pos);
+            map.setZoom(14);
+        }, function() {
+            handleLocationError(true);
+        });
+    } else {
+        // Browser doesn't support Geolocation
+        handleLocationError(false);
+    }
+
     map.addListener('idle', function() {
-        // 3 seconds after the center of the map has changed, pan back to the
-        // marker.
         cleanMarkers();
-        // window.setTimeout(function() {
         getGasStations();
-        //}, 1000);
     });
 
 }
 
+function handleLocationError(browserHasGeolocation) {
+    var errorMessage = "Your browser doesn\'t support geolocation.";
+
+    if(browserHasGeolocation){
+        errorMessage  = 'The Geolocation service failed.';
+    }
+
+    $.notify({ message: errorMessage
+    },{
+        type: 'warning',
+        placement: {
+            from: "top",
+            align: "center"
+        }
+    });
+}
 // This function populates the infowindow when the marker is clicked. We'll only allow
 // one infowindow which will open at the marker that is clicked, and populate based
 // on that markers position.
@@ -110,52 +140,4 @@ function zoomToArea() {
                 }
             });
     }
-}
-
-function initMap2() {
-    var initCenter = new google.maps.LatLng(39.6315214,22.4464073);
-    var mapOptions = {//create the map object
-        center:initCenter,
-        zoom:7,
-        scaleControl: true,
-        mapTypeControl: true,
-        mapTypeControlOptions: {
-            style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
-            position:google.maps.ControlPosition.TOP_LEFT,
-        },
-        streetViewControlOptions: {
-            position: google.maps.ControlPosition.RIGHT_TOP },
-        panControl: true,
-        panControlOptions: {
-            position: google.maps.ControlPosition.RIGHT_TOP
-        },
-        zoomControl: true,
-        zoomControlOptions: {
-            position: google.maps.ControlPosition.RIGHT_TOP
-        },
-        mapTypeId:google.maps.MapTypeId.ROADMAP
-    };
-
-    //New map Instance
-    map = new google.maps.Map(document.getElementById("map"), mapOptions);
-
-    $.ajax({
-        type: "GET",
-        url: "https://fuel.local/api/v1/gasstations/",
-        success: function(response){
-
-            $.each(response, function(i, item) {
-
-                console.log(item.gasStationLat);
-                var myPosition = new google.maps.LatLng(item.gasStationLat, item.gasStationLong);
-
-                var myMarker = new google.maps.Marker({
-                    position: myPosition,
-                    map: map,
-                });
-
-                markers.push(myMarker);
-            });
-        }
-    });
 }
