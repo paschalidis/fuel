@@ -28,8 +28,6 @@ $app->group(['prefix' => 'api/v1'], function($app)
     $app->post('login', 'UserController@login');
     $app->post('register', 'UserController@register');
 
-    $app->get('info', ['middleware' => 'access', 'uses' => 'UserController@info']);
-
     $app->group(['middleware' => ['auth', 'access']], function () use ($app){
         $app->put('pricedata/{priceDataID}', 'PriceDataController@update');
 

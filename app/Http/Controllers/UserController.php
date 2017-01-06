@@ -96,8 +96,4 @@ class UserController extends Controller
         $user->save();
         return response()->json(['api_token' => $user->api_token, 'message' => 'Successfully registration. You are logged in.']);
     }
-
-    public function info(){
-        return response()->json(Auth::user());
-    }
 }
