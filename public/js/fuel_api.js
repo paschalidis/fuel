@@ -81,7 +81,7 @@ $('#makeOrderModal').on('show.bs.modal', function (event) {
         event.preventDefault();
         $.notify({ message: "Please login to order"
         },{
-            type: 'success',
+            type: 'warning',
             placement: {
                 from: "top",
                 align: "center"
