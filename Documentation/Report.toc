@@ -1,4 +1,15 @@
 \contentsline {section}{\numberline {1}Εργαλεία Και Τεχνικές}{2}{section.1}
-\contentsline {subsection}{\numberline {1.1}Πλαίσιο Λογισμικού}{2}{subsection.1.1}
+\contentsline {subsection}{\numberline {1.1}Πλαίσιο Λογισμικού - PHP}{2}{subsection.1.1}
 \contentsline {subsection}{\numberline {1.2}Περιβάλλον Ανάπτυξης}{2}{subsection.1.2}
 \contentsline {subsection}{\numberline {1.3}Σύστημα Ελέγχου Εκδόσεων}{3}{subsection.1.3}
+\contentsline {subsection}{\numberline {1.4}Βάση Δεδομένων}{3}{subsection.1.4}
+\contentsline {subsection}{\numberline {1.5}Καλές Πρακτικές API}{4}{subsection.1.5}
+\contentsline {subsubsection}{\numberline {1.5.1}API Resources}{4}{subsubsection.1.5.1}
+\contentsline {subsubsection}{\numberline {1.5.2}Fields}{4}{subsubsection.1.5.2}
+\contentsline {subsubsection}{\numberline {1.5.3}Where}{5}{subsubsection.1.5.3}
+\contentsline {subsubsection}{\numberline {1.5.4}Pagination}{5}{subsubsection.1.5.4}
+\contentsline {subsubsection}{\numberline {1.5.5}Aggregate}{5}{subsubsection.1.5.5}
+\contentsline {subsubsection}{\numberline {1.5.6}Group By}{6}{subsubsection.1.5.6}
+\contentsline {subsubsection}{\numberline {1.5.7}Between}{6}{subsubsection.1.5.7}
+\contentsline {subsubsection}{\numberline {1.5.8}Formats}{6}{subsubsection.1.5.8}
+\contentsline {subsubsection}{\numberline {1.5.9}HTTP error}{7}{subsubsection.1.5.9}
