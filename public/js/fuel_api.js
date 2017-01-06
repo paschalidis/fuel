@@ -113,7 +113,7 @@ function getGasStations() {
     var latIN = mapBounds.f.f + ',' + mapBounds.f.b;
     var lngIN = mapBounds.b.b + ',' + mapBounds.b.f;
 
-    var _data = {'fields': 'gasStationID,gasStationLat,gasStationLong,fuelCompNormalName',
+    var _data = {'fields': 'gasStationID,gasStationLat,gasStationLong,fuelCompNormalName,gasStationAddress,fuelCompID',
         'gasStationLat_BETWEEN' : latIN,
         'gasStationLong_BETWEEN' : lngIN};
 
@@ -128,12 +128,7 @@ function getGasStations() {
                 _gasStationIDs.push(item.gasStationID);
                 var gasStationPosition = new google.maps.LatLng(item.gasStationLat, item.gasStationLong);
 
-                var myMarker = new google.maps.Marker({
-                    map: map,
-                    position: gasStationPosition,
-                    title: item.fuelCompNormalName,
-                    id: item.gasStationID
-                });
+                var myMarker = createMarket(gasStationPosition, item.gasStationAddress, item.fuelCompID);
 
                 markers.push(myMarker);
                 myMarker.addListener('click', function() {

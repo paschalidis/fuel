@@ -51,6 +51,18 @@ function initMap() {
 
 }
 
+function createMarket(_posistion, _title, imageID) {
+
+    var marker = new google.maps.Marker({
+        map: map,
+        position: _posistion,
+        title: _title,
+        icon: '/img/gas_logos/'+ imageID +'.png'
+    });
+
+    return marker;
+}
+
 function handleLocationError(browserHasGeolocation) {
     var errorMessage = "Your browser doesn\'t support geolocation.";
 
