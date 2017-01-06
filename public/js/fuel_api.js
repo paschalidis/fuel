@@ -18,6 +18,11 @@ $( document ).ready(function() {
     settingsSubmit();
 });
 
+$('.nav-tabs a').on('shown.bs.tab', function(event){
+    var x = $(event.target).text();         // active tab
+    var y = $(event.relatedTarget).addClass("inactiveTab");  // previous tab
+});
+
 $('#priceDataModal').on('show.bs.modal', function (event) {
     var button = $(event.relatedTarget); // Button that triggered the modal
     var action = button.data('action'); // Extract info from data-* attributes
@@ -68,10 +73,9 @@ $('#updatePriceDataModal').on('show.bs.modal', function (event) {
     var button = $(event.relatedTarget); // Button that triggered the modal
     var recipient = button.data('whatever');// Extract info from data-* attributes
     var priceData = recipient.split(",");
-    // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
-    // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+
     var modal = $(this);
-    modal.find('.modal-title').text('Update ' + priceData[0]);
+    modal.find('.modal-title').text('Fuel: ' + priceData[0]);
     modal.find('#updatePriceDataID').val(priceData[1]);
     modal.find('#updateFuelPrice').val(priceData[2]);
 });
@@ -79,7 +83,7 @@ $('#updatePriceDataModal').on('show.bs.modal', function (event) {
 $('#makeOrderModal').on('show.bs.modal', function (event) {
     if(api_token === ""){
         event.preventDefault();
-        $.notify({ message: "Please login to order"
+        $.notify({ message: "Please login or register to order."
         },{
             type: 'danger',
             placement: {
@@ -93,10 +97,9 @@ $('#makeOrderModal').on('show.bs.modal', function (event) {
     var button = $(event.relatedTarget); // Button that triggered the modal
     var recipient = button.data('whatever');// Extract info from data-* attributes
     var priceData = recipient.split(",");
-    // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
-    // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+
     var modal = $(this);
-    modal.find('.modal-title').text('Order: ' + priceData[0]);
+    modal.find('.modal-title').text('Fuel: ' + priceData[0]);
     modal.find('#makeOrderPriceDataID').val(priceData[1]);
     modal.find('#makeOrderFuelPrice').val(priceData[2]);
 });

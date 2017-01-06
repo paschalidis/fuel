@@ -94,7 +94,7 @@ class UserController extends Controller
         $user->setAttribute('api_token', $token);
         $user->setAttribute('api_token_expire_time', time() + 3600);
         $user->save();
-        return response()->json(['api_token' => $user->api_token, 'message' => 'Successfully registration.']);
+        return response()->json(['api_token' => $user->api_token, 'message' => 'Successfully registration. You are logged in.']);
     }
 
     public function info(){

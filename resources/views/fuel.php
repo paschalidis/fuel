@@ -49,6 +49,24 @@
         .hiddenNavButtons {
             display: none;
         }
+
+        .modal-body{
+            background-color: #A3C2C2;
+        }
+
+        .form-control{
+            color: #555;
+        }
+
+        .modal-footer,
+        .modal-header{
+            background-color: #517272;
+        }
+
+        .inactiveTab{
+            background-color: #06382680;
+            color: beige;
+        }
     </style>
 </head>
 <!--    <link href="/css/style.css" rel="stylesheet" type="text/css"/>-->
@@ -251,7 +269,7 @@
                 <!-- Nav tabs -->
                 <ul class="nav nav-tabs" role="tablist">
                     <li role="presentation" class="active"><a href="#loginTab" aria-controls="loginTab" role="tab" data-toggle="tab">Sign In</a></li>
-                    <li role="presentation"><a href="#registerTab" aria-controls="registerTab" role="tab" data-toggle="tab">Sign Up</a></li>
+                    <li role="presentation"><a href="#registerTab" class="inactiveTab" aria-controls="registerTab" role="tab" data-toggle="tab">Sign Up</a></li>
                 </ul>
             </div>
             <div class="modal-body">
@@ -380,8 +398,11 @@
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 <!-- Nav tabs -->
                 <ul class="nav nav-tabs" role="tablist">
-                    <li role="presentation" class="active"><a href="#fuelTypeStatsTab" aria-controls="fuelTypeStatsTab" role="tab" data-toggle="tab">Fuel Types</a></li>
-                    <li role="presentation"><a href="#fuelTypePriceTab" aria-controls="fuelTypePriceTab" role="tab" data-toggle="tab">Fuel Price</a></li>
+                    <li role="presentation" class="active">
+                        <a href="#fuelTypeStatsTab" aria-controls="fuelTypeStatsTab" role="tab" data-toggle="tab">Fuel Types</a></li>
+                    <li role="presentation">
+                        <a class="inactiveTab" href="#fuelTypePriceTab" aria-controls="fuelTypePriceTab" role="tab" data-toggle="tab">Fuel Price</a>
+                    </li>
                 </ul>
             </div>
             <div class="modal-body">
