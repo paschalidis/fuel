@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015/Debian) (preloaded format=xelatex 2016.4.24)  7 JAN 2017 03:12
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015/Debian) (preloaded format=xelatex 2016.4.24)  7 JAN 2017 05:24
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -854,6 +854,36 @@ LaTeX Info: Redefining \anw@print on input line 17.
 Missing character: There is no ʹ in font Roboto Regular/OT:mapping=tex-text;!
 LaTeX Info: Redefining \anw@print on input line 18.
 Missing character: There is no ʹ in font Roboto Regular/OT:mapping=tex-text;!
+LaTeX Info: Redefining \anw@print on input line 19.
+Missing character: There is no ʹ in font Roboto Regular/OT:mapping=tex-text;!
+LaTeX Info: Redefining \anw@print on input line 20.
+Missing character: There is no ʹ in font Roboto Regular/OT:mapping=tex-text;!
+LaTeX Info: Redefining \anw@print on input line 21.
+Missing character: There is no ʹ in font Roboto Bold/OT:mapping=tex-text;!
+LaTeX Info: Redefining \anw@print on input line 22.
+Missing character: There is no ʹ in font Roboto Regular/OT:mapping=tex-text;!
+LaTeX Info: Redefining \anw@print on input line 23.
+Missing character: There is no ʹ in font Roboto Regular/OT:mapping=tex-text;!
+LaTeX Info: Redefining \anw@print on input line 24.
+Missing character: There is no ʹ in font Roboto Regular/OT:mapping=tex-text;!
+LaTeX Info: Redefining \anw@print on input line 25.
+Missing character: There is no ʹ in font Roboto Regular/OT:mapping=tex-text;!
+LaTeX Info: Redefining \anw@print on input line 26.
+Missing character: There is no ʹ in font Roboto Regular/OT:mapping=tex-text;!
+LaTeX Info: Redefining \anw@print on input line 27.
+Missing character: There is no ʹ in font Roboto Regular/OT:mapping=tex-text;!
+LaTeX Info: Redefining \anw@print on input line 28.
+Missing character: There is no ʹ in font Roboto Regular/OT:mapping=tex-text;!
+LaTeX Info: Redefining \anw@print on input line 29.
+Missing character: There is no ʹ in font Roboto Regular/OT:mapping=tex-text;!
+LaTeX Info: Redefining \anw@print on input line 30.
+Missing character: There is no ʹ in font Roboto Regular/OT:mapping=tex-text;!
+LaTeX Info: Redefining \anw@print on input line 31.
+Missing character: There is no ʹ in font Roboto Regular/OT:mapping=tex-text;!
+LaTeX Info: Redefining \anw@print on input line 32.
+Missing character: There is no ʹ in font Roboto Regular/OT:mapping=tex-text;!
+LaTeX Info: Redefining \anw@print on input line 33.
+Missing character: There is no ʹ in font Roboto Regular/OT:mapping=tex-text;!
 )
 \tf@toc=\write4
 \openout4 = `Report.toc'.
@@ -862,23 +892,19 @@ Missing character: There is no ʹ in font Roboto Regular/OT:mapping=tex-text;!
 \tf@lof=\write5
 \openout5 = `Report.lof'.
 
- (./Report.lot)
-\tf@lot=\write6
-\openout6 = `Report.lot'.
-
  (./methods.tex
 LaTeX Info: Redefining \anw@print on input line 1.
 Missing character: There is no ʹ in font Roboto Bold/OT:mapping=tex-text;!
 LaTeX Info: Redefining \anw@print on input line 2.
 Missing character: There is no ʹ in font Roboto Bold/OT:mapping=tex-text;!
+ [2]
 LaTeX Info: Redefining \anw@print on input line 14.
 Missing character: There is no ʹ in font Roboto Bold/OT:mapping=tex-text;!
- [2]
 LaTeX Info: Redefining \anw@print on input line 36.
 Missing character: There is no ʹ in font Roboto Bold/OT:mapping=tex-text;!
 File: img/git.png Graphic file (type QTm)
-
-<use  "img/git.png" >
+ <use  "img/git.png" >
+[3]
 LaTeX Info: Redefining \anw@print on input line 47.
 Missing character: There is no ʹ in font Roboto Bold/OT:mapping=tex-text;!
 
@@ -894,14 +920,12 @@ Overfull \hbox (6.07422pt too wide) in paragraph at lines 48--49
  user-permission, fuel-
  []
 
-[3]
 File: img/db-schema.png Graphic file (type QTm)
- <use  "img/db-schema.png" >
+<use  "img/db-schema.png" > [4]
 LaTeX Info: Redefining \anw@print on input line 57.
 Missing character: There is no ʹ in font Roboto Bold/OT:mapping=tex-text;!
 LaTeX Info: Redefining \anw@print on input line 60.
 Missing character: There is no ʹ in font Roboto Bold/OT:mapping=tex-text;!
- [4]
 LaTeX Info: Redefining \anw@print on input line 74.
 Missing character: There is no ʹ in font Roboto Bold/OT:mapping=tex-text;!
 
@@ -912,14 +936,15 @@ Overfull \hbox (92.71973pt too wide) in paragraph at lines 75--76
 
 LaTeX Info: Redefining \anw@print on input line 77.
 Missing character: There is no ʹ in font Roboto Bold/OT:mapping=tex-text;!
+[5]
 LaTeX Info: Redefining \anw@print on input line 80.
 Missing character: There is no ʹ in font Roboto Bold/OT:mapping=tex-text;!
 File: img/limit.png Graphic file (type QTm)
-<use  "img/limit.png" >
+ <use  "img/limit.png" >
 LaTeX Info: Redefining \anw@print on input line 90.
 Missing character: There is no ʹ in font Roboto Bold/OT:mapping=tex-text;!
 File: img/aggregate.png Graphic file (type QTm)
- <use  "img/aggregate.png" > [5]
+ <use  "img/aggregate.png" > [6]
 LaTeX Info: Redefining \anw@print on input line 100.
 Missing character: There is no ʹ in font Roboto Bold/OT:mapping=tex-text;!
 LaTeX Info: Redefining \anw@print on input line 103.
@@ -933,7 +958,7 @@ Overfull \hbox (22.13379pt too wide) in paragraph at lines 104--105
 LaTeX Info: Redefining \anw@print on input line 106.
 Missing character: There is no ʹ in font Roboto Bold/OT:mapping=tex-text;!
 File: img/format.png Graphic file (type QTm)
-<use  "img/format.png" > [6]
+<use  "img/format.png" > [7]
 LaTeX Info: Redefining \anw@print on input line 116.
 Missing character: There is no ʹ in font Roboto Bold/OT:mapping=tex-text;!
 
@@ -948,7 +973,7 @@ File: img/suppress.png Graphic file (type QTm)
  <use  "img/suppress.png" >
 LaTeX Info: Redefining \anw@print on input line 133.
 Missing character: There is no ʹ in font Roboto Bold/OT:mapping=tex-text;!
- [7]
+ [8]
 LaTeX Info: Redefining \anw@print on input line 137.
 Missing character: There is no ʹ in font Roboto Bold/OT:mapping=tex-text;!
 
@@ -959,7 +984,115 @@ Overfull \hbox (3.30078pt too wide) in paragraph at lines 138--139
 
 LaTeX Info: Redefining \anw@print on input line 140.
 Missing character: There is no ʹ in font Roboto Bold/OT:mapping=tex-text;!
-) [8] (./Report.bbl
+File: img/map.png Graphic file (type QTm)
+<use  "img/map.png" >
+File: img/chart1.png Graphic file (type QTm)
+ <use  "img/chart1.png" > [9]
+File: img/chart2.png Graphic file (type QTm)
+ <use  "img/chart2.png" >
+[10]
+LaTeX Info: Redefining \anw@print on input line 164.
+Missing character: There is no ʹ in font Roboto Bold/OT:mapping=tex-text;!
+File: img/responsive1.png Graphic file (type QTm)
+ <use  "img/responsive1.png" > [11]
+File: img/responsive2.png Graphic file (type QTm)
+ <use  "img/responsive2.png" > [12]
+LaTeX Info: Redefining \anw@print on input line 180.
+Missing character: There is no ʹ in font Roboto Bold/OT:mapping=tex-text;!
+File: img/https.png Graphic file (type QTm)
+
+<use  "img/https.png" >) (./use-cases.tex
+LaTeX Info: Redefining \anw@print on input line 1.
+Missing character: There is no ʹ in font Roboto Bold/OT:mapping=tex-text;!
+LaTeX Info: Redefining \anw@print on input line 2.
+Missing character: There is no ʹ in font Roboto Bold/OT:mapping=tex-text;!
+File: img/register.png Graphic file (type QTm)
+ <use  "img/register.png" > [13]
+File: img/register-error.png Graphic file (type QTm)
+
+<use  "img/register-error.png" > [14]
+LaTeX Info: Redefining \anw@print on input line 18.
+Missing character: There is no ʹ in font Roboto Bold/OT:mapping=tex-text;!
+File: img/login.png Graphic file (type QTm)
+ <use  "img/login.png" >
+File: img/login-error.png Graphic file (type QTm)
+
+<use  "img/login-error.png" > [15]
+File: img/login-post.png Graphic file (type QTm)
+ <use  "img/login-post.png" >
+LaTeX Info: Redefining \anw@print on input line 41.
+Missing character: There is no ʹ in font Roboto Bold/OT:mapping=tex-text;!
+File: img/count.png Graphic file (type QTm)
+
+<use  "img/count.png" >
+LaTeX Info: Redefining \anw@print on input line 50.
+Missing character: There is no ʹ in font Roboto Bold/OT:mapping=tex-text;!
+File: img/max-min.png Graphic file (type QTm)
+ <use  "img/max-min.png" > [16]
+File: img/max-min-postman.png Graphic file (type QTm)
+
+<use  "img/max-min-postman.png" >
+LaTeX Info: Redefining \anw@print on input line 66.
+Missing character: There is no ʹ in font Roboto Bold/OT:mapping=tex-text;!
+File: img/pricedata1.png Graphic file (type QTm)
+ <use  "img/pricedata1.png" > [17]
+File: img/pricedata2.png Graphic file (type QTm)
+
+<use  "img/pricedata2.png" > [18]
+File: img/pricedata3.png Graphic file (type QTm)
+ <use  "img/pricedata3.png" > [19]
+LaTeX Info: Redefining \anw@print on input line 89.
+Missing character: There is no ʹ in font Roboto Bold/OT:mapping=tex-text;!
+File: img/gasstations.png Graphic file (type QTm)
+
+<use  "img/gasstations.png" > [20]
+LaTeX Info: Redefining \anw@print on input line 98.
+Missing character: There is no ʹ in font Roboto Bold/OT:mapping=tex-text;!
+File: img/pre-orders.png Graphic file (type QTm)
+ <use  "img/pre-orders.png" >
+File: img/orders.png Graphic file (type QTm)
+
+<use  "img/orders.png" > [21]
+LaTeX Info: Redefining \anw@print on input line 114.
+Missing character: There is no ʹ in font Roboto Bold/OT:mapping=tex-text;!
+File: img/pre-edit.png Graphic file (type QTm)
+ <use  "img/pre-edit.png" >
+File: img/pre-edit2.png Graphic file (type QTm)
+
+<use  "img/pre-edit2.png" > [22]
+File: img/msg-edit.png Graphic file (type QTm)
+ <use  "img/msg-edit.png" >
+File: img/after-edit.png Graphic file (type QTm)
+
+<use  "img/after-edit.png" >
+LaTeX Info: Redefining \anw@print on input line 144.
+Missing character: There is no ʹ in font Roboto Bold/OT:mapping=tex-text;!
+File: img/make-order-error.png Graphic file (type QTm)
+ <use  "img/make-order-error.png" > [23]
+File: img/make-order-error2.png Graphic file (type QTm)
+
+<use  "img/make-order-error2.png" >
+LaTeX Info: Redefining \anw@print on input line 162.
+Missing character: There is no ʹ in font Roboto Bold/OT:mapping=tex-text;!
+File: img/fuel-type.png Graphic file (type QTm)
+ <use  "img/fuel-type.png" > [24]
+LaTeX Info: Redefining \anw@print on input line 171.
+Missing character: There is no ʹ in font Roboto Bold/OT:mapping=tex-text;!
+File: img/area-error.png Graphic file (type QTm)
+
+<use  "img/area-error.png" >
+File: img/pre-area.png Graphic file (type QTm)
+ <use  "img/pre-area.png" >
+File: img/area.png Graphic file (type QTm)
+ <use  "img/area.png" >
+[25]
+File: img/area-after.png Graphic file (type QTm)
+ <use  "img/area-after.png" >
+LaTeX Info: Redefining \anw@print on input line 201.
+Missing character: There is no ʹ in font Roboto Bold/OT:mapping=tex-text;!
+File: img/geolocation.png Graphic file (type QTm)
+ <use  "img/geolocation.png" > [26]) [27]
+(./Report.bbl
 LaTeX Font Info:    Try loading font information for EU1+lmtt on input line 6.
  (/usr/share/texlive/texmf-dist/tex/latex/euenc/eu1lmtt.fd
 File: eu1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
@@ -970,21 +1103,21 @@ Underfull \hbox (badness 3884) in paragraph at lines 4--8
  []
 
 )
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 84.
- [9]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 84.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 85.
+ [28]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 85.
  (./Report.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 84.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 84.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 84.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 85.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 85.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 85.
  ) 
 Here is how much of TeX's memory you used:
- 22660 strings out of 493706
- 416741 string characters out of 6147748
- 495922 words of memory out of 5000000
- 25819 multiletter control sequences out of 15000+600000
+ 22755 strings out of 493706
+ 418216 string characters out of 6147748
+ 499922 words of memory out of 5000000
+ 25883 multiletter control sequences out of 15000+600000
  6936 words of font info for 49 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
- 52i,8n,65p,10419b,429s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 52i,8n,65p,10419b,353s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on Report.pdf (10 pages).
+Output written on Report.pdf (29 pages).

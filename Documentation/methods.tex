@@ -38,7 +38,7 @@
 Για την διαχείριση των εκδόσεων του Rest API και του Web Application χρησιμοποιήθηκε το git\footnotemark\footnotetext{Free sofware, used for software development and other version control tasks} και ένα private repository απο το git-hub\footnotemark\footnotetext{Web-based gii repository hosting service}
 
 \begin{figure}[H]
-  \caption{Εικόνα από το private repository με τα τελευταία commits.}
+  \caption{Εικόνα από το Private Repository με τα τελευταία commits.}
   \centering
     \includegraphics[width=1\textwidth]{img/git.png}
     \label{fig:git}
@@ -135,7 +135,53 @@
 το οποίο παρέχει πολλές λειτουργίες σε HTML, CSS και JS. Για τις ajax κλήσης χρησιμοποιήθηκε η βιβλιοθήκη \textbf{jQuery} \cite{jquery} που είναι εύχρηστη και για τα μηνύματα προς τον χρήστη το plugin \textbf{Notify.js} \cite{notify}.
 
 \subsection{Τεχνικές Βελτιστοποίησης}
-Για την βελτιστοποιήσει της εφαρμογής χρησιμοποιήθηκαν τεχνικές όπως αυτές παρουσιάστηκαν στις διαλέξεις. Τα αρχεία \textbf{CSS} ενσωματώθηκαν στο head ενώ τα \textbf{JS} στο τέλος της σελίδας έτσι ώστε ο browser να δημιουργήσει πιο γρήγορα τη σελίδα. Έγινε αποφύγει των \textbf{redirects} σε όλες τις κλήσης προς τον srever με χρήση μιας \textbf{πλάγιας καθέτου} στο τέλος του url και με την χρήση της παραμέτρου \textbf{fields} επιλέχθηκαν μόνο τα απαραίτητα πεδία για να μειωθεί ο όγκος τον δεδομένων. Τέλος για την συμπίεση των αρχείων css και js χρησιμοποιήθηκε το εργαλείο \textbf{cssminifier} \cite{cssminifier}.
+Για την βελτιστοποιήσει της εφαρμογής χρησιμοποιήθηκαν τεχνικές όπως αυτές παρουσιάστηκαν στις διαλέξεις. Τα αρχεία \textbf{CSS} ενσωματώθηκαν στο head ενώ τα \textbf{JS} στο τέλος της σελίδας έτσι ώστε ο browser να δημιουργήσει πιο γρήγορα τη σελίδα. Για την αποφυγή των \textbf{redirects} σε όλες τις κλήσης προς τον server μπήκε μια \textbf{πλάγια καθέτος} στο τέλος του url και με την χρήση της παραμέτρου \textbf{fields} επιλέχθηκαν μόνο τα απαραίτητα πεδία για να μειωθεί ο όγκος τον δεδομένων. Τέλος για την συμπίεση των αρχείων css και js χρησιμοποιήθηκε το εργαλείο \textbf{cssminifier} \cite{cssminifier}.
 
 \subsection{Google APIs}
-Η εφαρμογή δείχνει σε χάρτη τα πρατήρια της περιοχής ενδιαφέροντος με του \textbf{Google Maps APIs} \cite{google-map}.και για την εποπτική προβολή της αγοράς δημιουργήθηκαν δύο γραφήματα αξιοποιώντας τα \textbf{Google Charts} \cite{google-chart}.
+Η εφαρμογή δείχνει σε χάρτη \ref{fig:map} τα πρατήρια της περιοχής ενδιαφέροντος με το \textbf{Google Maps APIs} \cite{google-map}.και για την εποπτική προβολή της αγοράς δημιουργήθηκαν δύο γραφήματα αξιοποιώντας τα \textbf{Google Charts} \cite{google-chart}. Τύπος καυσίμου ανά βενζινάδικα \ref{fig:chart1} και τιμές default καυσίμου στα επιλεγμένα βενζινάδικα. \ref{fig:chart2}
+
+\begin{figure}[H]
+  \caption{Εικόνα με χάρτη τα πρατήρια της περιοχής ενδιαφέροντος.}
+  \centering
+    \includegraphics[width=1\textwidth]{img/map.png}
+    \label{fig:map}
+\end{figure}
+
+\begin{figure}[H]
+  \caption{Εικόνα με γράφημα με τύπο καυσίμου ανά βενζινάδικα.}
+  \centering
+    \includegraphics[width=1\textwidth]{img/chart1.png}
+    \label{fig:chart1}
+\end{figure}
+
+\begin{figure}[H]
+  \caption{Εικόνα με τιμές default καυσίμου στα επιλεγμένα βενζινάδικα.}
+  \centering
+    \includegraphics[width=1\textwidth]{img/chart2.png}
+    \label{fig:chart2}
+\end{figure}
+
+\subsection{Responsive}
+
+\begin{figure}[H]
+  \caption{Εικόνα με Responsive για mobile.}
+  \centering
+    \includegraphics[width=1\textwidth]{img/responsive1.png}
+    \label{fig:responsive1}
+\end{figure}
+
+\begin{figure}[H]
+  \caption{Εικόνα με Responsive για tablet.}
+  \centering
+    \includegraphics[width=1\textwidth]{img/responsive2.png}
+    \label{fig:responsive2}
+\end{figure}
+
+\subsection{HTTPS κλήσεις}
+
+\begin{figure}[H]
+  \caption{Εικόνα με https κλήση.}
+  \centering
+    \includegraphics[width=1\textwidth]{img/https.png}
+    \label{fig:https}
+\end{figure}

@@ -1,18 +1,34 @@
-\contentsline {section}{\numberline {\MakeUppercase {α\anw@true \anw@print \relax }}Εργαλεία Και Τεχνικές}{2}{appendix.Alph1}
-\contentsline {subsection}{\numberline {\MakeUppercase {α\anw@true \anw@print \relax }.1}Πλαίσιο Λογισμικού - PHP}{2}{subsection.Alph1.1}
-\contentsline {subsection}{\numberline {\MakeUppercase {α\anw@true \anw@print \relax }.2}Περιβάλλον Ανάπτυξης}{2}{subsection.Alph1.2}
-\contentsline {subsection}{\numberline {\MakeUppercase {α\anw@true \anw@print \relax }.3}Σύστημα Ελέγχου Εκδόσεων}{3}{subsection.Alph1.3}
+\contentsline {section}{\numberline {\MakeUppercase {α\anw@true \anw@print \relax }}Εργαλεία Και Τεχνικές}{3}{appendix.Alph1}
+\contentsline {subsection}{\numberline {\MakeUppercase {α\anw@true \anw@print \relax }.1}Πλαίσιο Λογισμικού - PHP}{3}{subsection.Alph1.1}
+\contentsline {subsection}{\numberline {\MakeUppercase {α\anw@true \anw@print \relax }.2}Περιβάλλον Ανάπτυξης}{3}{subsection.Alph1.2}
+\contentsline {subsection}{\numberline {\MakeUppercase {α\anw@true \anw@print \relax }.3}Σύστημα Ελέγχου Εκδόσεων}{4}{subsection.Alph1.3}
 \contentsline {subsection}{\numberline {\MakeUppercase {α\anw@true \anw@print \relax }.4}Βάση Δεδομένων}{4}{subsection.Alph1.4}
-\contentsline {subsection}{\numberline {\MakeUppercase {α\anw@true \anw@print \relax }.5}Καλές Πρακτικές API}{4}{subsection.Alph1.5}
-\contentsline {subsubsection}{\numberline {\MakeUppercase {α\anw@true \anw@print \relax }.5.1}API Resources}{4}{subsubsection.Alph1.5.1}
+\contentsline {subsection}{\numberline {\MakeUppercase {α\anw@true \anw@print \relax }.5}Καλές Πρακτικές API}{5}{subsection.Alph1.5}
+\contentsline {subsubsection}{\numberline {\MakeUppercase {α\anw@true \anw@print \relax }.5.1}API Resources}{5}{subsubsection.Alph1.5.1}
 \contentsline {subsubsection}{\numberline {\MakeUppercase {α\anw@true \anw@print \relax }.5.2}Fields}{5}{subsubsection.Alph1.5.2}
-\contentsline {subsubsection}{\numberline {\MakeUppercase {α\anw@true \anw@print \relax }.5.3}Where}{5}{subsubsection.Alph1.5.3}
-\contentsline {subsubsection}{\numberline {\MakeUppercase {α\anw@true \anw@print \relax }.5.4}Pagination}{5}{subsubsection.Alph1.5.4}
-\contentsline {subsubsection}{\numberline {\MakeUppercase {α\anw@true \anw@print \relax }.5.5}Aggregate}{5}{subsubsection.Alph1.5.5}
-\contentsline {subsubsection}{\numberline {\MakeUppercase {α\anw@true \anw@print \relax }.5.6}Group By}{6}{subsubsection.Alph1.5.6}
-\contentsline {subsubsection}{\numberline {\MakeUppercase {α\anw@true \anw@print \relax }.5.7}Between}{6}{subsubsection.Alph1.5.7}
-\contentsline {subsubsection}{\numberline {\MakeUppercase {α\anw@true \anw@print \relax }.5.8}Formats}{6}{subsubsection.Alph1.5.8}
-\contentsline {subsubsection}{\numberline {\MakeUppercase {α\anw@true \anw@print \relax }.5.9}HTTP error}{7}{subsubsection.Alph1.5.9}
-\contentsline {subsection}{\numberline {\MakeUppercase {α\anw@true \anw@print \relax }.6}Πλαίσιο Λογισμικού - CSS,JS}{8}{subsection.Alph1.6}
-\contentsline {subsection}{\numberline {\MakeUppercase {α\anw@true \anw@print \relax }.7}Τεχνικές Βελτιστοποίησης}{8}{subsection.Alph1.7}
-\contentsline {subsection}{\numberline {\MakeUppercase {α\anw@true \anw@print \relax }.8}Google APIs}{8}{subsection.Alph1.8}
+\contentsline {subsubsection}{\numberline {\MakeUppercase {α\anw@true \anw@print \relax }.5.3}Where}{6}{subsubsection.Alph1.5.3}
+\contentsline {subsubsection}{\numberline {\MakeUppercase {α\anw@true \anw@print \relax }.5.4}Pagination}{6}{subsubsection.Alph1.5.4}
+\contentsline {subsubsection}{\numberline {\MakeUppercase {α\anw@true \anw@print \relax }.5.5}Aggregate}{6}{subsubsection.Alph1.5.5}
+\contentsline {subsubsection}{\numberline {\MakeUppercase {α\anw@true \anw@print \relax }.5.6}Group By}{7}{subsubsection.Alph1.5.6}
+\contentsline {subsubsection}{\numberline {\MakeUppercase {α\anw@true \anw@print \relax }.5.7}Between}{7}{subsubsection.Alph1.5.7}
+\contentsline {subsubsection}{\numberline {\MakeUppercase {α\anw@true \anw@print \relax }.5.8}Formats}{7}{subsubsection.Alph1.5.8}
+\contentsline {subsubsection}{\numberline {\MakeUppercase {α\anw@true \anw@print \relax }.5.9}HTTP error}{8}{subsubsection.Alph1.5.9}
+\contentsline {subsection}{\numberline {\MakeUppercase {α\anw@true \anw@print \relax }.6}Πλαίσιο Λογισμικού - CSS,JS}{9}{subsection.Alph1.6}
+\contentsline {subsection}{\numberline {\MakeUppercase {α\anw@true \anw@print \relax }.7}Τεχνικές Βελτιστοποίησης}{9}{subsection.Alph1.7}
+\contentsline {subsection}{\numberline {\MakeUppercase {α\anw@true \anw@print \relax }.8}Google APIs}{9}{subsection.Alph1.8}
+\contentsline {subsection}{\numberline {\MakeUppercase {α\anw@true \anw@print \relax }.9}Responsive}{12}{subsection.Alph1.9}
+\contentsline {subsection}{\numberline {\MakeUppercase {α\anw@true \anw@print \relax }.10}HTTPS κλήσεις}{13}{subsection.Alph1.10}
+\contentsline {section}{\numberline {\MakeUppercase {β\anw@true \anw@print \relax }}Περιπτώσεις Χρήσης}{14}{appendix.Alph2}
+\contentsline {subsection}{\numberline {\MakeUppercase {β\anw@true \anw@print \relax }.1}Εγγραφή χρήστη}{14}{subsection.Alph2.1}
+\contentsline {subsection}{\numberline {\MakeUppercase {β\anw@true \anw@print \relax }.2}LogIn χρήστη}{15}{subsection.Alph2.2}
+\contentsline {subsection}{\numberline {\MakeUppercase {β\anw@true \anw@print \relax }.3}Πλήθος πρατηρίων}{16}{subsection.Alph2.3}
+\contentsline {subsection}{\numberline {\MakeUppercase {β\anw@true \anw@print \relax }.4}Λήψη μέγιστης, ελάχιστης και μέσης τιμής}{17}{subsection.Alph2.4}
+\contentsline {subsection}{\numberline {\MakeUppercase {β\anw@true \anw@print \relax }.5}Λήψη τιμοκαταλόγου πρατηρίου}{18}{subsection.Alph2.5}
+\contentsline {subsection}{\numberline {\MakeUppercase {β\anw@true \anw@print \relax }.6}Λήψη δεδομένων πρατηρίων}{21}{subsection.Alph2.6}
+\contentsline {subsection}{\numberline {\MakeUppercase {β\anw@true \anw@print \relax }.7}Έλεγχος παραγγελιών από πρατηριούχο}{21}{subsection.Alph2.7}
+\contentsline {subsection}{\numberline {\MakeUppercase {β\anw@true \anw@print \relax }.8}Ενημέρωση τιμών στο σύστημα από πρατηριούχους}{22}{subsection.Alph2.8}
+\contentsline {subsection}{\numberline {\MakeUppercase {β\anw@true \anw@print \relax }.9}Αποστολή δεδομένων παραγγελίας από πλευράς χρήστη}{23}{subsection.Alph2.9}
+\contentsline {subsection}{\numberline {\MakeUppercase {β\anw@true \anw@print \relax }.10}Επιλογή default fuel type για την απεικόνιση των max, min, avg τιμών}{25}{subsection.Alph2.10}
+\contentsline {subsection}{\numberline {\MakeUppercase {β\anw@true \anw@print \relax }.11}Μεταβίβαση σε επιλεγμένη περιοχή}{25}{subsection.Alph2.11}
+\contentsline {subsection}{\numberline {\MakeUppercase {β\anw@true \anw@print \relax }.12}Επιλογή Geolocation}{27}{subsection.Alph2.12}
+\contentsline {section}{References}{28}{figure.39}
