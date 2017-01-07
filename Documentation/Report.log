@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015/Debian) (preloaded format=xelatex 2016.4.24)  7 JAN 2017 02:50
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015/Debian) (preloaded format=xelatex 2016.4.24)  7 JAN 2017 03:12
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -889,9 +889,9 @@ ricedata
  []
 
 
-Overfull \hbox (2.75879pt too wide) in paragraph at lines 48--49
-\EU1/Roboto(0)/m/n/10 σότερες λεπτομέρειες στο σχεσιακό σχήμα.[]2[]. Επιπλέον δ
-ημιουργήθηκαν τρία
+Overfull \hbox (6.07422pt too wide) in paragraph at lines 48--49
+\EU1/Roboto(0)/m/n/10 σχεσιακό σχήμα.[]2[]. Επιπλέον δημιουργήθηκαν τρία views:
+ user-permission, fuel-
  []
 
 [3]
@@ -901,6 +901,7 @@ LaTeX Info: Redefining \anw@print on input line 57.
 Missing character: There is no ʹ in font Roboto Bold/OT:mapping=tex-text;!
 LaTeX Info: Redefining \anw@print on input line 60.
 Missing character: There is no ʹ in font Roboto Bold/OT:mapping=tex-text;!
+ [4]
 LaTeX Info: Redefining \anw@print on input line 74.
 Missing character: There is no ʹ in font Roboto Bold/OT:mapping=tex-text;!
 
@@ -909,13 +910,12 @@ Overfull \hbox (92.71973pt too wide) in paragraph at lines 75--76
 χ fields=gasStationID,gasStationLat.
  []
 
-[4]
 LaTeX Info: Redefining \anw@print on input line 77.
 Missing character: There is no ʹ in font Roboto Bold/OT:mapping=tex-text;!
 LaTeX Info: Redefining \anw@print on input line 80.
 Missing character: There is no ʹ in font Roboto Bold/OT:mapping=tex-text;!
 File: img/limit.png Graphic file (type QTm)
- <use  "img/limit.png" >
+<use  "img/limit.png" >
 LaTeX Info: Redefining \anw@print on input line 90.
 Missing character: There is no ʹ in font Roboto Bold/OT:mapping=tex-text;!
 File: img/aggregate.png Graphic file (type QTm)
@@ -964,9 +964,9 @@ LaTeX Font Info:    Try loading font information for EU1+lmtt on input line 6.
  (/usr/share/texlive/texmf-dist/tex/latex/euenc/eu1lmtt.fd
 File: eu1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-Underfull \hbox (badness 1237) in paragraph at lines 15--18
-[]\EU1/Roboto(0)/m/n/10 Google chart tools.  []$[][][][][] [] [] [] [][][][][][
-][][][][] [] [][][][][][] [] [][][] [] [][][][][][]$[].  [last
+Underfull \hbox (badness 3884) in paragraph at lines 4--8
+[][][][][][][] [] [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
+][]$[]\EU1/Roboto(0)/m/n/10 .  [last access 7-Jan-
  []
 
 )
@@ -979,12 +979,12 @@ Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 84.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 84.
  ) 
 Here is how much of TeX's memory you used:
- 22659 strings out of 493706
- 416722 string characters out of 6147748
+ 22660 strings out of 493706
+ 416741 string characters out of 6147748
  495922 words of memory out of 5000000
- 25818 multiletter control sequences out of 15000+600000
+ 25819 multiletter control sequences out of 15000+600000
  6936 words of font info for 49 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
- 52i,8n,65p,10419b,425s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 52i,8n,65p,10419b,429s stack positions out of 5000i,500n,10000p,200000b,80000s
 
 Output written on Report.pdf (10 pages).

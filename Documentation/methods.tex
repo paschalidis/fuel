@@ -45,7 +45,7 @@
 \end{figure}
 
 \subsection{Βάση Δεδομένων}
-Για λόγους ευχρηστίας έγινε πρόσθεση του πεδίου \textbf{id} στους πίνακες \textbf{pricedata} και \textbf{gasstations}, ενώ για τα δικαιώματα των χρηστών (πελάτης, πρατηριούχος) υλοποιήθηκε με το σχεσιακό μοντέλο \textbf{users-and-rights-schema} περισσότερες λεπτομέρειες στο σχεσιακό σχήμα.\ref{fig:db}. Επιπλέον δημιουργήθηκαν τρία views: user-permission, fuel-analytics, pricedata-view.
+Για λόγους ευχρηστίας έγινε πρόσθεση του πεδίου \textbf{id} στους πίνακες \textbf{pricedata} και \textbf{gasstations}, ενώ για τα δικαιώματα των χρηστών (πελάτης, πρατηριούχος) υλοποιήθηκε με το σχεσιακό μοντέλο \textbf{users-and-rights-schema} και για την υλοποίηση του login με api token στον πίνακα users έγινε εισαγωγή του πεδίου apι\_token και api\_token\_expire\_time, περισσότερες λεπτομέρειες στο σχεσιακό σχήμα.\ref{fig:db}. Επιπλέον δημιουργήθηκαν τρία views: user-permission, fuel-analytics, pricedata-view.
 
 \begin{figure}[H]
   \caption{Εικόνα από το Σχεσιακό Μοντέλο.}
@@ -104,7 +104,7 @@
 Υλοποίηση του between, πχ gasStationLat\_BETWEEN=39.6337420,40.0580656. \ref{fig:limit}
 
 \subsubsection{Formats}
-Επιλογή μορφή δεδομένων με την παράμετρο type=json ή xml. \ref{fig:format}
+Επιλογή μορφή δεδομένων με την παράμετρο type=json ή xml \ref{fig:format}. Υλοποιήθηκε με χρήση του πακέτου \textbf{SoapBox/laravel-formatter}. \cite{laravel-formatter}
 
 \begin{figure}[H]
   \caption{Εικόνα από το API Request XML Format.}

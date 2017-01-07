@@ -1,4 +1,4 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 
 \bibitem{chrome-postman}
 Development apis tool.
@@ -10,6 +10,11 @@ Development apis tool.
 Development environment.
 \newblock \url{https://laravel.com/docs/5.3/homestead}.
 \newblock [last access 13-Dec-2016].
+
+\bibitem{laravel-formatter}
+Formatter package.
+\newblock \url{https://github.com/SoapBox/laravel-formatter}.
+\newblock [last access 7-Jan-2017].
 
 \bibitem{google-chart}
 Google chart tools.
