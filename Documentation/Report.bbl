@@ -11,6 +11,21 @@ Development environment.
 \newblock \url{https://laravel.com/docs/5.3/homestead}.
 \newblock [last access 13-Dec-2016].
 
+\bibitem{bootstrap}
+Html, css, js framework.
+\newblock \url{http://getbootstrap.com/}.
+\newblock [last access 7-Jan-2017].
+
+\bibitem{jquery}
+Javascript library.
+\newblock \url{https://jquery.com/}.
+\newblock [last access 7-Jan-2017].
+
+\bibitem{notify}
+jquery plugin.
+\newblock \url{https://notifyjs.com/}.
+\newblock [last access 7-Jan-2017].
+
 \bibitem{lumen-laravel}
 Taylor Otwell.
 \newblock micro-framework by laravel.
