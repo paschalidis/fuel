@@ -11,6 +11,16 @@ Development environment.
 \newblock \url{https://laravel.com/docs/5.3/homestead}.
 \newblock [last access 13-Dec-2016].
 
+\bibitem{google-chart}
+Google chart tools.
+\newblock \url{https://developers.google.com/chart/}.
+\newblock [last access 7-Jan-2017].
+
+\bibitem{google-map}
+Google maps apis.
+\newblock \url{https://developers.google.com/maps/web/}.
+\newblock [last access 7-Jan-2017].
+
 \bibitem{bootstrap}
 Html, css, js framework.
 \newblock \url{http://getbootstrap.com/}.
@@ -24,6 +34,11 @@ Javascript library.
 \bibitem{notify}
 jquery plugin.
 \newblock \url{https://notifyjs.com/}.
+\newblock [last access 7-Jan-2017].
+
+\bibitem{cssminifier}
+Minify files tool.
+\newblock \url{http://cssminifier.com/}.
 \newblock [last access 7-Jan-2017].
 
 \bibitem{lumen-laravel}

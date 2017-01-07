@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015/Debian) (preloaded format=xelatex 2016.4.24)  7 JAN 2017 01:58
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015/Debian) (preloaded format=xelatex 2016.4.24)  7 JAN 2017 02:50
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -814,17 +814,74 @@ File: se-ascii-print.def 2011/12/02 v1.10 stringenc: Printable ASCII characters
 [1
 
 ] (./Report.toc
+LaTeX Info: Redefining \anw@print on input line 1.
+Missing character: There is no ʹ in font Roboto Bold/OT:mapping=tex-text;!
+LaTeX Info: Redefining \anw@print on input line 2.
+Missing character: There is no ʹ in font Roboto Regular/OT:mapping=tex-text;!
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <7> on input line 2.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <5> on input line 2.
+LaTeX Info: Redefining \anw@print on input line 3.
+Missing character: There is no ʹ in font Roboto Regular/OT:mapping=tex-text;!
+LaTeX Info: Redefining \anw@print on input line 4.
+Missing character: There is no ʹ in font Roboto Regular/OT:mapping=tex-text;!
+LaTeX Info: Redefining \anw@print on input line 5.
+Missing character: There is no ʹ in font Roboto Regular/OT:mapping=tex-text;!
+LaTeX Info: Redefining \anw@print on input line 6.
+Missing character: There is no ʹ in font Roboto Regular/OT:mapping=tex-text;!
+LaTeX Info: Redefining \anw@print on input line 7.
+Missing character: There is no ʹ in font Roboto Regular/OT:mapping=tex-text;!
+LaTeX Info: Redefining \anw@print on input line 8.
+Missing character: There is no ʹ in font Roboto Regular/OT:mapping=tex-text;!
+LaTeX Info: Redefining \anw@print on input line 9.
+Missing character: There is no ʹ in font Roboto Regular/OT:mapping=tex-text;!
+LaTeX Info: Redefining \anw@print on input line 10.
+Missing character: There is no ʹ in font Roboto Regular/OT:mapping=tex-text;!
+LaTeX Info: Redefining \anw@print on input line 11.
+Missing character: There is no ʹ in font Roboto Regular/OT:mapping=tex-text;!
+LaTeX Info: Redefining \anw@print on input line 12.
+Missing character: There is no ʹ in font Roboto Regular/OT:mapping=tex-text;!
+LaTeX Info: Redefining \anw@print on input line 13.
+Missing character: There is no ʹ in font Roboto Regular/OT:mapping=tex-text;!
+LaTeX Info: Redefining \anw@print on input line 14.
+Missing character: There is no ʹ in font Roboto Regular/OT:mapping=tex-text;!
+LaTeX Info: Redefining \anw@print on input line 15.
+Missing character: There is no ʹ in font Roboto Regular/OT:mapping=tex-text;!
+LaTeX Info: Redefining \anw@print on input line 16.
+Missing character: There is no ʹ in font Roboto Regular/OT:mapping=tex-text;!
+LaTeX Info: Redefining \anw@print on input line 17.
+Missing character: There is no ʹ in font Roboto Regular/OT:mapping=tex-text;!
+LaTeX Info: Redefining \anw@print on input line 18.
+Missing character: There is no ʹ in font Roboto Regular/OT:mapping=tex-text;!
 )
 \tf@toc=\write4
 \openout4 = `Report.toc'.
 
- [1] (./methods.tex
+ [1] (./Report.lof)
+\tf@lof=\write5
+\openout5 = `Report.lof'.
+
+ (./Report.lot)
+\tf@lot=\write6
+\openout6 = `Report.lot'.
+
+ (./methods.tex
+LaTeX Info: Redefining \anw@print on input line 1.
+Missing character: There is no ʹ in font Roboto Bold/OT:mapping=tex-text;!
+LaTeX Info: Redefining \anw@print on input line 2.
+Missing character: There is no ʹ in font Roboto Bold/OT:mapping=tex-text;!
+LaTeX Info: Redefining \anw@print on input line 14.
+Missing character: There is no ʹ in font Roboto Bold/OT:mapping=tex-text;!
+ [2]
+LaTeX Info: Redefining \anw@print on input line 36.
+Missing character: There is no ʹ in font Roboto Bold/OT:mapping=tex-text;!
 File: img/git.png Graphic file (type QTm)
- <use  "img/git.png" > [2]
+
+<use  "img/git.png" >
+LaTeX Info: Redefining \anw@print on input line 47.
+Missing character: There is no ʹ in font Roboto Bold/OT:mapping=tex-text;!
+
 Overfull \hbox (15.19531pt too wide) in paragraph at lines 48--49
 []\EU1/Roboto(0)/m/n/10 Για λόγους ευχρηστίας έγινε πρόσθεση του πεδίου \EU1/Ro
 boto(0)/bx/n/10 id \EU1/Roboto(0)/m/n/10 στους πίνακες \EU1/Roboto(0)/bx/n/10 p
@@ -837,25 +894,49 @@ Overfull \hbox (2.75879pt too wide) in paragraph at lines 48--49
 ημιουργήθηκαν τρία
  []
 
+[3]
 File: img/db-schema.png Graphic file (type QTm)
-<use  "img/db-schema.png" > [3]
+ <use  "img/db-schema.png" >
+LaTeX Info: Redefining \anw@print on input line 57.
+Missing character: There is no ʹ in font Roboto Bold/OT:mapping=tex-text;!
+LaTeX Info: Redefining \anw@print on input line 60.
+Missing character: There is no ʹ in font Roboto Bold/OT:mapping=tex-text;!
+LaTeX Info: Redefining \anw@print on input line 74.
+Missing character: There is no ʹ in font Roboto Bold/OT:mapping=tex-text;!
+
 Overfull \hbox (92.71973pt too wide) in paragraph at lines 75--76
 []\EU1/Roboto(0)/m/n/10 Επιλογή συγκεκριμένων πεδίων με την παράμετρο fields, π
 χ fields=gasStationID,gasStationLat.
  []
 
 [4]
+LaTeX Info: Redefining \anw@print on input line 77.
+Missing character: There is no ʹ in font Roboto Bold/OT:mapping=tex-text;!
+LaTeX Info: Redefining \anw@print on input line 80.
+Missing character: There is no ʹ in font Roboto Bold/OT:mapping=tex-text;!
 File: img/limit.png Graphic file (type QTm)
  <use  "img/limit.png" >
+LaTeX Info: Redefining \anw@print on input line 90.
+Missing character: There is no ʹ in font Roboto Bold/OT:mapping=tex-text;!
 File: img/aggregate.png Graphic file (type QTm)
  <use  "img/aggregate.png" > [5]
+LaTeX Info: Redefining \anw@print on input line 100.
+Missing character: There is no ʹ in font Roboto Bold/OT:mapping=tex-text;!
+LaTeX Info: Redefining \anw@print on input line 103.
+Missing character: There is no ʹ in font Roboto Bold/OT:mapping=tex-text;!
+
 Overfull \hbox (22.13379pt too wide) in paragraph at lines 104--105
 []\EU1/Roboto(0)/m/n/10 Υλοποίηση του between, πχ gasStationLat_BETWEEN=39.6337
 420,40.0580656.
  []
 
+LaTeX Info: Redefining \anw@print on input line 106.
+Missing character: There is no ʹ in font Roboto Bold/OT:mapping=tex-text;!
 File: img/format.png Graphic file (type QTm)
 <use  "img/format.png" > [6]
+LaTeX Info: Redefining \anw@print on input line 116.
+Missing character: There is no ʹ in font Roboto Bold/OT:mapping=tex-text;!
+
 Overfull \hbox (1.16129pt too wide) in paragraph at lines 117--118
 []\EU1/Roboto(0)/m/n/10 Με την παράμετρο suppress_response_code το API επιστρέφ
 ει πάντα http
@@ -864,12 +945,31 @@ Overfull \hbox (1.16129pt too wide) in paragraph at lines 117--118
 File: img/error.png Graphic file (type QTm)
 <use  "img/error.png" >
 File: img/suppress.png Graphic file (type QTm)
- <use  "img/suppress.png" >) [7] [8] (./Report.bbl
-LaTeX Font Info:    Try loading font information for EU1+lmtt on input line 6.
+ <use  "img/suppress.png" >
+LaTeX Info: Redefining \anw@print on input line 133.
+Missing character: There is no ʹ in font Roboto Bold/OT:mapping=tex-text;!
+ [7]
+LaTeX Info: Redefining \anw@print on input line 137.
+Missing character: There is no ʹ in font Roboto Bold/OT:mapping=tex-text;!
 
-(/usr/share/texlive/texmf-dist/tex/latex/euenc/eu1lmtt.fd
+Overfull \hbox (3.30078pt too wide) in paragraph at lines 138--139
+[]\EU1/Roboto(0)/m/n/10 Για την βελτιστοποιήσει της εφαρμογής χρησιμοποιήθηκαν 
+τεχνικές όπως
+ []
+
+LaTeX Info: Redefining \anw@print on input line 140.
+Missing character: There is no ʹ in font Roboto Bold/OT:mapping=tex-text;!
+) [8] (./Report.bbl
+LaTeX Font Info:    Try loading font information for EU1+lmtt on input line 6.
+ (/usr/share/texlive/texmf-dist/tex/latex/euenc/eu1lmtt.fd
 File: eu1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
-))
+)
+Underfull \hbox (badness 1237) in paragraph at lines 15--18
+[]\EU1/Roboto(0)/m/n/10 Google chart tools.  []$[][][][][] [] [] [] [][][][][][
+][][][][] [] [][][][][][] [] [][][] [] [][][][][][]$[].  [last
+ []
+
+)
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 84.
  [9]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 84.
@@ -879,12 +979,12 @@ Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 84.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 84.
  ) 
 Here is how much of TeX's memory you used:
- 22648 strings out of 493706
- 416605 string characters out of 6147748
+ 22659 strings out of 493706
+ 416722 string characters out of 6147748
  495922 words of memory out of 5000000
- 25813 multiletter control sequences out of 15000+600000
+ 25818 multiletter control sequences out of 15000+600000
  6936 words of font info for 49 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
- 52i,8n,65p,10419b,353s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 52i,8n,65p,10419b,425s stack positions out of 5000i,500n,10000p,200000b,80000s
 
 Output written on Report.pdf (10 pages).
