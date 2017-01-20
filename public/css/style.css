@@ -1,61 +1,68 @@
-html,
-body,
-#map,
-.container-fluid {
-    font-family: Arial, sans-serif;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    padding-right:0 !important;
-}
+        html,
+        body,
+        #map {
+            font-family: Arial, sans-serif;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            padding-right:0 !important;
+        }
 
-#map {
-    height: 94%;
-}
+        .map-container {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
 
-.navbar{
-    margin-bottom: 0px;
-}
+        #map {
+            margin-top: 52px;
+            height: calc(100% - 52px);
+        }
 
-.navbar-form{
-    padding: 0px;
-}
+        .navbar{
+            margin-bottom: 0px;
+        }
 
-.custom-nav{
-    margin-right: 0px;
-}
+        .navbar-form{
+            padding: 0px;
+            border: 0;
+        }
 
-#logoImg{
-    height: 100%;
-}
+        .custom-nav{
+            margin-right: 0px;
+        }
 
-.chart {
-    width: 100%;
-    min-height: 450px;
-}
+        #logoImg{
+            height: 100%;
+        }
 
-.analytics {
-    display: inline-block;
-}
+        .chart {
+            width: 100%;
+            min-height: 450px;
+        }
 
-.hiddenNavButtons {
-    display: none;
-}
+        .analytics {
+            display: inline-block;
+        }
 
-.modal-body{
-    background-color: #A3C2C2;
-}
+        .hiddenNavButtons {
+            display: none;
+        }
 
-.form-control{
-    color: #555;
-}
+        .modal-body{
+            background-color: #A3C2C2;
+        }
 
-.modal-footer,
-.modal-header{
-    background-color: #517272;
-}
+        .form-control{
+            color: #555;
+        }
 
-.inactiveTab{
-    background-color: #06382680;
-    color: beige;
-}
+        .modal-footer,
+        .modal-header{
+            background-color: #517272;
+        }
+
+        .inactiveTab{
+            background-color: #06382680;
+            color: beige;
+        }
