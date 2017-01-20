@@ -8,61 +8,70 @@
     <link href="/css/style.min.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
-<div class="container-fluid">
-    <nav class="navbar navbar-default">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed custom-nav" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">
-                <img id="logoImg" src="/img/fuel.png">
-            </a>
-            <form class="navbar-form navbar-left custom-nav">
-                <div class="input-group">
-                    <input id="zoom-to-area-text" type="text" class="form-control" placeholder="Enter your area...">
-                    <span class="input-group-btn">
-                        <button id="zoom-to-area" class="btn btn-default" type="button">Go!</button>
-                    </span>
-                </div><!-- /input-group -->
-            </form>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-12">
+
+
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed custom-nav" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">
+                    <img id="logoImg" src="/img/fuel.png">
+                </a>
+                <form class="navbar-form navbar-left custom-nav">
+                    <div class="input-group">
+                        <input id="zoom-to-area-text" type="text" class="form-control" placeholder="Enter your area...">
+                        <span class="input-group-btn">
+                            <button id="zoom-to-area" class="btn btn-default" type="button">Go!</button>
+                        </span>
+                    </div><!-- /input-group -->
+                </form>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-left">
+                    <p class="navbar-text analytics">Fuels:<span id="gasStationsNumber" class="label label-primary">0</span></p>
+                    <p class="navbar-text analytics">Min:<span id="minPrice" class="label label-success">0</span></p>
+                    <p class="navbar-text analytics">Avg:<span id="avgPrice" class="label label-warning">0</span></p>
+                    <p class="navbar-text analytics">Max:<span id="maxPrice" class="label label-danger">0</span></p>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <button type="button" id="updateFuelData" class="btn btn-default navbar-btn hiddenNavButtons" data-toggle="modal" data-target="#priceDataModal" data-action="edit">
+                        <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                    </button>
+                    <button type="button" id="ordersList" class="btn btn-default navbar-btn hiddenNavButtons" data-toggle="modal" data-target="#ordersModal">
+                        <span class="glyphicon glyphicon-tint" aria-hidden="true"></span>
+                        <span id="ordersNumber" class="badge"></span>
+                    </button>
+                    <button type="button" id="stats" class="btn btn-default navbar-btn" data-toggle="modal" data-target="#statsModal">
+                        <span class="glyphicon glyphicon-stats" aria-hidden="true"></span>
+                    </button>
+                    <button type="button" id="settings" class="btn btn-default navbar-btn" data-toggle="modal" data-target="#settingsModal">
+                        <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+                    </button>
+                    <button type="button" id="signInUp" class="btn btn-default navbar-btn" data-toggle="modal" data-target="#signInUpModal">
+                        <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>
+                    </button>
+                    <button type="button" id="signOut" class="btn btn-default navbar-btn hiddenNavButtons">
+                        <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
+                    </button>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+                </div>
+            </div>
         </div>
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav navbar-left">
-                <p class="navbar-text analytics">Fuels:<span id="gasStationsNumber" class="label label-primary">0</span></p>
-                <p class="navbar-text analytics">Min:<span id="minPrice" class="label label-success">0</span></p>
-                <p class="navbar-text analytics">Avg:<span id="avgPrice" class="label label-warning">0</span></p>
-                <p class="navbar-text analytics">Max:<span id="maxPrice" class="label label-danger">0</span></p>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <button type="button" id="updateFuelData" class="btn btn-default navbar-btn hiddenNavButtons" data-toggle="modal" data-target="#priceDataModal" data-action="edit">
-                    <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
-                </button>
-                <button type="button" id="ordersList" class="btn btn-default navbar-btn hiddenNavButtons" data-toggle="modal" data-target="#ordersModal">
-                    <span class="glyphicon glyphicon-tint" aria-hidden="true"></span>
-                    <span id="ordersNumber" class="badge"></span>
-                </button>
-                <button type="button" id="stats" class="btn btn-default navbar-btn" data-toggle="modal" data-target="#statsModal">
-                    <span class="glyphicon glyphicon-stats" aria-hidden="true"></span>
-                </button>
-                <button type="button" id="settings" class="btn btn-default navbar-btn" data-toggle="modal" data-target="#settingsModal">
-                    <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
-                </button>
-                <button type="button" id="signInUp" class="btn btn-default navbar-btn" data-toggle="modal" data-target="#signInUpModal">
-                    <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>
-                </button>
-                <button type="button" id="signOut" class="btn btn-default navbar-btn hiddenNavButtons">
-                    <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
-                </button>
-            </ul>
-        </div><!-- /.navbar-collapse -->
     </nav>
-    <div id="map"></div>
-</div><!-- /.container-fluid -->
+
+    <div class="container-fluid map-container">
+        <div id="map"></div>
+    </div>
 
 <!-- Modal Orders -->
 <div class="modal fade" id="ordersModal" tabindex="-1" role="dialog" aria-labelledby="Login" aria-hidden="true">
