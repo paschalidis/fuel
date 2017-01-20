@@ -1,68 +1,68 @@
-        html,
-        body,
-        #map {
-            font-family: Arial, sans-serif;
-            height: 100%;
-            margin: 0;
-            padding: 0;
-            padding-right:0 !important;
-        }
+html,
+body,
+#map {
+    font-family: Arial, sans-serif;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    /*padding-right:0 !important;*/
+}
 
-        .map-container {
-            height: 100%;
-            margin: 0;
-            padding: 0;
-        }
+.map-container {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
 
-        #map {
-            margin-top: 52px;
-            height: calc(100% - 52px);
-        }
+#map {
+    margin-top: 52px;
+    height: calc(100% - 52px);
+}
 
-        .navbar{
-            margin-bottom: 0px;
-        }
+.navbar{
+    margin-bottom: 0px;
+}
 
-        .navbar-form{
-            padding: 0px;
-            border: 0;
-        }
+.navbar-form{
+    padding: 0px;
+    border: 0;
+}
 
-        .custom-nav{
-            margin-right: 0px;
-        }
+.custom-nav{
+    margin-right: 0px;
+}
 
-        #logoImg{
-            height: 100%;
-        }
+#logoImg{
+    height: 100%;
+}
 
-        .chart {
-            width: 100%;
-            min-height: 450px;
-        }
+.chart {
+    width: 100%;
+    min-height: 450px;
+}
 
-        .analytics {
-            display: inline-block;
-        }
+.analytics {
+    display: inline-block;
+}
 
-        .hiddenNavButtons {
-            display: none;
-        }
+.hiddenNavButtons {
+    display: none;
+}
 
-        .modal-body{
-            background-color: #A3C2C2;
-        }
+.modal-body{
+    background-color: #A3C2C2;
+}
 
-        .form-control{
-            color: #555;
-        }
+.form-control{
+    color: #555;
+}
 
-        .modal-footer,
-        .modal-header{
-            background-color: #517272;
-        }
+.modal-footer,
+.modal-header{
+    background-color: #517272;
+}
 
-        .inactiveTab{
-            background-color: #06382680;
-            color: beige;
-        }
+.inactiveTab{
+    background-color: #06382680;
+    color: beige;
+}

@@ -25,7 +25,7 @@
                 <a class="navbar-brand" href="#">
                     <img id="logoImg" src="/img/fuel.png">
                 </a>
-                <form class="navbar-form navbar-left custom-nav">
+                <form class="navbar-form navbar-left">
                     <div class="input-group">
                         <input id="zoom-to-area-text" type="text" class="form-control" placeholder="Enter your area...">
                         <span class="input-group-btn">
@@ -42,7 +42,7 @@
                     <p class="navbar-text analytics">Avg:<span id="avgPrice" class="label label-warning">0</span></p>
                     <p class="navbar-text analytics">Max:<span id="maxPrice" class="label label-danger">0</span></p>
                 </ul>
-                <ul class="nav navbar-nav navbar-right">
+                <ul class="nav navbar-nav navbar-right custom-nav">
                     <button type="button" id="updateFuelData" class="btn btn-default navbar-btn hiddenNavButtons" data-toggle="modal" data-target="#priceDataModal" data-action="edit">
                         <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
                     </button>
@@ -73,297 +73,297 @@
         <div id="map"></div>
     </div>
 
-<!-- Modal Orders -->
-<div class="modal fade" id="ordersModal" tabindex="-1" role="dialog" aria-labelledby="Login" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">Orders</h4>
-            </div>
-            <div class="modal-body">
-                <div class="table-responsive">
-                    <table id="ordersTable" class="table table-condensed table-bordered">
-                        <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Client</th>
-                            <th>Fuel Name</th>
-                            <th>Fuel Price</th>
-                            <th>Quantity</th>
-                            <th>Date</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        </tbody>
-                    </table>
+    <!-- Modal Orders -->
+    <div class="modal fade" id="ordersModal" tabindex="-1" role="dialog" aria-labelledby="Login" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Orders</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="table-responsive">
+                        <table id="ordersTable" class="table table-condensed table-bordered">
+                            <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Client</th>
+                                <th>Fuel Name</th>
+                                <th>Fuel Price</th>
+                                <th>Quantity</th>
+                                <th>Date</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 </div>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            </div>
         </div>
     </div>
-</div>
 
-<!-- Modal Price Data -->
-<div class="modal fade" id="priceDataModal" tabindex="-1" role="dialog" aria-labelledby="Login" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">Fuel Data</h4>
-            </div>
-            <div class="modal-body">
-                <div class="table-responsive">
-                    <table id="priceDataTable" class="table table-bordered">
-                        <thead>
-                        <tr>
-                            <th>Normal Name</th>
-                            <th>Name</th>
-                            <th>Price</th>
-                            <th>Updated</th>
-                            <th>Premium</th>
-                            <th>Action</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        </tbody>
-                    </table>
+    <!-- Modal Price Data -->
+    <div class="modal fade" id="priceDataModal" tabindex="-1" role="dialog" aria-labelledby="Login" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Fuel Data</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="table-responsive">
+                        <table id="priceDataTable" class="table table-bordered">
+                            <thead>
+                            <tr>
+                                <th>Normal Name</th>
+                                <th>Name</th>
+                                <th>Price</th>
+                                <th>Updated</th>
+                                <th>Premium</th>
+                                <th>Action</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 </div>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+    </div>
+
+    <!-- Modal Update Price Data -->
+    <div class="modal fade" id="updatePriceDataModal" tabindex="-1" role="dialog" aria-labelledby="Login" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Update Price Data</h4>
+                </div>
+                <div class="modal-body">
+                    <form id="updatePriceDataForm" class="form-horizontal">
+                        <h4><p class="text-center"><span id="updatePriceDataError" class="label label-danger"></span></p></h4>
+                        <input name="priceDataID" type="hidden" id="updatePriceDataID" value="">
+                        <div class="form-group">
+                            <label for="updateFuelPrice" class="col-sm-2 control-label">Fuel Price</label>
+                            <div class="col-sm-10">
+                                <input name="fuelPrice" type="text" class="form-control" id="updateFuelPrice">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                <button id="updatePriceDataSubmit" type="submit" class="btn btn-default">Update</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-<!-- Modal Update Price Data -->
-<div class="modal fade" id="updatePriceDataModal" tabindex="-1" role="dialog" aria-labelledby="Login" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">Update Price Data</h4>
-            </div>
-            <div class="modal-body">
-                <form id="updatePriceDataForm" class="form-horizontal">
-                    <h4><p class="text-center"><span id="updatePriceDataError" class="label label-danger"></span></p></h4>
-                    <input name="priceDataID" type="hidden" id="updatePriceDataID" value="">
-                    <div class="form-group">
-                        <label for="updateFuelPrice" class="col-sm-2 control-label">Fuel Price</label>
-                        <div class="col-sm-10">
-                            <input name="fuelPrice" type="text" class="form-control" id="updateFuelPrice">
+    <!-- Modal Make Order -->
+    <div class="modal fade" id="makeOrderModal" tabindex="-1" role="dialog" aria-labelledby="Login" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Order</h4>
+                </div>
+                <div class="modal-body">
+                    <form id="makeOrderForm" class="form-horizontal">
+                        <h4><p class="text-center"><span id="makeOrderError" class="label label-danger"></span></p></h4>
+                        <input name="priceDataID" type="hidden" id="makeOrderPriceDataID" value="">
+                        <div class="form-group">
+                            <label for="updateFuelPrice" class="col-sm-2 control-label">Fuel Price</label>
+                            <div class="col-sm-10">
+                                <input disabled name="fuelPrice" type="text" class="form-control" id="makeOrderFuelPrice">
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-sm-offset-2 col-sm-10">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            <button id="updatePriceDataSubmit" type="submit" class="btn btn-default">Update</button>
+                        <div class="form-group">
+                            <label for="makeOrderQuantity" class="col-sm-2 control-label">Quantity</label>
+                            <div class="col-sm-10">
+                                <input name="quantity" type="text" class="form-control" id="makeOrderQuantity">
+                            </div>
                         </div>
-                    </div>
-                </form>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                <button id="makeOrderSubmit" type="submit" class="btn btn-default">Order</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-<!-- Modal Make Order -->
-<div class="modal fade" id="makeOrderModal" tabindex="-1" role="dialog" aria-labelledby="Login" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">Order</h4>
-            </div>
-            <div class="modal-body">
-                <form id="makeOrderForm" class="form-horizontal">
-                    <h4><p class="text-center"><span id="makeOrderError" class="label label-danger"></span></p></h4>
-                    <input name="priceDataID" type="hidden" id="makeOrderPriceDataID" value="">
-                    <div class="form-group">
-                        <label for="updateFuelPrice" class="col-sm-2 control-label">Fuel Price</label>
-                        <div class="col-sm-10">
-                            <input disabled name="fuelPrice" type="text" class="form-control" id="makeOrderFuelPrice">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="makeOrderQuantity" class="col-sm-2 control-label">Quantity</label>
-                        <div class="col-sm-10">
-                            <input name="quantity" type="text" class="form-control" id="makeOrderQuantity">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-sm-offset-2 col-sm-10">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            <button id="makeOrderSubmit" type="submit" class="btn btn-default">Order</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Modal Sign In/Up -->
-<div class="modal fade" id="signInUpModal" tabindex="-1" role="dialog" aria-labelledby="Login" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <!-- Nav tabs -->
-                <ul class="nav nav-tabs" role="tablist">
-                    <li role="presentation" class="active"><a href="#loginTab" aria-controls="loginTab" role="tab" data-toggle="tab">Sign In</a></li>
-                    <li role="presentation"><a href="#registerTab" class="inactiveTab" aria-controls="registerTab" role="tab" data-toggle="tab">Sign Up</a></li>
-                </ul>
-            </div>
-            <div class="modal-body">
-                <!-- Tab panes -->
-                <div class="tab-content">
-                    <div role="loginTab" class="tab-pane active" id="loginTab">
-                        <form id="loginForm" class="form-horizontal">
-                            <h4><p class="text-center"><span id="loginError" class="label label-danger"></span></p></h4>
-                            <div class="form-group">
-                                <label for="registerUsername" class="col-sm-2 control-label">Username</label>
-                                <div class="col-sm-10">
-                                    <input name="username" type="text" class="form-control" id="loginUsername" placeholder="Username">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="registerPassword" class="col-sm-2 control-label">Password</label>
-                                <div class="col-sm-10">
-                                    <input name="password" type="password" class="form-control" id="loginPassword" placeholder="Password">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-sm-offset-2 col-sm-10">
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                    <button id="loginSubmit" type="submit" class="btn btn-default">Sign in</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                    <div role="registerTab" class="tab-pane" id="registerTab">
-                        <form id="registerForm" class="form-horizontal">
-                            <h4><p class="text-center"><span id="registerError" class="label label-danger"></span></p></h4>
-                            <div class="form-group">
-                                <label for="registerUsername" class="col-sm-2 control-label">Username</label>
-                                <div class="col-sm-10">
-                                    <input type="text" name="username" class="form-control" id="registerUsername" placeholder="Username">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="registerEmail" class="col-sm-2 control-label">Email</label>
-                                <div class="col-sm-10">
-                                    <input type="email" name="email" class="form-control" id="registerEmail" placeholder="Email">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="registerPassword" class="col-sm-2 control-label">Password</label>
-                                <div class="col-sm-10">
-                                    <input type="password" name="password" class="form-control" id="registerPassword" placeholder="Password">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label">Gas Station</label>
-                                <div class="col-sm-10">
-                                    <div class="btn-group" data-toggle="buttons">
-                                        <label class="btn btn-primary active">
-                                            <input type="radio" name="userType" value="2" autocomplete="off" checked> Client
-                                        </label>
-                                        <label class="btn btn-primary">
-                                            <input type="radio" name="userType" value="1" autocomplete="off"> Owner
-                                        </label>
+    <!-- Modal Sign In/Up -->
+    <div class="modal fade" id="signInUpModal" tabindex="-1" role="dialog" aria-labelledby="Login" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="active"><a href="#loginTab" aria-controls="loginTab" role="tab" data-toggle="tab">Sign In</a></li>
+                        <li role="presentation"><a href="#registerTab" class="inactiveTab" aria-controls="registerTab" role="tab" data-toggle="tab">Sign Up</a></li>
+                    </ul>
+                </div>
+                <div class="modal-body">
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        <div role="loginTab" class="tab-pane active" id="loginTab">
+                            <form id="loginForm" class="form-horizontal">
+                                <h4><p class="text-center"><span id="loginError" class="label label-danger"></span></p></h4>
+                                <div class="form-group">
+                                    <label for="registerUsername" class="col-sm-2 control-label">Username</label>
+                                    <div class="col-sm-10">
+                                        <input name="username" type="text" class="form-control" id="loginUsername" placeholder="Username">
                                     </div>
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-sm-offset-2 col-sm-10">
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                    <button id="registerSubmit" type="submit" class="btn btn-default">Sign up</button>
+                                <div class="form-group">
+                                    <label for="registerPassword" class="col-sm-2 control-label">Password</label>
+                                    <div class="col-sm-10">
+                                        <input name="password" type="password" class="form-control" id="loginPassword" placeholder="Password">
+                                    </div>
                                 </div>
-                            </div>
-                        </form>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-10">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                        <button id="loginSubmit" type="submit" class="btn btn-default">Sign in</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div role="registerTab" class="tab-pane" id="registerTab">
+                            <form id="registerForm" class="form-horizontal">
+                                <h4><p class="text-center"><span id="registerError" class="label label-danger"></span></p></h4>
+                                <div class="form-group">
+                                    <label for="registerUsername" class="col-sm-2 control-label">Username</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="username" class="form-control" id="registerUsername" placeholder="Username">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="registerEmail" class="col-sm-2 control-label">Email</label>
+                                    <div class="col-sm-10">
+                                        <input type="email" name="email" class="form-control" id="registerEmail" placeholder="Email">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="registerPassword" class="col-sm-2 control-label">Password</label>
+                                    <div class="col-sm-10">
+                                        <input type="password" name="password" class="form-control" id="registerPassword" placeholder="Password">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Gas Station</label>
+                                    <div class="col-sm-10">
+                                        <div class="btn-group" data-toggle="buttons">
+                                            <label class="btn btn-primary active">
+                                                <input type="radio" name="userType" value="2" autocomplete="off" checked> Client
+                                            </label>
+                                            <label class="btn btn-primary">
+                                                <input type="radio" name="userType" value="1" autocomplete="off"> Owner
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-10">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                        <button id="registerSubmit" type="submit" class="btn btn-default">Sign up</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
-<!-- Modal Settings -->
-<div class="modal fade" id="settingsModal" tabindex="-1" role="dialog" aria-labelledby="Settings" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <!-- Nav tabs -->
-                <ul class="nav nav-tabs" role="tablist">
-                    <li role="presentation" class="active"><a href="#fuelTypeTab" aria-controls="fuelTypeTab" role="tab" data-toggle="tab">Fuel Type</a></li>
-                </ul>
-            </div>
-            <div class="modal-body">
-                <!-- Tab panes -->
-                <div class="tab-content">
-                    <div role="fuelTypeTab" class="tab-pane active" id="fuelTypeTab">
-                        <form id="fuelTypeForm" class="form-horizontal">
-                            <div class="form-group">
-                                <label for="fuelTypeSelect" class="col-sm-2 control-label">Fuel Type</label>
-                                <div class="col-sm-10">
-                                    <select name="fuelTypeID" id="fuelTypeSelect" class="form-control">
-                                        <option value="1">Αμόλυβδη 95</option>
-                                        <option value="2">Αμόλυβδη 100</option>
-                                        <option value="3">Super</option>
-                                        <option value="4">Diesel Κίνησης</option>
-                                        <option value="5">Diesel Θέρμανσης</option>
-                                        <option value="6">Υγραέριο Κίνησης</option>
-                                        <option value="7">Diesel Θέρμανσης κ.ο.</option>
-                                    </select>
+    <!-- Modal Settings -->
+    <div class="modal fade" id="settingsModal" tabindex="-1" role="dialog" aria-labelledby="Settings" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="active"><a href="#fuelTypeTab" aria-controls="fuelTypeTab" role="tab" data-toggle="tab">Fuel Type</a></li>
+                    </ul>
+                </div>
+                <div class="modal-body">
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        <div role="fuelTypeTab" class="tab-pane active" id="fuelTypeTab">
+                            <form id="fuelTypeForm" class="form-horizontal">
+                                <div class="form-group">
+                                    <label for="fuelTypeSelect" class="col-sm-2 control-label">Fuel Type</label>
+                                    <div class="col-sm-10">
+                                        <select name="fuelTypeID" id="fuelTypeSelect" class="form-control">
+                                            <option value="1">Αμόλυβδη 95</option>
+                                            <option value="2">Αμόλυβδη 100</option>
+                                            <option value="3">Super</option>
+                                            <option value="4">Diesel Κίνησης</option>
+                                            <option value="5">Diesel Θέρμανσης</option>
+                                            <option value="6">Υγραέριο Κίνησης</option>
+                                            <option value="7">Diesel Θέρμανσης κ.ο.</option>
+                                        </select>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-sm-offset-2 col-sm-10">
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                    <button id="fuelTypeSubmit" type="submit" class="btn btn-default">Save</button>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-10">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                        <button id="fuelTypeSubmit" type="submit" class="btn btn-default">Save</button>
+                                    </div>
                                 </div>
-                            </div>
-                        </form>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
-<!-- Modal Stats -->
-<div class="modal fade" id="statsModal" tabindex="-1" role="dialog" aria-labelledby="Stats" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <!-- Nav tabs -->
-                <ul class="nav nav-tabs" role="tablist">
-                    <li role="presentation" class="active">
-                        <a href="#fuelTypeStatsTab" aria-controls="fuelTypeStatsTab" role="tab" data-toggle="tab">Fuel Types</a></li>
-                    <li role="presentation">
-                        <a class="inactiveTab" href="#fuelTypePriceTab" aria-controls="fuelTypePriceTab" role="tab" data-toggle="tab">Fuel Price</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="modal-body">
-                <!-- Tab panes -->
-                <div class="tab-content">
-                    <div role="fuelTypeStatsTab" class="tab-pane active" id="fuelTypeStatsTab">
-                        <div id="piechart" class="chart"></div>
-                    </div>
-                    <div role="fuelTypePriceTab" class="tab-pane" id="fuelTypePriceTab">
-                        <div id="curve_chart" class="chart"></div>
+    <!-- Modal Stats -->
+    <div class="modal fade" id="statsModal" tabindex="-1" role="dialog" aria-labelledby="Stats" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="active">
+                            <a href="#fuelTypeStatsTab" aria-controls="fuelTypeStatsTab" role="tab" data-toggle="tab">Fuel Types</a></li>
+                        <li role="presentation">
+                            <a class="inactiveTab" href="#fuelTypePriceTab" aria-controls="fuelTypePriceTab" role="tab" data-toggle="tab">Fuel Price</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="modal-body">
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        <div role="fuelTypeStatsTab" class="tab-pane active" id="fuelTypeStatsTab">
+                            <div id="piechart" class="chart"></div>
+                        </div>
+                        <div role="fuelTypePriceTab" class="tab-pane" id="fuelTypePriceTab">
+                            <div id="curve_chart" class="chart"></div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 </body>
 </html>
 <script type="text/javascript" src="/js/jquery-3.1.1.min.js"></script>

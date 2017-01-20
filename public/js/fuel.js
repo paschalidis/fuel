@@ -168,9 +168,25 @@ function getPriceDataAnalytics() {
         url: api_url + "pricedata/",
         data: _data,
         success: function(response){
-            $('#minPrice').text(parseFloat(response[0].min_fuelPrice).toFixed(3));
-            $('#avgPrice').text(parseFloat(response[0].avg_fuelPrice).toFixed(3));
-            $('#maxPrice').text(parseFloat(response[0].max_fuelPrice).toFixed(3));
+
+            var minFuelPrice = 0;
+            if(response[0].min_fuelPrice !== null){
+                minFuelPrice = parseFloat(response[0].min_fuelPrice).toFixed(3);
+            }
+
+            var maxFuelPrice = 0;
+            if(response[0].max_fuelPrice !== null){
+                maxFuelPrice = parseFloat(response[0].max_fuelPrice).toFixed(3);
+            }
+
+            var avgFuelPrice = 0;
+            if(response[0].avg_fuelPrice !== null){
+                avgFuelPrice = parseFloat(response[0].avg_fuelPrice).toFixed(3);
+            }
+
+            $('#minPrice').text(minFuelPrice);
+            $('#avgPrice').text(maxFuelPrice);
+            $('#maxPrice').text(avgFuelPrice);
         }
     });
 }
