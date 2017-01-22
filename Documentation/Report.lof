@@ -9,31 +9,33 @@
 \contentsline {figure}{\numberline {9}{\ignorespaces Εικόνα με γράφημα με τύπο καυσίμου ανά βενζινάδικα.}}{10}{figure.9}
 \contentsline {figure}{\numberline {10}{\ignorespaces Εικόνα με τιμές default καυσίμου στα επιλεγμένα βενζινάδικα.}}{11}{figure.10}
 \contentsline {figure}{\numberline {11}{\ignorespaces Εικόνα με Responsive για mobile.}}{12}{figure.11}
-\contentsline {figure}{\numberline {12}{\ignorespaces Εικόνα με Responsive για tablet.}}{13}{figure.12}
-\contentsline {figure}{\numberline {13}{\ignorespaces Εικόνα με https κλήση.}}{13}{figure.13}
-\contentsline {figure}{\numberline {14}{\ignorespaces Εικόνα με Εγγραφή χρήστη.}}{14}{figure.14}
-\contentsline {figure}{\numberline {15}{\ignorespaces Εικόνα με Εγγραφή χρήστη και λάθος.}}{15}{figure.15}
-\contentsline {figure}{\numberline {16}{\ignorespaces Εικόνα με login χρήστη.}}{15}{figure.16}
-\contentsline {figure}{\numberline {17}{\ignorespaces Εικόνα με login χρήστη και λάθος.}}{16}{figure.17}
-\contentsline {figure}{\numberline {18}{\ignorespaces Εικόνα με login χρήστη success.}}{16}{figure.18}
-\contentsline {figure}{\numberline {19}{\ignorespaces Εικόνα με το Πλήθος πρατηρίων.}}{16}{figure.19}
-\contentsline {figure}{\numberline {20}{\ignorespaces Εικόνα μέγιστης, ελάχιστης και μέσης τιμής από την εφαρμογή.}}{17}{figure.20}
-\contentsline {figure}{\numberline {21}{\ignorespaces Εικόνα μέγιστης, ελάχιστης και μέσης τιμής από το request.}}{17}{figure.21}
-\contentsline {figure}{\numberline {22}{\ignorespaces Εικόνα πριν από τη λήψη τιμοκαταλόγου πρατηρίου.}}{18}{figure.22}
-\contentsline {figure}{\numberline {23}{\ignorespaces Εικόνα μετά από τη λήψη τιμοκαταλόγου πρατηρίου.}}{19}{figure.23}
-\contentsline {figure}{\numberline {24}{\ignorespaces Εικόνα με τη λήψη τιμοκαταλόγου πρατηρίου από το request.}}{20}{figure.24}
-\contentsline {figure}{\numberline {25}{\ignorespaces Εικόνα με τη λήψη δεδομένων πρατηρίων από το request.}}{21}{figure.25}
-\contentsline {figure}{\numberline {26}{\ignorespaces Εικόνα με πριν τον ελεγχο παραγγελιών από πρατηριούχο.}}{21}{figure.26}
-\contentsline {figure}{\numberline {27}{\ignorespaces Εικόνα κατά τον ελεγχο παραγγελιών από πρατηριούχο.}}{22}{figure.27}
-\contentsline {figure}{\numberline {28}{\ignorespaces Εικόνα πριν την ενημέρωση τιμών.}}{22}{figure.28}
-\contentsline {figure}{\numberline {29}{\ignorespaces Εικόνα κατά την ενημέρωση τιμών.}}{23}{figure.29}
-\contentsline {figure}{\numberline {30}{\ignorespaces Εικόνα μηνύματος μετά από την ενημέρωση τιμών.}}{23}{figure.30}
-\contentsline {figure}{\numberline {31}{\ignorespaces Εικόνα μετά από την ενημέρωση τιμών.}}{23}{figure.31}
-\contentsline {figure}{\numberline {32}{\ignorespaces Εικόνα Login error κατά την Αποστολή παραγγελίας.}}{24}{figure.32}
-\contentsline {figure}{\numberline {33}{\ignorespaces Εικόνα quantity error κατά την Αποστολή παραγγελίας.}}{24}{figure.33}
-\contentsline {figure}{\numberline {34}{\ignorespaces Εικόνα επιλογής default fuel type.}}{25}{figure.34}
-\contentsline {figure}{\numberline {35}{\ignorespaces Εικόνα λάθους μεταβίβαση σε επιλεγμένη περιοχή.}}{25}{figure.35}
-\contentsline {figure}{\numberline {36}{\ignorespaces Εικόνα πριν την μεταβίβαση σε επιλεγμένη περιοχή.}}{25}{figure.36}
-\contentsline {figure}{\numberline {37}{\ignorespaces Εικόνα κατά την μεταβίβαση σε επιλεγμένη περιοχή.}}{26}{figure.37}
-\contentsline {figure}{\numberline {38}{\ignorespaces Εικόνα μετά την μεταβίβαση σε επιλεγμένη περιοχή.}}{26}{figure.38}
-\contentsline {figure}{\numberline {39}{\ignorespaces Εικόνα κατά την Επιλογή Geolocation.}}{27}{figure.39}
+\contentsline {figure}{\numberline {12}{\ignorespaces Εικόνα με Responsive για mobile με μενού.}}{13}{figure.12}
+\contentsline {figure}{\numberline {13}{\ignorespaces Εικόνα με Responsive για tablet κάθετα.}}{14}{figure.13}
+\contentsline {figure}{\numberline {14}{\ignorespaces Εικόνα με Responsive για tablet οριζόντια.}}{15}{figure.14}
+\contentsline {figure}{\numberline {15}{\ignorespaces Εικόνα με https κλήση.}}{15}{figure.15}
+\contentsline {figure}{\numberline {16}{\ignorespaces Εικόνα με Εγγραφή χρήστη.}}{16}{figure.16}
+\contentsline {figure}{\numberline {17}{\ignorespaces Εικόνα με Εγγραφή χρήστη και λάθος.}}{17}{figure.17}
+\contentsline {figure}{\numberline {18}{\ignorespaces Εικόνα με login χρήστη.}}{17}{figure.18}
+\contentsline {figure}{\numberline {19}{\ignorespaces Εικόνα με login χρήστη και λάθος.}}{18}{figure.19}
+\contentsline {figure}{\numberline {20}{\ignorespaces Εικόνα με login χρήστη success.}}{18}{figure.20}
+\contentsline {figure}{\numberline {21}{\ignorespaces Εικόνα με το Πλήθος πρατηρίων.}}{18}{figure.21}
+\contentsline {figure}{\numberline {22}{\ignorespaces Εικόνα μέγιστης, ελάχιστης και μέσης τιμής από την εφαρμογή.}}{19}{figure.22}
+\contentsline {figure}{\numberline {23}{\ignorespaces Εικόνα μέγιστης, ελάχιστης και μέσης τιμής από το request.}}{19}{figure.23}
+\contentsline {figure}{\numberline {24}{\ignorespaces Εικόνα πριν από τη λήψη τιμοκαταλόγου πρατηρίου.}}{20}{figure.24}
+\contentsline {figure}{\numberline {25}{\ignorespaces Εικόνα μετά από τη λήψη τιμοκαταλόγου πρατηρίου.}}{21}{figure.25}
+\contentsline {figure}{\numberline {26}{\ignorespaces Εικόνα με τη λήψη τιμοκαταλόγου πρατηρίου από το request.}}{22}{figure.26}
+\contentsline {figure}{\numberline {27}{\ignorespaces Εικόνα με τη λήψη δεδομένων πρατηρίων από το request.}}{23}{figure.27}
+\contentsline {figure}{\numberline {28}{\ignorespaces Εικόνα με πριν τον ελεγχο παραγγελιών από πρατηριούχο.}}{23}{figure.28}
+\contentsline {figure}{\numberline {29}{\ignorespaces Εικόνα κατά τον ελεγχο παραγγελιών από πρατηριούχο.}}{24}{figure.29}
+\contentsline {figure}{\numberline {30}{\ignorespaces Εικόνα πριν την ενημέρωση τιμών.}}{24}{figure.30}
+\contentsline {figure}{\numberline {31}{\ignorespaces Εικόνα κατά την ενημέρωση τιμών.}}{25}{figure.31}
+\contentsline {figure}{\numberline {32}{\ignorespaces Εικόνα μηνύματος μετά από την ενημέρωση τιμών.}}{25}{figure.32}
+\contentsline {figure}{\numberline {33}{\ignorespaces Εικόνα μετά από την ενημέρωση τιμών.}}{25}{figure.33}
+\contentsline {figure}{\numberline {34}{\ignorespaces Εικόνα Login error κατά την Αποστολή παραγγελίας.}}{26}{figure.34}
+\contentsline {figure}{\numberline {35}{\ignorespaces Εικόνα quantity error κατά την Αποστολή παραγγελίας.}}{26}{figure.35}
+\contentsline {figure}{\numberline {36}{\ignorespaces Εικόνα επιλογής default fuel type.}}{27}{figure.36}
+\contentsline {figure}{\numberline {37}{\ignorespaces Εικόνα πριν την μεταβίβαση σε επιλεγμένη περιοχή.}}{27}{figure.37}
+\contentsline {figure}{\numberline {38}{\ignorespaces Εικόνα λάθους μεταβίβαση σε επιλεγμένη περιοχή.}}{27}{figure.38}
+\contentsline {figure}{\numberline {39}{\ignorespaces Εικόνα κατά την μεταβίβαση σε επιλεγμένη περιοχή.}}{28}{figure.39}
+\contentsline {figure}{\numberline {40}{\ignorespaces Εικόνα μετά την μεταβίβαση σε επιλεγμένη περιοχή.}}{28}{figure.40}
+\contentsline {figure}{\numberline {41}{\ignorespaces Εικόνα κατά την Επιλογή Geolocation.}}{29}{figure.41}

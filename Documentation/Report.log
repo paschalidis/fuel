@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015/Debian) (preloaded format=xelatex 2016.4.24)  7 JAN 2017 05:30
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015/Debian) (preloaded format=xelatex 2016.4.24)  22 JAN 2017 15:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -688,7 +688,14 @@ File: lstlang1.sty 2015/06/04 1.6 listings language file
 )
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
-) (./Report.aux)
+) (./Report.aux
+
+LaTeX Warning: Label `fig:responsive1' multiply defined.
+
+
+LaTeX Warning: Label `fig:responsive2' multiply defined.
+
+)
 \openout1 = `Report.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 50.
@@ -707,8 +714,7 @@ LaTeX Font Info:    Checking defaults for EU1/lmr/m/n on input line 50.
 LaTeX Font Info:    ... okay on input line 50.
 LaTeX Font Info:    Checking defaults for T3/cmr/m/n on input line 50.
 LaTeX Font Info:    Try loading font information for T3+cmr on input line 50.
-
-(/usr/share/texmf/tex/latex/tipa/t3cmr.fd
+ (/usr/share/texmf/tex/latex/tipa/t3cmr.fd
 File: t3cmr.fd 2001/12/31 TIPA font definitions
 )
 LaTeX Font Info:    ... okay on input line 50.
@@ -993,31 +999,38 @@ File: img/chart2.png Graphic file (type QTm)
 [10]
 LaTeX Info: Redefining \anw@print on input line 164.
 Missing character: There is no ʹ in font Roboto Bold/OT:mapping=tex-text;!
-File: img/responsive1.png Graphic file (type QTm)
- <use  "img/responsive1.png" > [11]
-File: img/responsive2.png Graphic file (type QTm)
- <use  "img/responsive2.png" > [12]
-LaTeX Info: Redefining \anw@print on input line 180.
+File: img/responsive-mobile-1.png Graphic file (type QTm)
+ <use  "img/responsive-mobile-1.png" > [11]
+File: img/responsive-mobile-2.png Graphic file (type QTm)
+
+<use  "img/responsive-mobile-2.png" > [12]
+File: img/responsive-tablet-1.png Graphic file (type QTm)
+
+<use  "img/responsive-tablet-1.png" > [13]
+File: img/responsive-tablet-2.png Graphic file (type QTm)
+
+<use  "img/responsive-tablet-2.png" > [14]
+LaTeX Info: Redefining \anw@print on input line 194.
 Missing character: There is no ʹ in font Roboto Bold/OT:mapping=tex-text;!
 File: img/https.png Graphic file (type QTm)
-
-<use  "img/https.png" >) (./use-cases.tex
+ <use  "img/https.png" >)
+(./use-cases.tex
 LaTeX Info: Redefining \anw@print on input line 1.
 Missing character: There is no ʹ in font Roboto Bold/OT:mapping=tex-text;!
 LaTeX Info: Redefining \anw@print on input line 2.
 Missing character: There is no ʹ in font Roboto Bold/OT:mapping=tex-text;!
 File: img/register.png Graphic file (type QTm)
- <use  "img/register.png" > [13]
+ <use  "img/register.png" > [15]
 File: img/register-error.png Graphic file (type QTm)
 
-<use  "img/register-error.png" > [14]
+<use  "img/register-error.png" > [16]
 LaTeX Info: Redefining \anw@print on input line 18.
 Missing character: There is no ʹ in font Roboto Bold/OT:mapping=tex-text;!
 File: img/login.png Graphic file (type QTm)
  <use  "img/login.png" >
 File: img/login-error.png Graphic file (type QTm)
 
-<use  "img/login-error.png" > [15]
+<use  "img/login-error.png" > [17]
 File: img/login-post.png Graphic file (type QTm)
  <use  "img/login-post.png" >
 LaTeX Info: Redefining \anw@print on input line 41.
@@ -1028,38 +1041,38 @@ File: img/count.png Graphic file (type QTm)
 LaTeX Info: Redefining \anw@print on input line 50.
 Missing character: There is no ʹ in font Roboto Bold/OT:mapping=tex-text;!
 File: img/max-min.png Graphic file (type QTm)
- <use  "img/max-min.png" > [16]
+ <use  "img/max-min.png" > [18]
 File: img/max-min-postman.png Graphic file (type QTm)
 
 <use  "img/max-min-postman.png" >
 LaTeX Info: Redefining \anw@print on input line 66.
 Missing character: There is no ʹ in font Roboto Bold/OT:mapping=tex-text;!
 File: img/pricedata1.png Graphic file (type QTm)
- <use  "img/pricedata1.png" > [17]
+ <use  "img/pricedata1.png" > [19]
 File: img/pricedata2.png Graphic file (type QTm)
 
-<use  "img/pricedata2.png" > [18]
+<use  "img/pricedata2.png" > [20]
 File: img/pricedata3.png Graphic file (type QTm)
- <use  "img/pricedata3.png" > [19]
+ <use  "img/pricedata3.png" > [21]
 LaTeX Info: Redefining \anw@print on input line 89.
 Missing character: There is no ʹ in font Roboto Bold/OT:mapping=tex-text;!
 File: img/gasstations.png Graphic file (type QTm)
 
-<use  "img/gasstations.png" > [20]
+<use  "img/gasstations.png" > [22]
 LaTeX Info: Redefining \anw@print on input line 98.
 Missing character: There is no ʹ in font Roboto Bold/OT:mapping=tex-text;!
 File: img/pre-orders.png Graphic file (type QTm)
  <use  "img/pre-orders.png" >
 File: img/orders.png Graphic file (type QTm)
 
-<use  "img/orders.png" > [21]
+<use  "img/orders.png" > [23]
 LaTeX Info: Redefining \anw@print on input line 114.
 Missing character: There is no ʹ in font Roboto Bold/OT:mapping=tex-text;!
 File: img/pre-edit.png Graphic file (type QTm)
  <use  "img/pre-edit.png" >
 File: img/pre-edit2.png Graphic file (type QTm)
 
-<use  "img/pre-edit2.png" > [22]
+<use  "img/pre-edit2.png" > [24]
 File: img/msg-edit.png Graphic file (type QTm)
  <use  "img/msg-edit.png" >
 File: img/after-edit.png Graphic file (type QTm)
@@ -1068,30 +1081,30 @@ File: img/after-edit.png Graphic file (type QTm)
 LaTeX Info: Redefining \anw@print on input line 144.
 Missing character: There is no ʹ in font Roboto Bold/OT:mapping=tex-text;!
 File: img/make-order-error.png Graphic file (type QTm)
- <use  "img/make-order-error.png" > [23]
+ <use  "img/make-order-error.png" > [25]
 File: img/make-order-error2.png Graphic file (type QTm)
 
 <use  "img/make-order-error2.png" >
 LaTeX Info: Redefining \anw@print on input line 162.
 Missing character: There is no ʹ in font Roboto Bold/OT:mapping=tex-text;!
 File: img/fuel-type.png Graphic file (type QTm)
- <use  "img/fuel-type.png" > [24]
+ <use  "img/fuel-type.png" > [26]
 LaTeX Info: Redefining \anw@print on input line 171.
 Missing character: There is no ʹ in font Roboto Bold/OT:mapping=tex-text;!
-File: img/area-error.png Graphic file (type QTm)
-
-<use  "img/area-error.png" >
 File: img/pre-area.png Graphic file (type QTm)
- <use  "img/pre-area.png" >
+
+<use  "img/pre-area.png" >
+File: img/area-error.png Graphic file (type QTm)
+ <use  "img/area-error.png" >
 File: img/area.png Graphic file (type QTm)
  <use  "img/area.png" >
-[25]
+[27]
 File: img/area-after.png Graphic file (type QTm)
  <use  "img/area-after.png" >
 LaTeX Info: Redefining \anw@print on input line 201.
 Missing character: There is no ʹ in font Roboto Bold/OT:mapping=tex-text;!
 File: img/geolocation.png Graphic file (type QTm)
- <use  "img/geolocation.png" > [26]) [27]
+ <use  "img/geolocation.png" > [28]) [29]
 (./Report.bbl
 LaTeX Font Info:    Try loading font information for EU1+lmtt on input line 6.
  (/usr/share/texlive/texmf-dist/tex/latex/euenc/eu1lmtt.fd
@@ -1104,20 +1117,24 @@ Underfull \hbox (badness 3884) in paragraph at lines 4--8
 
 )
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 85.
- [28]
+ [30]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 85.
  (./Report.aux)
 Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 85.
 Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 85.
+
+
+LaTeX Warning: There were multiply-defined labels.
+
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 85.
  ) 
 Here is how much of TeX's memory you used:
- 22755 strings out of 493706
- 418216 string characters out of 6147748
- 499922 words of memory out of 5000000
- 25883 multiletter control sequences out of 15000+600000
+ 22759 strings out of 493706
+ 418348 string characters out of 6147748
+ 500922 words of memory out of 5000000
+ 25885 multiletter control sequences out of 15000+600000
  6936 words of font info for 49 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
  52i,8n,65p,10419b,353s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on Report.pdf (29 pages).
+Output written on Report.pdf (31 pages).
